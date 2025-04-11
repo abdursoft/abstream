@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.font-300 {
+  font-family: 'Comfortaa', serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.font-500 {
+  font-family: 'Comfortaa', serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.font-700 {
+  font-family: 'Comfortaa', serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+body,
+#app {
+  height: auto;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0.15px;
+}
+
+/* prime vue carousel  start */
+.p-carousel-prev-button,
+.p-carousel-next-button {
+  position: absolute !important;
+  z-index: 3 !important;
+  height: calc(100px) !important;
+  border-radius: 0 !important;
+  background: rgba(0, 0, 0, 0.6) !important;
+}
+
+.p-carousel-next-button {
+  right: 8px !important;
+}
+
+.p-carousel-prev-button {
+  left: 8px;
+}
+
+/* prime vue carousel end  */
+
+.vti__dropdown-list {
+  background: #333 !important;
+  color: #fff;
+}
+
+.vti__input {
+  font-family: inherit;
+  font-feature-settings: inherit;
+  font-size: 1rem;
+  color: var(--dark-inputtext-color);
+  background: var(--dark-inputtext-background);
+  padding-block: var(--dark-inputtext-padding-y);
+  padding-inline: var(--dark-inputtext-padding-x);
+  border: 1px solid var(--dark-inputtext-border-color);
+  transition:
+    background var(--dark-inputtext-transition-duration),
+    color var(--dark-inputtext-transition-duration),
+    border-color var(--dark-inputtext-transition-duration),
+    outline-color var(--dark-inputtext-transition-duration),
+    box-shadow var(--dark-inputtext-transition-duration);
+  appearance: none;
+  border-radius: var(--dark-inputtext-border-radius);
+  outline-color: transparent;
+  box-shadow: var(--dark-inputtext-shadow);
+}
+
+@media (max-width: 575px) {
+  .p-carousel-prev-button,
+  .p-carousel-next-button {
+    display: none !important;
+  }
+}
+
+/* primevue drawer header  */
+.p-drawer-header {
+  display: none !important;
+}
+
+/* background section  */
+.bg_img {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.bg-overlay-black {
+  position: relative;
+}
+
+/* background overlay  */
+.bg-overlay-black::before {
+  content: '';
+  position: absolute;
+  background: #000000;
+  opacity: 0.3;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+/* account page background with animation  */
+.back-animation {
+  background-repeat: repeat;
+  background-position: 0 0;
+  background-size: contain;
+  /* transition:5s ease forwards; */
+  animation: slideUp 50s linear infinite;
+}
+
+@keyframes slideUp {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 0% -1000%;
+  }
+}

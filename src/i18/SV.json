@@ -12,7 +12,9 @@
     "confirmPassword": "Bekräfta lösenord",
     "forgotPassword": "Glömt lösenord?",
     "alreadyHaveAnAccount": "Har du redan ett konto?",
-    "dontHaveAnAccount": "Har du inget konto?"
+    "dontHaveAnAccount": "Har du inget konto?",
+    "subject": "Ämne",
+    "message": "Meddelande"
   },
   "button": {
     "signUp": "Registrera dig",
@@ -168,5 +170,12 @@
     "billings": "Faktureringshistorik",
     "subscriptions": "Prenumerationshistorik",
     "settings": "Inställningssida"
+  },
+  "page": {
+    "contact": {
+      "tag": "Kontakta oss",
+      "title": "Kontakta oss idag",
+      "social_title": "Anslut med sociala medier"
+    }
   }
 }

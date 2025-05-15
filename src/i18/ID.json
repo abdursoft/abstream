@@ -12,7 +12,9 @@
     "confirmPassword": "Konfirmasi Kata Sandi",
     "forgotPassword": "Lupa Kata Sandi?",
     "alreadyHaveAnAccount": "Sudah punya akun?",
-    "dontHaveAnAccount": "Belum punya akun?"
+    "dontHaveAnAccount": "Belum punya akun?",
+    "subject": "Subjek",
+    "message": "Pesan"
   },
   "button": {
     "signUp": "Daftar",
@@ -168,5 +170,12 @@
     "billings": "Riwayat Tagihan",
     "subscriptions": "Riwayat Langganan",
     "settings": "Halaman Pengaturan"
+  },
+  "page": {
+    "contact": {
+      "tag": "Hubungi kami",
+      "title": "Hubungi kami hari ini",
+      "social_title": "Terhubung dengan sosial"
+    }
   }
 }

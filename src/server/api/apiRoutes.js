@@ -13,6 +13,9 @@ export const PASSWORD_URL = `${ROOT_URL}password/`
 // get site data
 export const siteData = `${BASE_URL}site-data`
 
+// slider data
+export const sliderData = `${BASE_URL}slider-data`
+
 // category routes
 export const genreGet = `${BASE_URL}category/open`
 export const genreContent = `${BASE_URL}genre-contents`
@@ -32,15 +35,17 @@ export const planGet = `${BASE_URL}plan`
 export const getPage = `${BASE_URL}pages`
 
 // language routes
-export const langGet = `${BASE_URL}language/open`
+export const langGet = `${BASE_URL}langs`
 
 // content routes
 export const contentGet = `${BASE_URL}contents`
 export const contentPlay = `${BASE_URL}play`
 export const contentView = `${BASE_URL}content-view`
 export const relatedContents = `${BASE_URL}related-contents`
+export const recommendedContents = `${BASE_URL}recommended-contents`
 export const contentHistory = `${USER_URL}content/history`
 export const contentRating = `${USER_URL}content/rating`
+export const titleSearch = `${BASE_URL}search`
 export const contentSearch = `${BASE_URL}contents-search`
 export const contentRatings = `${BASE_URL}contents-ratings`
 export const contentEpisodes = `${BASE_URL}content-episodes`
@@ -91,3 +96,6 @@ export const otherTv = `${BASE_URL}tv/others`
 export const sendOTP = `${PASSWORD_URL}send-otp`
 export const otpVerify = `${PASSWORD_URL}verify-otp`
 export const newPassword = `${PASSWORD_URL}new-password`
+
+// player data
+export const getPlayer = `${BASE_URL}player-data`;

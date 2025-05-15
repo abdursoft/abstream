@@ -1,40 +1,39 @@
 <template>
-  <GenreCard name="Contact US" />
+  <GenreCard :name="$t('page.contact.tag')" />
   <!-- Contact section start  -->
   <section class="mt-[250px] md:mt-[380px] py-[40px] flex items-center justify-center">
     <div class="w-full px-4 flex items-start justify-between gap-4 flex-col md:flex-row">
       <!-- contact form start  -->
       <div class="w-full flex-col">
         <div class="w-full flex flex-col items-start justify-start p-3">
-          <h1 class="text-3xl font-700 mb-5">Get In Touch Today</h1>
+          <h1 class="text-3xl font-700 mb-5">{{ $t('page.contact.title') }}</h1>
           <div class="w-full md:w-4/5 shadow-lg rounded-md p-4" :class="{ 'bg-slate-700': myTheme }">
-            <h3 class="font-bold">Email details</h3>
             <div class="mt-3">
               <div class="flex items-center flex-col gap-3">
                 <FloatLabel variant="on" class="w-full my-2">
                   <InputText id="on_label" v-model="emailForm.name" class="w-full" />
-                  <label for="on_label">Name</label>
+                  <label for="on_label">{{ $t('form.fullName') }}</label>
                 </FloatLabel>
                 <FloatLabel variant="on" class="w-full my-2">
                   <InputText id="on_label" v-model="emailForm.email" class="w-full" />
-                  <label for="on_label">Email</label>
+                  <label for="on_label">{{ $t('form.email') }}</label>
                 </FloatLabel>
                 <FloatLabel variant="on" class="w-full my-2">
                   <InputText id="on_label" v-model="emailForm.subject" class="w-full" />
-                  <label for="on_label">Subject</label>
+                  <label for="on_label">{{ $t('form.subject') }}</label>
                 </FloatLabel>
               </div>
               <div class="flex items-center flex-col md:flex-row gap-3">
                 <FloatLabel variant="on" class="w-full my-2">
                   <Textarea id="on_label" v-model="emailForm.message" class="w-full" />
-                  <label for="on_label">Message</label>
+                  <label for="on_label">{{ $t('form.message') }}</label>
                 </FloatLabel>
               </div>
               <div class="flex items-center justify-between">
                 <div>
                   <SmallLoader />
                 </div>
-                <Button label="Save" severity="success" @click="sendMail" raised class="mt-3" />
+                <Button :label="$t('button.send')" severity="success" @click="sendMail" raised class="mt-3" />
               </div>
             </div>
           </div>

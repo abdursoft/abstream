@@ -1,12 +1,12 @@
 <template>
   <div class="w-full h-auto mb-2 md:pb-[80px]">
-    <div class="h-[320px] md:h-[720px] bg-slate-800 flex items-center justify-center flex-col gap-4"
+    <div class="h-[320px] md:h-[580px] bg-slate-800 flex items-center justify-center flex-col gap-4"
       v-if="tvContent?.premium === '1' && subscription === '0'">
       <h2 class="text-2xl text-white">{{ $t('subscriptionToWatch') }}</h2>
       <Button severity="danger" :label="$t('menu.subscribe')" as="router-link" :to="{ name: 'subscribe' }" />
     </div>
     <!-- subscription required end  -->
-     <!-- tv player start  -->
+    <!-- tv player start  -->
     <div id="player" v-else class="w-full md:max-h-[720px]" :class="liveURL ? 'bg-slate-800' : ''">
     </div>
     <!-- tv player end  -->
@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import Player from 'https://cdn.abdursoft.com/video/beta.js'
+import Player from 'https://cdn.abdursoft.com/plugin/abs-video/player.1.1.1.js'
 import { mapActions, mapState } from 'pinia';
 import { authStore } from '@/stores/authStore';
 import { tvStore } from '@/stores/tvStore';
@@ -30,29 +30,39 @@ import OthersTv from '../partials/OthersTv.vue';
 export default {
   components: { RelatedTv, OthersTv },
   name: 'TvPlayer',
-  props:{
-    tvContent:{
+  props: {
+    tvContent: {
       Object,
-      required:true
+      required: true
     }
   },
   data() {
     return {
       isPlayer: false,
-      liveURL:null,
-      tv:null
+      liveURL: null,
+      tv: null
     }
   },
-  methods:{
-    ...mapActions(tvStore, {playTv:'playTv'}),
-    async openTV(){
-      if (this.tv?.premium !== "1" || this.subscription !== "0" && this.$props.tvContent) {
-        this.liveURL = await this.playTv(this.$props.tvContent?.id);
+  methods: {
+    ...mapActions(tvStore, { playTv: 'playTv' }),
+    async openTV() {
+      if (this.tv?.premium !== "1" && this.$props.tvContent) {
+        await this.watchTv();
+      } else if (this.tv?.premium == "1" && this.subscription == "1") {
+        await this.watchTv();
+      } else {
+        if(this.tv?.premium == "1" && this.subscription == "0"){
+          this.isPlayer = false;
+        }
+      }
+    },
+    async watchTv() {
+      this.liveURL = await this.playTv(this.$props.tvContent?.id);
 
       if (this.isPlayer && this.liveURL) {
         this.isPlayer.new(this.liveURL);
       }
-      if (this.liveURL && this.isPlayer === false) {
+      if (this.liveURL && this.isPlayer == false) {
         this.isPlayer = Player({
           id: 'player',
           src: this.liveURL,
@@ -172,8 +182,8 @@ export default {
             },
           },
           controls: {
-            left: ['playPauseControl', 'volumeControl','durationArea'],
-            right: ['castControl', 'shareControl',  'settingsControl', 'screenControl'],
+            left: ['playPauseControl', 'volumeControl', 'durationArea'],
+            right: ['castControl', 'shareControl', 'settingsControl', 'screenControl'],
             background: "rgba(0,0,0,0.3)"
           },
           contextMenu: true,
@@ -183,18 +193,15 @@ export default {
         })
       }
       document.title = this.tv?.title;
-    } else {
-      this.isPlayer = false;
-    }
     }
   },
   computed: {
     ...mapState(authStore, ['user', 'subscription']),
   },
-  watch:{
-    '$props.tvContent':{
-      handler(data){
-        if(data?.id !== this.tv?.id){
+  watch: {
+    '$props.tvContent': {
+      handler(data) {
+        if (data?.id !== this.tv?.id) {
           this.tv = data;
           this.openTV();
         }

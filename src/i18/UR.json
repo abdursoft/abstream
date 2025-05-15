@@ -12,7 +12,9 @@
     "confirmPassword": "پاس ورڈ کی تصدیق کریں",
     "forgotPassword": "پاس ورڈ بھول گئے؟",
     "alreadyHaveAnAccount": "کیا آپ کے پاس پہلے سے اکاؤنٹ ہے؟",
-    "dontHaveAnAccount": "کیا آپ کا اکاؤنٹ نہیں ہے؟"
+    "dontHaveAnAccount": "کیا آپ کا اکاؤنٹ نہیں ہے؟",
+    "subject": "موضوع",
+    "message": "پیغام"
   },
   "button": {
     "signUp": "سائن اپ",
@@ -168,5 +170,14 @@
     "billings": "بلنگ تاریخ",
     "subscriptions": "سبسکرپشنز تاریخ",
     "settings": "ترتیبات صفحہ"
+  },
+  "page": {
+    "contact": {
+      "tag": "ہم سے رابطہ کریں",
+      "title": "آج ہی ہم سے رابطہ کریں",
+      "social_title": "سوشل سے جڑیں",
+      "subject": "Subject",
+      "message": "Message"
+    }
   }
 }

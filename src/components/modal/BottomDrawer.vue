@@ -8,7 +8,7 @@
       <p>{{ $t('pages') }}</p>
       <div class="flex items-center gap-3">
         <router-link class="p-1 rounded-md border-2" :to="{name:'subscribe'}">{{ $t('menu.subscribe') }}</router-link>
-        <router-link class="p-1 rounded-md border-2" :to="{name:'home'}">{{ $t('menu.contact') }}</router-link>
+        <router-link class="p-1 rounded-md border-2" :to="{name:'contactUs'}">{{ $t('menu.contact') }}</router-link>
       </div>
     </div>
   </Drawer>

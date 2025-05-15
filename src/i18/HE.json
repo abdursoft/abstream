@@ -12,7 +12,9 @@
     "confirmPassword": "אשר סיסמה",
     "forgotPassword": "שכחת סיסמה?",
     "alreadyHaveAnAccount": "כבר יש לך חשבון?",
-    "dontHaveAnAccount": "אין לך חשבון?"
+    "dontHaveAnAccount": "אין לך חשבון?",
+    "subject": "נושא",
+    "message": "הודעה"
   },
   "button": {
     "signUp": "הרשמה",
@@ -128,7 +130,7 @@
   "comments": "תגובות",
   "myAccount": "החשבון שלי",
   "relatedContent": "תוכן קשור",
-  "noContent":"אין תוכן זמין!",
+  "noContent": "אין תוכן זמין!",
   "subscriptionToWatch": "אנא הירשם כדי לצפות",
   "verifyOtp": "אמת את ה-OTP",
   "socialPlatform": "פלטפורמה חברתית",
@@ -168,5 +170,12 @@
     "billings": "היסטוריית חיובים",
     "subscriptions": "היסטוריית מנויים",
     "settings": "דף הגדרות"
+  },
+  "page": {
+    "contact": {
+      "tag": "צור קשר",
+      "title": "צור קשר היום",
+      "social_title": "התחבר לרשתות החברתיות"
+    }
   }
 }

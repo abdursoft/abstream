@@ -12,9 +12,9 @@
         </span>
       </template>
       <template #item="{ item }">
-        <p v-ripple class="flex items-center p-1 cursor-pointer" @click="$i18n.locale = item.action" :class="$i18n.locale === item.action ? 'text-teal-600' : ''">
+        <p v-ripple class="flex items-center p-1 cursor-pointer" @click="$i18n.locale = item.code" :class="$i18n.locale === item.code ? 'text-teal-600' : ''">
             <span :class="item.icon" />
-            <span>{{ item.label }}</span>
+            <span>{{ item.name }}</span>
         </p>
     </template>
     </Menu>
@@ -24,9 +24,10 @@
 
 
 <script>
+import { langStore } from '@/stores/langStore';
 import { siteStore } from '@/stores/SiteStore';
 import { Icon } from '@iconify/vue';
-import { mapActions } from 'pinia';
+import { mapActions, mapState } from 'pinia';
 
 export default {
   name: "Language",
@@ -39,83 +40,24 @@ export default {
   },
   data() {
     return {
-      panelItem: [
-        {
-          label: 'English',
-          action:"EN"
-        },
-        {
-          label: 'Bengali',
-          action:"BN"
-        },
-        {
-          label: 'Arabic',
-          action:"AR"
-        },
-        {
-          label: 'Hindi',
-          action:"HN"
-        },
-        {
-          label: 'Italic',
-          action:"IT"
-        },
-        {
-          label: 'Russian',
-          action:"RU"
-        },
-        {
-          label: 'Urdu',
-          action:"UR"
-        },
-        {
-          label: 'French',
-          action:"FR"
-        },
-        {
-          label: 'Germany',
-          action:"DA"
-        },
-        {
-          label: 'Espanol',
-          action:"ES"
-        },
-        {
-          label: 'Indonesia',
-          action:"ID"
-        },
-        {
-          label: 'Thai',
-          action:"TH"
-        },
-        {
-          label: 'China',
-          action:"CN"
-        },
-        {
-          label: 'Japan',
-          action:"JP"
-        },
-        {
-          label: 'Dutch',
-          action:"DE"
-        },
-        {
-          label: 'Swedish',
-          action:"SV"
-        },
-        {
-          label: 'Hebrew',
-          action: 'HE'
-        }
-      ]
+      panelItem: []
     }
   },
   methods: {
     ...mapActions(siteStore,{setLang: 'setLang'}),
+    ...mapActions(langStore,{getLang:'getLanguage'}),
     toggle(event) {
       this.$refs.menu.toggle(event);
+    },
+    async setLanguage(){
+      const res = await this.getLang();
+      if(res.status === 200){
+        this.panelItem = this.language.langs;
+      }
     }
+  },
+  computed:{
+    ...mapState(langStore,['language'])
   },
   watch: {
     '$i18n.locale'(newLocale) {
@@ -124,6 +66,9 @@ export default {
       document.documentElement.style.textAlign = style;
       this.setLang(newLocale);
     }
+  },
+  mounted(){
+    this.setLanguage();
   }
 }
 </script>

@@ -42,8 +42,7 @@ export default{
     ...mapActions(categoryStore,{getGenre: 'genreByContents'}),
     ...mapActions(contentStore,{getStyle:'getStyle'}),
     async genreList(){
-      const response = await this.getGenre(this.$route.params.content,this.$route.params.type);
-      console.log(response);
+      await this.getGenre(this.$route.params.content,this.$route.params.type);
     }
   },
   computed:{
@@ -70,10 +69,6 @@ export default{
           }
         }
       }
-    },
-  mounted(){
-    console.log(this.$route.params);
-    console.log(this.$route.params.content);
-  }
+    }
 }
 </script>

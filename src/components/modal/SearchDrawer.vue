@@ -22,7 +22,7 @@
       <p class="my-3 hidden">{{ $t('tag') }}</p>
       <div class="flex items-center gap-3 hidden">
         <router-link class="p-1 rounded-md border-2" :to="{ name: 'subscribe' }">Subscribe</router-link>
-        <router-link class="p-1 rounded-md border-2" :to="{ name: 'home' }">Contact</router-link>
+        <router-link class="p-1 rounded-md border-2" :to="{ name: 'contactUs' }">Contact</router-link>
       </div>
     </div>
   </Drawer>
@@ -63,8 +63,11 @@ export default {
       this.setHeader(true);
       this.controlDrawer();
       router.push({name:'search',query:{q:this.search_key}});
-      this.search_key = '';
     }
+  },
+  beforeRouteLeave (to, from, next) {
+    this.search_key = '';
+    next();
   }
 }
 </script>

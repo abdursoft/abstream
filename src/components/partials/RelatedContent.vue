@@ -8,9 +8,10 @@
       </div>
       <Divider />
     </div>
-    <div class="w-full flex flex-col">
+    <div class="w-full flex flex-col" v-if="sanitizeRelatedContents.length > 0">
       <video-card v-for="(content, index) in sanitizeRelatedContents" :key="index" :image="content.avatar ?? content.cover" :title="content.title" :id="content.id" :views="content.views" :slug="content.slug_title" :premium="content.premium" :types="contentType"></video-card>
     </div>
+    <div class="flex items-center justify-center min-h-[400px]" v-else><h3 class="tex-2xl font-bold">{{ $t('noContent') }}</h3></div>
   </div>
   <!-- related video content end  -->
 </template>

@@ -41,12 +41,12 @@
     <!-- payment method section start  -->
     <Dialog v-model:visible="visible" modal header="Pay with Secure" :style="{ width: '50vw' }"
       :breakpoints="{ '1199px': '75vw', '575px': '90vw' }">
-      <div class="flex w-full flex-col md:flex-row justify-start gap-2">
+      <div class="flex w-full max-w-2/5  flex-col md:flex-row justify-start gap-2 ">
         <div
-          class="w-full md:w-1/5 h-[80px] flex items-center justify-center flex-col gap-1 cursor-pointer hover:rounded-md hover:shadow-md hover:bg-white-400"
+          class="w-full md:w-1/5 h-[100px] flex items-center justify-center flex-col gap-1 cursor-pointer hover:rounded-md hover:shadow-md hover:bg-slate-700 text-center p-2"
           v-for="(payment, index) in methods" :key="index" @click="newPayment(payment.name)">
-          <img :src="payment.image" :alt="payment.name" class="w-2/3 h-[60px]">
-          <h3 class="text-sm">Pay with {{ payment.name }}</h3>
+          <img :src="payment.image" :alt="payment.name" class="w-2/3 h-[50px]">
+          <h3 class="text-sm line-clamp-1">{{ payment.name }}</h3>
         </div>
       </div>
     </Dialog>
@@ -73,7 +73,7 @@ export default {
       paymentPlan: {
         plan_id: "",
         pay_method: ""
-      }
+      },
     }
   },
   methods: {
@@ -87,8 +87,20 @@ export default {
     async newPayment(id) {
       this.paymentPlan.pay_method = id;
       const res = await this.subscribe(this.paymentPlan);
+      // console.log(res);return;
       if (res.status === 200) {
-        window.location.href = res.data.url;
+        if(res.data.type){
+          const formHtml = res.data.url;
+          const container = document.createElement('div');
+          container.innerHTML = formHtml;
+          document.body.appendChild(container);
+          const form = document.getElementById('checkout_form');
+          if (form) form.submit();
+        }else{
+          if(res.data.url){
+            window.location.href = res.data.url;
+          }
+        }
       }
     }
   },

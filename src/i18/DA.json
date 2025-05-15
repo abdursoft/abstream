@@ -12,7 +12,9 @@
     "confirmPassword": "Bekræft adgangskode",
     "forgotPassword": "Glemt adgangskode?",
     "alreadyHaveAnAccount": "Har du allerede en konto?",
-    "dontHaveAnAccount": "Har du ikke en konto?"
+    "dontHaveAnAccount": "Har du ikke en konto?",
+    "subject": "Emne",
+    "message": "Besked"
   },
   "button": {
     "signUp": "Tilmeld",
@@ -173,5 +175,12 @@
     "billings": "Faktureringshistorik",
     "subscriptions": "Abonnementshistorik",
     "settings": "Indstillingsside"
+  },
+  "page": {
+    "contact": {
+      "tag": "Kontakt os",
+      "title": "Kontakt os i dag",
+      "social_title": "Forbind med sociale medier"
+    }
   }
 }

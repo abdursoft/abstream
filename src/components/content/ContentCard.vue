@@ -38,7 +38,6 @@
 
 <script>
 import router from '@/router';
-import { contentStore } from '@/stores/contentStore';
 import { favoriteStore } from '@/stores/favoriteStore';
 import { siteStore } from '@/stores/SiteStore';
 import { mapActions, mapState } from 'pinia';
@@ -69,7 +68,6 @@ export default {
     }
   },
   methods: {
-    ...mapActions(contentStore, { getContent: 'getContent', viewIncrement: 'contentViews', getRelatedContents: 'getRelatedContents' }),
     ...mapActions(favoriteStore, { getFavorite: 'getFavorites' }),
     getSeverity(status) {
       switch (status) {

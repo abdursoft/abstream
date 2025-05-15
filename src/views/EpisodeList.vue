@@ -42,7 +42,6 @@ export default{
         this.content = response.data.contents;
         this.data = response.data.seasons;
       }
-      console.log(this.content);
     }
   },
   watch:{

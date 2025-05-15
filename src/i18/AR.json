@@ -12,7 +12,9 @@
     "confirmPassword": "تأكيد كلمة المرور",
     "forgotPassword": "هل نسيت كلمة المرور؟",
     "alreadyHaveAnAccount": "هل لديك حساب بالفعل؟",
-    "dontHaveAnAccount": "ليس لديك حساب؟"
+    "dontHaveAnAccount": "ليس لديك حساب؟",
+    "subject": "الموضوع",
+    "message": "الرسالة"
   },
   "button": {
     "signUp": "إنشاء حساب",
@@ -133,7 +135,7 @@
   "comments": "التعليقات",
   "myAccount": "حسابي",
   "relatedContent": "محتويات ذات صلة",
-  "noContent":"لا يوجد محتوى متاح!",
+  "noContent": "لا يوجد محتوى متاح!",
   "subscriptionToWatch": "يرجى الاشتراك للمشاهدة",
   "verifyOtp": "تحقق من رمز OTP",
   "socialPlatform": "منصة اجتماعية",
@@ -173,5 +175,12 @@
     "billings": "تاريخ الفواتير",
     "subscriptions": "تاريخ الاشتراكات",
     "settings": "صفحة الإعدادات"
+  },
+  "page": {
+    "contact": {
+      "tag": "اتصل بنا",
+      "title": "تواصل معنا اليوم",
+      "social_title": "اتصل بالشبكات الاجتماعية"
+    }
   }
 }

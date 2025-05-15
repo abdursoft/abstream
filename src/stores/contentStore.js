@@ -1,4 +1,4 @@
-import { contentEpisodes, contentGet, contentHistory, contentPlay, contentRating, contentRatings, contentSearch, contentView, genreContent, relatedContents } from '@/server/api/apiRoutes'
+import { contentEpisodes, contentGet, contentHistory, contentPlay, contentRating, contentRatings, contentSearch, contentView, genreContent, recommendedContents, relatedContents, sliderData, titleSearch } from '@/server/api/apiRoutes'
 import axiosClient from '@/service/axios'
 import { defineStore } from 'pinia'
 import { siteStore } from './SiteStore'
@@ -10,7 +10,9 @@ export const contentStore = defineStore('contentStore', {
       content: null,
       history:[],
       relatedContents: [],
+      recommendedItems:[],
       ratings:null,
+      sliders:[],
       site:siteStore()
     }
   },
@@ -45,11 +47,35 @@ export const contentStore = defineStore('contentStore', {
         return error
       }
     },
+    async getRecommendedContents(id,type='content') {
+      this.site.setLoader(true);
+      try {
+        const response = await axiosClient.get(recommendedContents + `/${id}/${type}`)
+        this.site.setLoader(false);
+        this.recommendedItems = response.data.contents;
+        return response
+      } catch (error) {
+        this.site.setLoader(false);
+        return error
+      }
+    },
     async getContentByGenre(id) {
       this.site.setLoader(true);
       try {
         const response = await axiosClient.get(genreContent + `/${id}`)
         this.site.setLoader(false);
+        return response
+      } catch (error) {
+        this.site.setLoader(false);
+        return error
+      }
+    },
+    async sliderImage() {
+      this.site.setLoader(true);
+      try {
+        const response = await axiosClient.get(sliderData)
+        this.site.setLoader(false);
+        this.sliders = response.data.sliders;
         return response
       } catch (error) {
         this.site.setLoader(false);
@@ -112,6 +138,16 @@ export const contentStore = defineStore('contentStore', {
         const response = await axiosClient.get(`${contentSearch}?q=${key}&page=${page}`);
         this.site.setLoader(false);
         return response
+      }catch(error){
+        console.log(error);
+      }
+    },
+    async titleSearch(key,page=1){
+      this.site.setLoader(true);
+      try{
+        const response = await axiosClient.get(`${titleSearch}?q=${key}&page=${page}`);
+        this.site.setLoader(false);
+        return response.data.contents.data
       }catch(error){
         console.log(error);
       }

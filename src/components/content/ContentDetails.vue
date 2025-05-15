@@ -51,6 +51,9 @@
             </div>
             <!-- review section end  -->
           </div>
+          <div class="min-h-[250px] flex items-center justify-center" v-else>
+            <Button as="router-link" severity="primary" to="/signin" class="!py-1 !text-white">{{ $t('button.signIn')}}</Button>
+          </div>
         </TabPanel>
       </TabPanels>
     </Tabs>
@@ -63,10 +66,11 @@ import { authStore } from '@/stores/authStore';
 import { contentStore } from '@/stores/contentStore';
 import { Icon } from '@iconify/vue';
 import { mapActions, mapState } from 'pinia';
+import { Button } from 'primevue';
 
 export default {
   name: "ContentDetails",
-  components:{Icon},
+  components:{Icon, Button},
   props:{
     types:{
       String,

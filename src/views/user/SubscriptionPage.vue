@@ -17,7 +17,7 @@
       <Column :header="$t('table.status')">
         <template #body="slot">
           <span class="px-2 py-1 border-2 rounded-[25px]"
-            :class="slot.data.status === 'active' ? 'border-green-300 text-green-400' : 'border-red-300 text-red-400'">{{
+            :class="statusClass(slot.data.status)">{{
               slot.data.status }}</span>
         </template>
       </Column>
@@ -40,6 +40,15 @@ export default{
     openDetails(){},
     formattedDate(date){
       return dateFormat(date,'longDate')
+    },
+    statusClass(status){
+      if(status == 'active'){
+        return "border-green-300 text-green-400";
+      }else if(status == 'completed'){
+        return "border-yellow-300 text-yellow-400";
+      }else{
+        return "border-red-300 text-red-400";
+      }
     }
   },
   computed:{

@@ -2,7 +2,7 @@
   <Toast group="br" position="bottom-right" />
   <!-- login form start  -->
   <div
-    class="w-screen relative overflow-hidden back-animation min-h-screen bg-overlay-back flex items-center justify-center"
+    class="w-screen relative overflow-hidden back-animation min-h-screen bg-overlay-back flex items-center justify-center p-2"
     :style="siteData?.auth_image !== '' ? `background:url('${siteData?.auth_image}')` : 'background:rgba(0,0,0,.8)'">
     <div
       class="w-full md:w-2/6 lg:w-2/8 flex flex-col-reverse md:flex-row items-center justify-between rounded-[11px] p-4 shadow-2xl bg-slate-900 text-white">
@@ -10,14 +10,14 @@
         <div class="card">
           <div class="flex w-full items-center justify-between mb-[20px]" to="/">
             <div class="w-1/4 flex items-center gap-1"><router-link class="flex items-center" to="/">
-                <Icon icon="proicons:arrow-left" class="min-w-[50px] min-h-[40px]" />{{ $t('button.back') }}
+                <Icon icon="proicons:arrow-left" class="min-w-[30px] min-h-[40px]" />{{ $t('button.back') }}
               </router-link></div>
             <p
               class="hidden md:flex w-full items-center justify-center text-sm border border-black-300 p-1 rounded-[19px] max-w-[200px] text-center">
               {{ siteData?.site_title }}</p>
           </div>
-          <h1 class="text-xl md:text-2xl font-bold text-center font-700">{{ $t('welcomeBack') }} {{ siteData?.site_name
-            }}</h1>
+          <!-- <h1 class="text-xl md:text-2xl font-bold text-center font-700">{{ $t('welcomeBack') }} {{ siteData?.site_name
+            }}</h1> -->
           <div class="text-3xl mb-2 font-fold"></div>
           <TextInput :label="$t('form.phone')" v-model="loginForm.phone" :placeholder="$t('form.phone')" />
           <TextInput :label="$t('form.password')" type="password" v-model="loginForm.password"
@@ -64,9 +64,9 @@ export default {
       if (response.status === 200) {
         localStorage.setItem('authToken', response.data.token);
         router.push({ name: 'home' });
-        this.$toast.add({ severity: 'success', summary: 'Success', detail: this.$t(`response.${response.data.message}`), life: 3000, group: 'br' });
+        this.$toast.add({ severity: 'success', summary: 'Success', detail: this.$t(`response.${response.data.code}`), life: 3000, group: 'br' });
       } else {
-        this.$toast.add({ severity: 'error', summary: 'Failed', detail: this.$t(`response.${response.response.data.message}`), life: 3000, group: 'br' });
+        this.$toast.add({ severity: 'error', summary: 'Failed', detail: this.$t(`response.${response.response.data.code}`), life: 3000, group: 'br' });
       }
     },
     async isLogin() {

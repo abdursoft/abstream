@@ -8,6 +8,7 @@ import PrimeVue from 'primevue/config'
 import Aura from '@primevue/themes/aura'
 import ToastService from 'primevue/toastservice'
 import Tooltip from 'primevue/tooltip'
+import { createHead } from '@vueuse/head';
 
 import App from './App.vue'
 import router from './router'
@@ -16,6 +17,8 @@ import { definePreset } from '@primevue/themes'
 import VueTelInput from 'vue3-tel-input'
 import 'vue3-tel-input/dist/vue3-tel-input.css'
 import { i18n } from './I18'
+
+const head = createHead();
 
 const app = createApp(App)
 app.use(ToastService)
@@ -93,5 +96,6 @@ app.use(i18n, globalOptions)
 app.use(VueTelInput, globalOptions)
 app.directive('tooltip', Tooltip)
 app.use(router)
+app.use(head)
 
 app.mount('#app')

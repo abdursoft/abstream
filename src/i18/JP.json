@@ -12,7 +12,9 @@
     "confirmPassword": "パスワードを確認",
     "forgotPassword": "パスワードをお忘れですか？",
     "alreadyHaveAnAccount": "すでにアカウントをお持ちですか？",
-    "dontHaveAnAccount": "アカウントをお持ちでないですか？"
+    "dontHaveAnAccount": "アカウントをお持ちでないですか？",
+    "subject": "件名",
+    "message": "メッセージ"
   },
   "button": {
     "signUp": "サインアップ",
@@ -168,5 +170,12 @@
     "billings": "請求履歴",
     "subscriptions": "サブスクリプション履歴",
     "settings": "設定ページ"
+  },
+  "page": {
+    "contact": {
+      "tag": "お問い合わせ",
+      "title": "今すぐお問い合わせください",
+      "social_title": "ソーシャルとつながる"
+    }
   }
 }

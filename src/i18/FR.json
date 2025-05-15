@@ -12,7 +12,9 @@
     "confirmPassword": "Confirmer le mot de passe",
     "forgotPassword": "Mot de passe oublié ?",
     "alreadyHaveAnAccount": "Vous avez déjà un compte ?",
-    "dontHaveAnAccount": "Vous n'avez pas de compte ?"
+    "dontHaveAnAccount": "Vous n'avez pas de compte ?",
+    "subject": "Sujet",
+    "message": "Message"
   },
   "button": {
     "signUp": "S'inscrire",
@@ -128,7 +130,7 @@
   "comments": "Commentaires",
   "myAccount": "Mon compte",
   "relatedContent": "Contenus liés",
-  "noContent":"Aucun contenu disponible !",
+  "noContent": "Aucun contenu disponible !",
   "subscriptionToWatch": "Veuillez vous abonner pour regarder",
   "verifyOtp": "Vérifier l'OTP",
   "socialPlatform": "Plateforme sociale",
@@ -168,5 +170,12 @@
     "billings": "Historique de facturation",
     "subscriptions": "Historique des abonnements",
     "settings": "Page des paramètres"
+  },
+  "page": {
+    "contact": {
+      "tag": "Contactez-nous",
+      "title": "Contactez-nous dès aujourd'hui",
+      "social_title": "Connectez-vous avec les réseaux sociaux"
+    }
   }
 }

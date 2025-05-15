@@ -12,7 +12,9 @@
         "confirmPassword": "পাসওয়ার্ড নিশ্চিত করুন",
         "forgotPassword": "পাসওয়ার্ড ভুলে গেছেন?",
         "alreadyHaveAnAccount": "ইতিমধ্যে একটি অ্যাকাউন্ট আছে?",
-        "dontHaveAnAccount": "কোন অ্যাকাউন্ট নেই?"
+        "dontHaveAnAccount": "কোন অ্যাকাউন্ট নেই?",
+        "subject": "বিষয়",
+        "message": "বার্তা"
     },
     "button": {
         "signUp": "নিবন্ধন করুন",
@@ -173,5 +175,12 @@
         "billings": "বিলিং ইতিহাস",
         "subscriptions": "সাবস্ক্রিপশন ইতিহাস",
         "settings": "সেটিংস পৃষ্ঠা"
+    },
+    "page": {
+        "contact": {
+            "tag": "যোগাযোগ করুন",
+            "title": "আজই যোগাযোগ করুন",
+            "social_title": "সোশ্যালের সাথে সংযুক্ত হন"
+        }
     }
 }

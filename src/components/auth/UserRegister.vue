@@ -2,14 +2,16 @@
   <Toast group="br" position="bottom-right" />
   <!-- registration form start  -->
   <div
-    class="w-screen relative overflow-hidden back-animation min-h-screen bg-overlay-back flex items-center justify-center"
+    class="w-screen relative overflow-hidden back-animation min-h-screen bg-overlay-back flex items-center justify-center p-2"
     :style="siteData?.auth_image !== '' ? `background:url('${siteData?.auth_image}')` : 'background:rgba(0,0,0,.8)'">
     <div
       class="w-full md:w-2/6 lg:w-2/8 flex flex-col-reverse md:flex-row items-center justify-between rounded-[11px] p-4 shadow-2xl bg-slate-900 text-white">
       <div class="w-full px-7 py-20 relative">
-        <router-link to="/">
-          <Icon icon="proicons:arrow-left" class="min-w-[50px] min-h-[40px] absolute -top-1 text-black-500" />
+       <div class="w-1/4 flex items-center gap-1 mb-3">
+        <router-link class="flex items-center" to="/">
+          <Icon icon="proicons:arrow-left" class="min-w-[30px] min-h-[40px]" /> {{ $t('button.back') }}
         </router-link>
+       </div>
         <template v-if="!isSignup">
           <template v-if="!registerNext">
             <TextInput :label="$t('form.username')" v-model="registerForm.name" :placeholder="$t('form.username')" />
@@ -89,7 +91,6 @@ export default {
         this.isSignup = true;
         this.$toast.add({severity:'success', summary:'Success',detail:res.data?.message, life:3000, group:'br'});
       } else {
-        console.log(res);
         this.$toast.add({severity:'error', summary:'Input error',detail:res.response.data?.message, life:3000, group:'br'});
       }
     },

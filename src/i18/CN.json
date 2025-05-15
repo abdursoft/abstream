@@ -12,7 +12,9 @@
     "confirmPassword": "确认密码",
     "forgotPassword": "忘记密码？",
     "alreadyHaveAnAccount": "已有账号？",
-    "dontHaveAnAccount": "还没有账号？"
+    "dontHaveAnAccount": "还没有账号？",
+    "subject": "主题",
+    "message": "信息"
   },
   "button": {
     "signUp": "注册",
@@ -133,7 +135,7 @@
   "comments": "评论",
   "myAccount": "我的账户",
   "relatedContent": "相关内容",
-  "noContent":"无可用内容",
+  "noContent": "无可用内容",
   "subscriptionToWatch": "请订阅观看",
   "verifyOtp": "验证 OTP",
   "socialPlatform": "社交平台",
@@ -173,5 +175,12 @@
     "billings": "账单历史",
     "subscriptions": "订阅历史",
     "settings": "设置页面"
+  },
+  "page": {
+    "contact": {
+      "tag": "联系我们",
+      "title": "今天就联系我们",
+      "social_title": "连接社交"
+    }
   }
 }

@@ -12,7 +12,9 @@
     "confirmPassword": "Passwort bestätigen",
     "forgotPassword": "Passwort vergessen?",
     "alreadyHaveAnAccount": "Haben Sie bereits ein Konto?",
-    "dontHaveAnAccount": "Haben Sie kein Konto?"
+    "dontHaveAnAccount": "Haben Sie kein Konto?",
+    "subject": "Betreff",
+    "message": "Nachricht"
   },
   "button": {
     "signUp": "Registrieren",
@@ -133,7 +135,7 @@
   "comments": "Kommentare",
   "myAccount": "Mein Konto",
   "relatedContent": "Verwandte Inhalte",
-  "noContent":"Kein Inhalt verfügbar!",
+  "noContent": "Kein Inhalt verfügbar!",
   "subscriptionToWatch": "Bitte abonnieren, um zu sehen",
   "verifyOtp": "OTP verifizieren",
   "socialPlatform": "Soziale Plattform",
@@ -173,5 +175,12 @@
     "billings": "Abrechnungsverlauf",
     "subscriptions": "Abonnement-Verlauf",
     "settings": "Einstellungsseite"
+  },
+  "page": {
+    "contact": {
+      "tag": "Kontaktieren Sie uns",
+      "title": "Nehmen Sie noch heute Kontakt auf",
+      "social_title": "Mit sozialen Netzwerken verbinden"
+    }
   }
 }

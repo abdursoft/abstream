@@ -12,7 +12,9 @@
     "confirmPassword": "Confirmar contraseña",
     "forgotPassword": "¿Olvidaste tu contraseña?",
     "alreadyHaveAnAccount": "¿Ya tienes una cuenta?",
-    "dontHaveAnAccount": "¿No tienes una cuenta?"
+    "dontHaveAnAccount": "¿No tienes una cuenta?",
+    "subject": "Asunto",
+    "message": "Mensaje"
   },
   "button": {
     "signUp": "Registrarse",
@@ -173,5 +175,12 @@
     "billings": "Historial de facturación",
     "subscriptions": "Historial de suscripciones",
     "settings": "Página de configuración"
+  },
+  "page": {
+    "contact": {
+      "tag": "Contáctenos",
+      "title": "Ponte en contacto hoy",
+      "social_title": "Conéctate con las redes sociales"
+    }
   }
 }

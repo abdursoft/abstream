@@ -143,13 +143,7 @@ const routes = [
     name: 'forgot',
     meta: {title: "Forgot your password"},
     component: () => import('../views/password/PasswordForgot.vue'),
-  },
-  {
-    path: '/install',
-    name: 'install',
-    meta: {title: "Setup your api domain"},
-    component: () => import('../views/install/InstallPage.vue'),
-  },
+  }
 ];
 
 const router = createRouter({

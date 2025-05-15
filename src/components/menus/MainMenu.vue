@@ -21,7 +21,7 @@
     <div class="grow flex items-center justify-end gap-2 px-2">
       <!-- user auth section start  -->
       <div class="flex items-center justify-end gap-3 text-white uppercase">
-        <Button v-if="isAuth" severity="danger" @click="logout()" class="!py-1 !text-white">{{ $t('button.signOut')
+        <Button v-if="isAuth" severity="danger" @click="logout()" class="!py-1 !text-white !line-clamp-1">{{ $t('button.signOut')
           }}</Button>
         <Button as="router-link" v-else severity="danger" to="/signin" class="!py-1 !text-white">{{ $t('button.signIn')
           }}</Button>

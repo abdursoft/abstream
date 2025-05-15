@@ -1,6 +1,6 @@
 <template>
   <div class="w-full h-auto mb-2 md:pb-[80px]">
-    <div class="h-[320px] md:h-[720px] bg-slate-800 flex items-center justify-center flex-col gap-4"
+    <div class="h-[320px] md:h-[580px] bg-slate-800 flex items-center justify-center flex-col gap-4"
       v-if="$props.content?.premium === '1' && subscription === '0'">
       <h2 class="text-2xl text-white">{{ $t('subscriptionToWatch') }}</h2>
       <Button severity="danger" :label="$t('menu.subscribe')" as="router-link" :to="{ name: 'subscribe' }" />
@@ -38,38 +38,48 @@ export default {
       Object,
       required: true
     },
-    types:{
+    types: {
       String,
       default: "content"
     }
   },
   data() {
     return {
-      isPlayer: false,
+      isPlayer: null,
       contentData: null,
-      playerType:null
+      playerType: null
     }
   },
   methods: {
     ...mapActions(commentStore, { getComment: 'getComments' }),
     ...mapActions(siteStore, { setPlayer: 'setPlayer' }),
-    ...mapActions(contentStore,{playContent: 'playVideo'}),
+    ...mapActions(contentStore, { playContent: 'playVideo' }),
     hello() {
       console.log('Hello vue')
     },
     async openVideo() {
-      if (this.$props.content?.premium !== "1" || this.subscription !== "0" && this.$props.content) {
-        const content = await this.playContent(this.$props.content?.id,this.$props.types);
-        if (this.isPlayer && content) {
-          this.isPlayer.new(content);
+      if (this.$props.content?.premium != "1" && this.$props.content) {
+        await this.playVideo();
+      }else if(this.$props.content?.premium == "1" && this.subscription >= 1){
+        await this.playVideo();
+      }else{
+        if(this.$props.content?.premium == '1' && this.subscription == 0){
+          this.setPlayer(false);
         }
-        if (content && this.isPlayer === false) {
+      }
+      window.scrollTo(0, 0);
+    },
+    async playVideo(){
+      const content = await this.playContent(this.$props.content?.id, this.$props.types);
+        if (this.player && this.isPlayer && content) {
+          this.isPlayer.new(content);
+        }else if (content && (!this.player || !this.isPlayer)) {
           this.isPlayer = Player({
             id: 'player',
             src: content,
             poster: this.$props.content?.poster,
             encrypt: false,
-            api_key: 'c28zb2llcXVkZWFyb3I3N2xkZWlnNzBmdWFsMDZodDZj',
+            api_key: this.playerData.api_key ?? 'c28zb2llcXVkZWFyb3I3N2xkZWlnNzBmdWFsMDZodDZj',
             background: 'darkblue',
             playback: {
               speed: [0.5, 1, 1.5, 2],
@@ -78,23 +88,21 @@ export default {
                 content: "x",
               }
             },
-            backward: true,
-            forward: true,
             share: true,
             pip: true,
-            subtitle: ['https://cdn.bitmovin.com/content/assets/art-of-motion-dash-hls-progressive/thumbnails/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.vtt'],
+            subtitle: null,
             analytics: {
-              tag: 'G-FKJ9WK8CE5',
-              appName: 'Live-radio'
+              tag: this.playerData.tag ?? 'G-FKJ9WK8CE5',
+              appName: this.playerData.app_name ?? 'Live-radio'
             },
             logo: {
-              url: "https://abdursoft.com/assets/images/logo/abdursoft-f.svg",
+              url: this.playerData.logo ?? "https://abdursoft.com/assets/images/logo/abdursoft-f.svg",
               position: {
                 position: "absolute",
                 width: '70px',
                 height: '65px',
                 top: "10px",
-                right: "30px",
+                right: "20px",
                 zIndex: 4,
                 borderRadius: "50%",
                 overflow: "hidden"
@@ -103,7 +111,7 @@ export default {
             snap: 'no',
             vast: false,
             snapIcon: false,
-            iconHoverColor: "rgba(36, 107, 173, 0.88)",
+            iconHoverColor: this.playerData.button_highlight ?? "rgba(36, 107, 173, 0.88)",
             progress: {
               css: {
                 width: "98%",
@@ -128,7 +136,7 @@ export default {
               height: '100%',
               top: 0,
               left: 0,
-              background: 'indigo',
+              background: this.playerData.duration_highlight ?? 'indigo',
               cursor: 'pointer'
             },
             volumeContainer: {
@@ -159,7 +167,7 @@ export default {
             volumeSlider: {
               width: '0px',
               height: '15px',
-              background: 'indigo',
+              background: this.playerData.duration_highlight ?? 'indigo',
               cursor: 'pointer',
               transition: '0.5s',
               position: 'absolute'
@@ -187,26 +195,22 @@ export default {
               right: ['castControl', 'shareControl', 'volumeControl', 'settingsControl', 'screenControl'],
               background: "rgba(0,0,0,0.3)"
             },
-            contextMenu: true,
-            lang: "EN",
-            tooltip: true
-            // vast: 'https://crickbd.live/vast/ads/?.xml'
-          })
+            contextMenu: this.playerData.context_menu ?? true,
+            lang: this.playerData.language ?? "EN",
+            tooltip: this.playerData.tooltip ?? true
+          });
+          this.setPlayer(this.isPlayer);
         }
-        if (this.nextContent && this.isPlayer) {
-          this.isPlayer.next(playNext());
+        if (this.nextContent && this.player) {
+          this.player.next(playNext());
         }
         document.title = this.$props.content?.title;
         this.getComment(this.$props.content?.id);
-      } else {
-        this.isPlayer = false;
-      }
-      this.setPlayer(this.isPlayer);
     }
   },
   computed: {
     ...mapState(authStore, ['user', 'subscription']),
-    ...mapState(siteStore, ['nextContent'])
+    ...mapState(siteStore, ['nextContent','player','playerData']),
   },
   watch: {
     "$props.content": {
@@ -220,7 +224,6 @@ export default {
   },
   created() {
     this.contentData = this.$props.content;
-    window.scrollTo(0, 1000);
   }
 }
 </script>

@@ -13,10 +13,10 @@
       </template>
       <template #item="{ item }">
         <router-link v-ripple class="flex items-center p-1" :to="item.action">
-            <span :class="item.icon" />
-            <span>{{ $t(item.label) }}</span>
+          <span :class="item.icon" />
+          <span>{{ $t(item.label) }}</span>
         </router-link>
-    </template>
+      </template>
     </Menu>
     <!-- user profile dropdown menu end  -->
   </div>
@@ -28,33 +28,33 @@ import { Icon } from '@iconify/vue';
 
 export default {
   name: "ProfileMenu",
-  components:{Icon},
+  components: { Icon },
   data() {
     return {
       panelItem: [
         {
-          label:'menu.profile',
-          action:"/user/profile"
+          label: 'menu.profile',
+          action: "/user/profile"
         },
         {
-          label:'menu.history',
-          action:"/user/history"
+          label: 'menu.history',
+          action: "/user/history"
         },
         {
-          label:'menu.updates',
-          action:"/user/update"
+          label: 'menu.updates',
+          action: "/user/update"
         },
         {
-          label:'menu.settings',
-          action:"/user/setting"
+          label: 'menu.settings',
+          action: "/user/setting"
         },
         {
-          label:'menu.billings',
-          action:"/user/billing"
+          label: 'menu.billings',
+          action: "/user/billing"
         },
         {
-          label:'menu.subscriptions',
-          action:"/user/subscription"
+          label: 'menu.subscriptions',
+          action: "/user/subscription"
         },
       ]
     }

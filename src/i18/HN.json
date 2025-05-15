@@ -12,7 +12,9 @@
     "confirmPassword": "पासवर्ड की पुष्टि करें",
     "forgotPassword": "पासवर्ड भूल गए?",
     "alreadyHaveAnAccount": "पहले से ही एक खाता है?",
-    "dontHaveAnAccount": "खाता नहीं है?"
+    "dontHaveAnAccount": "खाता नहीं है?",
+    "subject": "विषय",
+    "message": "संदेश"
   },
   "button": {
     "signUp": "साइन अप करें",
@@ -128,7 +130,7 @@
   "comments": "टिप्पणियाँ",
   "myAccount": "मेरा खाता",
   "relatedContent": "संबंधित सामग्री",
-  "noContent":"कोई सामग्री उपलब्ध नहीं है!",
+  "noContent": "कोई सामग्री उपलब्ध नहीं है!",
   "subscriptionToWatch": "देखने के लिए कृपया सदस्यता लें",
   "verifyOtp": "ओटीपी सत्यापित करें",
   "socialPlatform": "सामाजिक मंच",
@@ -168,5 +170,12 @@
     "billings": "बिलिंग्स इतिहास",
     "subscriptions": "सदस्यता इतिहास",
     "settings": "सेटिंग्स पृष्ठ"
+  },
+  "page": {
+    "contact": {
+      "tag": "संपर्क करें",
+      "title": "आज ही संपर्क करें",
+      "social_title": "सोशल से जुड़ें"
+    }
   }
 }

@@ -12,7 +12,9 @@
     "confirmPassword": "Подтвердите пароль",
     "forgotPassword": "Забыли пароль?",
     "alreadyHaveAnAccount": "Уже есть аккаунт?",
-    "dontHaveAnAccount": "Нет аккаунта?"
+    "dontHaveAnAccount": "Нет аккаунта?",
+    "subject": "Тема",
+    "message": "Сообщение"
   },
   "button": {
     "signUp": "Зарегистрироваться",
@@ -168,5 +170,12 @@
     "billings": "История оплат",
     "subscriptions": "История подписок",
     "settings": "Страница настроек"
+  },
+  "page": {
+    "contact": {
+      "tag": "Связаться с нами",
+      "title": "Свяжитесь с нами сегодня",
+      "social_title": "Подключиться к социальным сетям"
+    }
   }
 }

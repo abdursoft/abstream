@@ -1,6 +1,6 @@
 <template>
   <div class="flex items-center justify-center" v-if="isLoader">
-      <Icon icon="svg-spinners:ring-resize" :class="myTheme ? 'text-white' : 'text-slate-800'" width="34" height="34" />
+      <Icon icon="svg-spinners:blocks-scale" :class="myTheme ? 'text-white' : 'text-slate-800'" width="24" height="24" />
   </div>
 </template>
 
@@ -10,7 +10,7 @@ import { Icon } from '@iconify/vue';
 import { mapState } from 'pinia';
 
 export default {
-  name: "SmallLoader",
+  name: "ContentLoader",
   components:{Icon},
   computed:{
       ...mapState(siteStore, ['isLoader','myTheme'])

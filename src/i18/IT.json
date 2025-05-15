@@ -12,7 +12,9 @@
     "confirmPassword": "Conferma password",
     "forgotPassword": "Password dimenticata?",
     "alreadyHaveAnAccount": "Hai già un account?",
-    "dontHaveAnAccount": "Non hai un account?"
+    "dontHaveAnAccount": "Non hai un account?",
+    "subject": "Oggetto",
+    "message": "Messaggio"
   },
   "button": {
     "signUp": "Iscriviti",
@@ -173,5 +175,12 @@
     "billings": "Storico fatturazione",
     "subscriptions": "Storico abbonamenti",
     "settings": "Pagina impostazioni"
+  },
+  "page": {
+    "contact": {
+      "tag": "Contattaci",
+      "title": "Mettiti in contatto oggi",
+      "social_title": "Connettiti con i social"
+    }
   }
 }

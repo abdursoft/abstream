@@ -12,7 +12,9 @@
     "confirmPassword": "ยืนยันรหัสผ่าน",
     "forgotPassword": "ลืมรหัสผ่าน?",
     "alreadyHaveAnAccount": "มีบัญชีอยู่แล้ว?",
-    "dontHaveAnAccount": "ยังไม่มีบัญชี?"
+    "dontHaveAnAccount": "ยังไม่มีบัญชี?",
+    "subject": "หัวข้อ",
+    "message": "ข้อความ"
   },
   "button": {
     "signUp": "สมัครสมาชิก",
@@ -168,5 +170,12 @@
     "billings": "ประวัติการเรียกเก็บเงิน",
     "subscriptions": "ประวัติการสมัครสมาชิก",
     "settings": "หน้าการตั้งค่า"
+  },
+  "page": {
+    "contact": {
+      "tag": "ติดต่อเรา",
+      "title": "ติดต่อเราวันนี้",
+      "social_title": "เชื่อมต่อกับโซเชียล"
+    }
   }
 }

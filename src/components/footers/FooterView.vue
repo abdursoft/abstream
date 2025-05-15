@@ -10,6 +10,8 @@
           <Icon icon="circum:facebook" @click="openSocial('facebook_url')" class="hover:text-red-500 cursor-pointer text-white" width="34" v-if="siteData?.facebook_url" height="34" />
           <Icon icon="et:linkedin" @click="openSocial('linkedin_url')" class="hover:text-red-500 cursor-pointer text-white" width="28" height="28" v-if="siteData?.linkedin_url" />
           <Icon icon="hugeicons:new-twitter-ellipse" @click="openSocial('x_url')" class="hover:text-red-500 cursor-pointer text-white" width="30" height="30" v-if="siteData?.x_url" />
+           <Icon icon="iconoir:instagram" @click="openSocial('instagram_url')" class="hover:text-red-500 cursor-pointer text-white" width="32" height="32" v-if="siteData?.instagram_url" />
+           <Icon icon="hugeicons:tiktok" @click="openSocial('tiktok_url')" class="hover:text-red-500 cursor-pointer text-white" width="30" height="30" v-if="siteData?.tiktok_url" />
         </div>
       </div>
       <Divider class="opacity-[0.7]" />

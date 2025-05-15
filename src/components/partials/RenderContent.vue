@@ -7,7 +7,7 @@
       <div class="flex items-center justify-between md:justify-start gap-4 mx-5" v-if="!isLoader">
         <h1 class="text-xl md:text-2xl font-bold font-700">{{ genre.name }}</h1>
         <router-link class="flex items-center justify-start gap-3 group-hover:text-red-600"
-          :to="{ name: 'contents', params: { content: genre.slug } }">
+          :to="{ name: 'contents', params: { content: genre.slug, type: types } }">
           <p
             class="md:hidden ease-in duration-300 group-hover:w-auto group-hover:inline-block animate-duration-1000 font-300 text-sm md:text-base">
             {{ $t('button.seeAll') }}</p>
@@ -21,7 +21,7 @@
       </template>
     </div>
     <div ref="loadMore" v-if="hasMore" class="loading w-full p-5 flex items-center justify-center">
-      <Icon icon="svg-spinners:blocks-scale" width="24" height="24" class="text-slate-800" />
+      <content-loader />
     </div>
     <!-- video content by genre end  -->
   </div>
@@ -35,9 +35,10 @@ import ContentCard from '../content/ContentCard.vue';
 import { contentStore } from '@/stores/contentStore';
 import { siteStore } from '@/stores/SiteStore';
 import SkeletonTitle from '../skeleton/SkeletonTitle.vue';
+import ContentLoader from '../loaders/ContentLoader.vue';
 
 export default {
-  components: { Icon, ContentCard, SkeletonTitle },
+  components: { Icon, ContentCard, SkeletonTitle, ContentLoader },
   name: 'RenderContent',
   props:{
     types:{
@@ -76,7 +77,6 @@ export default {
       }
     },
     setupInfiniteScroll() {
-      console.log(this.lastPage);
       const observer = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting) {
           if (!this.loading) {

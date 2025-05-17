@@ -15,12 +15,25 @@
         </TabPanel>
         <TabPanel value="1">
           <!-- cast section start  -->
-          <div class="m-0 flex items-start justify-start flex-wrap gap-4">
-            <div
-              class="w-[130px] h-[100px] flex items-center flex-col gap-3 justify-center text-center text-md font-bold"
-              v-for="(item, index) in content?.content_actor" :key="index">
-              <img :src="item?.actor.image" :alt="item?.actor.name" class="!w-[60px] !h-[60px] rounded-full">
-              <span class="line-clamp-1">{{ item?.actor.name }}</span>
+          <div class="m-0 w-full">
+            <h3 class="text-xl mt-3">{{ $t('actors') }}:</h3>
+            <div class="flex items-start justify-start flex-wrap gap-4 mt-3">
+              <div
+                class="w-[130px] h-[100px] flex items-center flex-col gap-3 justify-center text-center text-md font-bold cursor-pointer"
+                v-for="(item, index) in content?.content_actor" :key="index" @click="this.personInfo = item.actor.bio">
+                <img :src="item?.actor.image" :alt="item?.actor.name" class="!w-[60px] !h-[60px] rounded-full">
+                <span class="line-clamp-1">{{ item?.actor.name }}</span>
+              </div>
+            </div>
+            <h3 class="text-xl mt-14">{{ $t('producers') }}:</h3>
+            <div class="flex items-start justify-start flex-wrap gap-4 mt-3">
+              <div
+                class="w-[130px] h-[100px] flex items-center flex-col gap-3 justify-center text-center text-md font-bold cursor-pointer"
+                v-for="(item, index) in content?.content_director" :key="index"
+                @click="this.personInfo = item.director.bio">
+                <img :src="item?.director.image" :alt="item?.director.name" class="!w-[60px] !h-[60px] rounded-full">
+                <span class="line-clamp-1">{{ item?.director.name }}</span>
+              </div>
             </div>
           </div>
           <!-- cast section end  -->
@@ -52,11 +65,13 @@
             <!-- review section end  -->
           </div>
           <div class="min-h-[250px] flex items-center justify-center" v-else>
-            <Button as="router-link" severity="primary" to="/signin" class="!py-1 !text-white">{{ $t('button.signIn')}}</Button>
+            <Button as="router-link" severity="primary" to="/signin" class="!py-1 !text-white">{{
+              $t('button.signIn')}}</Button>
           </div>
         </TabPanel>
       </TabPanels>
     </Tabs>
+    <div class="card mt-3 round-md" v-if="personInfo" v-html="personInfo"></div>
   </div>
   <!-- content details section end  -->
 </template>
@@ -70,11 +85,11 @@ import { Button } from 'primevue';
 
 export default {
   name: "ContentDetails",
-  components:{Icon, Button},
-  props:{
-    types:{
+  components: { Icon, Button },
+  props: {
+    types: {
       String,
-      default:'content'
+      default: 'content'
     }
   },
   data() {
@@ -86,6 +101,7 @@ export default {
         user_id: '',
         content_id: ''
       },
+      personInfo: null
     }
   },
   methods: {
@@ -107,5 +123,14 @@ export default {
     ...mapState(contentStore, ['content', 'ratings']),
     ...mapState(authStore, ['user', 'isAuth']),
   },
+  watch: {
+    "$route.params.id": {
+      handler(id) {
+        if (id !== this.content?.id) {
+          this.personInfo = null;
+        }
+      }
+    },
+  }
 }
 </script>

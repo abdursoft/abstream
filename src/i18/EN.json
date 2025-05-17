@@ -30,7 +30,9 @@
         "watchNow": "Watch Now",
         "verify": "Verify",
         "send": "Send",
-        "back": "Back"
+        "back": "Back",
+        "addToList": "Add to list",
+        "removeFromList": "Remove from list"
     },
     "profile": {
         "transactions": "Transactions",
@@ -150,6 +152,8 @@
     "newsLatter": "Subscribe news latter",
     "getUpdate": "Please subscribe for getting updated with us",
     "titleOrKeywords": "Title or Keywords",
+    "actors": "Actors",
+    "producers": "Producers",
     "menu": {
         "home": "Home",
         "history": "History",

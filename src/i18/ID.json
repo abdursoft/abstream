@@ -30,7 +30,9 @@
     "watchNow": "Tonton Sekarang",
     "verify": "Verifikasi",
     "send": "Kirim",
-    "back": "Kembali"
+    "back": "Kembali",
+    "addToList": "Tambahkan ke daftar",
+    "removeFromList": "Hapus dari daftar"
   },
   "profile": {
     "transactions": "Transaksi",
@@ -145,6 +147,8 @@
   "newsLatter": "Langganan buletin",
   "getUpdate": "Silakan berlangganan untuk mendapatkan pembaruan",
   "titleOrKeywords": "Judul atau kata kunci",
+  "actors": "Aktor",
+  "producers": "Produser",
   "menu": {
     "home": "Beranda",
     "history": "Riwayat",

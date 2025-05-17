@@ -1,6 +1,10 @@
 <template>
   <!-- search content section start  -->
   <section class="mt-[60px] min-h-screen">
+    <div class="w-full mt-5">
+      <SkeletonTitle />
+      <SkeletonCard :itemLength="6" />
+    </div>
     <content-card :contents="posts" contentType="regular" :styleClass="getStyle('regular')" />
     <div ref="loadMore" v-if="hasMore" class="loading">Loading...</div>
   </section>
@@ -11,9 +15,11 @@
 import { contentStore } from "@/stores/contentStore";
 import { mapActions } from "pinia";
 import ContentCard from '@/components/content/ContentCard.vue';
+import SkeletonTitle from "@/components/skeleton/SkeletonTitle.vue";
+import SkeletonCard from "@/components/skeleton/SkeletonCard.vue";
 
 export default {
-  components: { ContentCard },
+  components: { ContentCard, SkeletonCard, SkeletonTitle },
   data() {
     return {
       key: "",
@@ -21,7 +27,7 @@ export default {
       hasMore: true,
       lastPage: null,
       currentPage: 1,
-      isMounted:false,
+      isMounted: false,
     };
   },
   mounted() {
@@ -35,7 +41,7 @@ export default {
       handler(newQuery) {
         if (newQuery !== this.key) {
           this.key = newQuery;
-          if(this.isMounted){
+          if (this.isMounted) {
             this.resetSearch();
           }
         }

@@ -52,7 +52,7 @@ export default {
     async setLanguage(){
       const res = await this.getLang();
       if(res.status === 200){
-        this.panelItem = this.language.langs;
+        this.panelItem = this.language?.langs;
       }
     }
   },
@@ -64,6 +64,7 @@ export default {
       document.documentElement.setAttribute('dir', ['AR', 'HE', 'FA', 'UR'].includes(newLocale) ? 'rtl' : 'ltr');
       let style = ('dir', ['AR', 'HE', 'FA', 'UR'].includes(newLocale) ? 'right;' : 'left;');
       document.documentElement.style.textAlign = style;
+      document.documentElement.style.float = style;
       this.setLang(newLocale);
     }
   },

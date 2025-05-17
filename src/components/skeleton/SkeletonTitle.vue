@@ -8,9 +8,11 @@
 <script>
 import { siteStore } from '@/stores/SiteStore';
 import { mapState } from 'pinia';
+import { Skeleton } from 'primevue';
 
 export default{
   name:"SkeletonTitle",
+  components:{Skeleton},
   computed:{
     ...mapState(siteStore,['isLoader'])
   },

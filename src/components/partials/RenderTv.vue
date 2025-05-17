@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- live-tv by genre start  -->
-    <div v-for="(genre,index) in tvGenres" :key="index" v-animateonscroll="{ enterClass: 'animate-fadein', leaveClass: 'animate-fadeout' }" class="my-4 group animate-duration-1000">
+    <div v-for="(genre,index) in tvGenres" :key="index"  class="my-4 group">
       <div class="flex items-center justify-between md:justify-start gap-4 mx-5" v-if="!isLoader">
         <h1 class="text-xl md:text-2xl font-700">{{ genre.name }}</h1>
         <router-link class="flex items-center justify-start gap-3 group-hover:text-red-600" :to="{name: 'contents', params: {content: genre.slug,type:'tv'}}">
@@ -9,7 +9,6 @@
           <Icon icon="oui:arrow-right" width="16" height="16" />
         </router-link>
       </div>
-      <skeleton-title />
       <tv-card :contents="genre.live_tv" />
     </div>
     <!-- live-tv by genre end  -->

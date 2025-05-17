@@ -17,9 +17,9 @@
     "message": "הודעה"
   },
   "button": {
-    "signUp": "הרשמה",
-    "signIn": "התחברות",
-    "signOut": "התנתקות",
+    "signUp": "הירשם",
+    "signIn": "התחבר",
+    "signOut": "התנתק",
     "next": "הבא",
     "previous": "הקודם",
     "change": "שנה",
@@ -30,7 +30,9 @@
     "watchNow": "צפה עכשיו",
     "verify": "אמת",
     "send": "שלח",
-    "back": "חזרה"
+    "back": "חזור",
+    "addToList": "הוסף לרשימה",
+    "removeFromList": "הסר מהרשימה"
   },
   "profile": {
     "transactions": "עסקאות",
@@ -145,6 +147,8 @@
   "newsLatter": "הירשם לניוזלטר",
   "getUpdate": "אנא הירשם כדי לקבל עדכונים",
   "titleOrKeywords": "כותרת או מילות מפתח",
+  "actors": "שחקנים",
+  "producers": "מפיקים",
   "menu": {
     "home": "בית",
     "history": "היסטוריה",

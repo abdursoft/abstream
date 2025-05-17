@@ -2,8 +2,7 @@
   <div>
     <!-- video content by genre start  -->
     <div v-for="(genre, index) in posts" :key="index"
-      v-animateonscroll="{ enterClass: 'animate-fadein', leaveClass: 'animate-fadeout' }"
-      class="my-4 group animate-duration-1000">
+      class="my-4 group">
       <div class="flex items-center justify-between md:justify-start gap-4 mx-5" v-if="!isLoader">
         <h1 class="text-xl md:text-2xl font-bold font-700">{{ genre.name }}</h1>
         <router-link class="flex items-center justify-start gap-3 group-hover:text-red-600"
@@ -14,12 +13,12 @@
           <Icon icon="oui:arrow-right" width="16" height="16" />
         </router-link>
       </div>
-      <SkeletonTitle />
       <template v-if="genre?.content">
         <content-card :styleClass="getStyle(genre.size_type)" :contentType="genre.size_type"
           :contents="genre.content" />
       </template>
     </div>
+
     <div ref="loadMore" v-if="hasMore" class="loading w-full p-5 flex items-center justify-center">
       <content-loader />
     </div>

@@ -30,7 +30,9 @@
     "watchNow": "Regarder maintenant",
     "verify": "Vérifier",
     "send": "Envoyer",
-    "back": "Retour"
+    "back": "Retour",
+    "addToList": "Ajouter à la liste",
+    "removeFromList": "Retirer de la liste"
   },
   "profile": {
     "transactions": "Transactions",
@@ -145,6 +147,8 @@
   "newsLatter": "S'abonner à la newsletter",
   "getUpdate": "Veuillez vous abonner pour recevoir les mises à jour",
   "titleOrKeywords": "Titre ou mots-clés",
+  "actors": "Acteurs",
+  "producers": "Producteurs",
   "menu": {
     "home": "Accueil",
     "history": "Historique",

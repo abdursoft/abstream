@@ -1,6 +1,5 @@
 <template>
   <div>
-    <skeleton-card :itemLength="contents.length ?? 7" />
     <!-- tv card section start  -->
     <div class="w-full min-h-[310px] flex items-start justify-start flex-wrap mt-4 p-2" v-if="!isLoader">
       <div
@@ -22,21 +21,15 @@
 import router from '@/router';
 import { siteStore } from '@/stores/SiteStore';
 import { mapActions, mapState } from 'pinia';
-import SkeletonCard from '../skeleton/SkeletonCard.vue';
 import { tvStore } from '@/stores/tvStore';
 
 export default {
-  components: { SkeletonCard },
   name: "TvCard",
   props: {
     contents: {
       Object,
       required: true
     },
-  },
-  data() {
-    return {
-    }
   },
   methods: {
     ...mapActions(tvStore, { getTv: 'getTv', relatedTv: 'getRelatedTv', otherTv:'getOthersTv' }),

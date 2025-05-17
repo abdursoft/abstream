@@ -27,10 +27,12 @@
     "saveChange": "تبدیلیاں محفوظ کریں",
     "seeAll": "سب دیکھیں",
     "watch": "دیکھیں",
-    "watchNow": "ابھی دیکھیں",
-    "send": "بھیجیں",
+    "watchNow": "اب دیکھیں",
     "verify": "تصدیق کریں",
-    "back": "واپس"
+    "send": "بھیجیں",
+    "back": "واپس",
+    "addToList": "فہرست میں شامل کریں",
+    "removeFromList": "فہرست سے ہٹائیں"
   },
   "profile": {
     "transactions": "لین دین",
@@ -145,6 +147,8 @@
   "newsLatter": "نیوز لیٹر سبسکرائب کریں",
   "getUpdate": "براہ کرم اپ ڈیٹس حاصل کرنے کے لیے سبسکرائب کریں",
   "titleOrKeywords": "عنوان یا کلیدی الفاظ",
+  "actors": "اداکار",
+  "producers": "پروڈیوسرز",
   "menu": {
     "home": "ہوم",
     "history": "تاریخ",

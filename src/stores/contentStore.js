@@ -165,10 +165,10 @@ export const contentStore = defineStore('contentStore', {
     },
     getStyle(type){
       if(type === 'regular'){
-        return 'h-[220px] md:h-[2500px] lg:h-[320px] xl:h-[360px] w-1/2 md:w-1/4 lg:w-1/6';
+        return 'h-[200px] md:h-[250px] lg:h-[320px] xl:h-[360px] w-1/2 md:w-1/6 lg:w-1/7';
       }
       else if(type === 'large'){
-        return 'h-[200px] md:h-[290px] lg:h-[350px] xl:h-[390px] w-1/2 md:w-1/5 lg:w-1/6';
+        return 'h-[220px] md:h-[290px] lg:h-[350px] xl:h-[390px] w-1/2 md:w-1/5';
       }
       else if(type === 'portrait'){
         return 'h-[100px] md:h-[120px] lg:h-[180px] xl:h-[200px] w-1/2 md:w-1/5';

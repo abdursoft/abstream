@@ -30,7 +30,9 @@
     "watchNow": "ดูตอนนี้",
     "verify": "ยืนยัน",
     "send": "ส่ง",
-    "back": "กลับ"
+    "back": "กลับ",
+    "addToList": "เพิ่มในรายการ",
+    "removeFromList": "ลบจากรายการ"
   },
   "profile": {
     "transactions": "ธุรกรรม",
@@ -145,6 +147,8 @@
   "newsLatter": "สมัครรับจดหมายข่าว",
   "getUpdate": "กรุณาสมัครรับข้อมูลเพื่อรับการอัปเดต",
   "titleOrKeywords": "ชื่อเรื่องหรือคำสำคัญ",
+  "actors": "นักแสดง",
+  "producers": "โปรดิวเซอร์",
   "menu": {
     "home": "หน้าแรก",
     "history": "ประวัติ",

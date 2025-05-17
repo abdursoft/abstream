@@ -19,9 +19,9 @@
   "button": {
     "signUp": "Iscriviti",
     "signIn": "Accedi",
-    "signOut": "Disconnetti",
+    "signOut": "Esci",
     "next": "Avanti",
-    "previous": "Precedente",
+    "previous": "Indietro",
     "change": "Cambia",
     "save": "Salva",
     "saveChange": "Salva modifiche",
@@ -30,7 +30,9 @@
     "watchNow": "Guarda ora",
     "verify": "Verifica",
     "send": "Invia",
-    "back": "Indietro"
+    "back": "Indietro",
+    "addToList": "Aggiungi alla lista",
+    "removeFromList": "Rimuovi dalla lista"
   },
   "profile": {
     "transactions": "Transazioni",
@@ -150,6 +152,8 @@
   "newsLatter": "Iscriviti alla newsletter",
   "getUpdate": "Si prega di iscriversi per ricevere aggiornamenti",
   "titleOrKeywords": "Titolo o parole chiave",
+  "actors": "Attori",
+  "producers": "Produttori",
   "menu": {
     "home": "Home",
     "history": "Cronologia",

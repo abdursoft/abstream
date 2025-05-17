@@ -17,9 +17,9 @@
     "message": "संदेश"
   },
   "button": {
-    "signUp": "साइन अप करें",
-    "signIn": "साइन इन करें",
-    "signOut": "साइन आउट करें",
+    "signUp": "साइन अप",
+    "signIn": "साइन इन",
+    "signOut": "साइन आउट",
     "next": "अगला",
     "previous": "पिछला",
     "change": "बदलें",
@@ -27,10 +27,12 @@
     "saveChange": "परिवर्तन सहेजें",
     "seeAll": "सभी देखें",
     "watch": "देखें",
-    "watchNow": "अभी देखें",
+    "watchNow": "अब देखें",
     "verify": "सत्यापित करें",
     "send": "भेजें",
-    "back": "वापस"
+    "back": "वापस",
+    "addToList": "सूची में जोड़ें",
+    "removeFromList": "सूची से हटाएं"
   },
   "profile": {
     "transactions": "लेनदेन",
@@ -145,6 +147,8 @@
   "newsLatter": "न्यूजलेटर के लिए सदस्यता लें",
   "getUpdate": "कृपया अपडेट पाने के लिए सदस्यता लें",
   "titleOrKeywords": "शीर्षक या कीवर्ड",
+  "actors": "अभिनेता",
+  "producers": "निर्माता",
   "menu": {
     "home": "होम",
     "history": "इतिहास",

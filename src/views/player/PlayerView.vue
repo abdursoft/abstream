@@ -13,8 +13,8 @@
     <div class="mt-4 mx-2 md:mx-5" v-if="recommendedItems.length > 0">
       <h4>{{ $t('recommended') }}</h4>
       <Divider />
-      <ContentCard v-if="contentType == 'content'" :contents="recommendedItems" :styleClass="getStyle('regular')" contentType="regular" :playType="contentType" />
       <episode-card v-if="contentType == 'episode'" :contents="recommendedItems" :styleClass="getStyle('regular')" contentType="regular" />
+      <ContentCard v-if="contentType == 'content'" :contents="recommendedItems" :styleClass="getStyle('regular')" contentType="regular" :playType="contentType" />
     </div>
   </div>
   <!-- single video player page end -->

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="w-full h-[58px] flex items-center justify-between md:hidden fixed bottom-0 bg-slate-800 text-white">
+    <div class="w-full h-[58px] flex items-center justify-between md:hidden fixed bottom-0 bg-slate-800 text-white z-[11]">
       <!-- bottom mobile menu start  -->
       <router-link class="flex items-center justify-center flex-col h-full px-3"
         :class="{ 'bg-slate-900': $route.name === 'home' }" :to="{ name: 'home' }">
@@ -38,7 +38,7 @@
     <!-- back to top button start  -->
     <span class="fixed right-[10px] md:right-[30px] bottom-[58px] md:bottom-[19px] !z-[5] text-red-500 cursor-pointer"
       v-if="backToTop">
-      <Icon icon="cil:arrow-circle-top" @click="backToUP" width="42" height="42" />
+      <Icon icon="cil:arrow-circle-top" @click="backToUP" class="w-[35px] h-[35px]" />
     </span>
     <!-- back to top button end  -->
   </div>

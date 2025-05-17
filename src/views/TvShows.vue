@@ -4,6 +4,10 @@
     <genre-card name="TV Shows" />
     <!-- live tv section start  -->
     <section class="mt-[250px] md:mt-[300px] lg:mt-[360px] py-[40px] w-full md:w-[auto] min-h-screen">
+      <div class="w-full mt-5 h-full">
+        <SkeletonTitle />
+        <SkeletonCard :itemLength="6" />
+      </div>
       <render-content types="tv-show"></render-content>
     </section>
     <!-- live tv section end  -->
@@ -16,11 +20,13 @@ import RenderContent from '@/components/partials/RenderContent.vue'
 import { siteStore } from '@/stores/SiteStore';
 import { mapActions, mapState } from 'pinia';
 import HeroSlider from '@/components/slider/HeroSlider.vue';
-export default{
-  components: { RenderContent, HeroSlider },
+import SkeletonTitle from '@/components/skeleton/SkeletonTitle.vue';
+import SkeletonCard from '@/components/skeleton/SkeletonCard.vue';
+export default {
+  components: { RenderContent, HeroSlider, SkeletonCard, SkeletonTitle },
   name: "HoveView",
-  methods:{
-    ...mapActions(siteStore, {setHeader: 'setActiveHeader'}),
+  methods: {
+    ...mapActions(siteStore, { setHeader: 'setActiveHeader' }),
   },
 }
 </script>

@@ -28,7 +28,7 @@ export const siteStore = defineStore('siteStore', {
     },
     setLang(key) {
       this.lang = key
-      if (this.player && typeof this.player == 'object') {
+      if (this.player) {
         this.player.lang(key)
       }
     },

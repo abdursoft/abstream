@@ -28,9 +28,11 @@
     "seeAll": "Alle anzeigen",
     "watch": "Ansehen",
     "watchNow": "Jetzt ansehen",
-    "verify": "Verifizieren",
+    "verify": "Überprüfen",
     "send": "Senden",
-    "back": "Zurück"
+    "back": "Zurück",
+    "addToList": "Zur Liste hinzufügen",
+    "removeFromList": "Aus der Liste entfernen"
   },
   "profile": {
     "transactions": "Transaktionen",
@@ -150,6 +152,8 @@
   "newsLatter": "Newsletter abonnieren",
   "getUpdate": "Bitte abonnieren, um Updates zu erhalten",
   "titleOrKeywords": "Titel oder Schlüsselwörter",
+  "actors": "Schauspieler",
+  "producers": "Produzenten",
   "menu": {
     "home": "Startseite",
     "history": "Verlauf",

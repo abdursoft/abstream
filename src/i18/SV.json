@@ -25,12 +25,14 @@
     "change": "Ändra",
     "save": "Spara",
     "saveChange": "Spara ändringar",
-    "seeAll": "Se alla",
+    "seeAll": "Visa alla",
     "watch": "Titta",
     "watchNow": "Titta nu",
     "verify": "Verifiera",
     "send": "Skicka",
-    "back": "Tillbaka"
+    "back": "Tillbaka",
+    "addToList": "Lägg till i lista",
+    "removeFromList": "Ta bort från lista"
   },
   "profile": {
     "transactions": "Transaktioner",
@@ -145,6 +147,8 @@
   "newsLatter": "Prenumerera på nyhetsbrev",
   "getUpdate": "Vänligen prenumerera för att få uppdateringar",
   "titleOrKeywords": "Titel eller nyckelord",
+  "actors": "Skådespelare",
+  "producers": "Producenter",
   "menu": {
     "home": "Hem",
     "history": "Historik",

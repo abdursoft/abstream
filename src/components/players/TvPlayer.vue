@@ -21,12 +21,13 @@
 </template>
 
 <script>
-import Player from 'https://cdn.abdursoft.com/plugin/abs-video/player.1.1.1.js'
+import Player from '@/server/config/player'
 import { mapActions, mapState } from 'pinia';
 import { authStore } from '@/stores/authStore';
 import { tvStore } from '@/stores/tvStore';
 import RelatedTv from '../partials/RelatedTv.vue';
 import OthersTv from '../partials/OthersTv.vue';
+import { siteStore } from '@/stores/SiteStore';
 export default {
   components: { RelatedTv, OthersTv },
   name: 'TvPlayer',
@@ -68,7 +69,7 @@ export default {
           src: this.liveURL,
           poster: this.tv?.logo,
           encrypt: false,
-          api_key: 'c28zb2llcXVkZWFyb3I3N2xkZWlnNzBmdWFsMDZodDZj',
+          api_key: this.playerData.api_key ?? 'c28zb2llcXVkZWFyb3I3N2xkZWlnNzBmdWFsMDZodDZj',
           background: 'darkblue',
           playback: {
             speed: [0.5, 1, 1.5, 2],
@@ -81,19 +82,19 @@ export default {
           forward: true,
           share: true,
           pip: true,
-          subtitle: ['https://cdn.bitmovin.com/tv/assets/art-of-motion-dash-hls-progressive/thumbnails/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.vtt'],
+          subtitle: null,
           analytics: {
             tag: 'G-FKJ9WK8CE5',
             appName: 'Live-radio'
           },
           logo: {
-            url: "https://abdursoft.com/assets/images/logo/abdursoft-f.svg",
+            url: this.playerData.logo ?? "https://abdursoft.com/assets/images/logo/abdursoft-f.svg",
             position: {
               position: "absolute",
               width: '70px',
               height: '65px',
-              top: "10px",
-              right: "30px",
+              top: "20px",
+              right: "20px",
               zIndex: 4,
               borderRadius: "50%",
               overflow: "hidden"
@@ -102,7 +103,7 @@ export default {
           snap: 'no',
           vast: false,
           snapIcon: false,
-          iconHoverColor: "rgba(36, 107, 173, 0.88)",
+          iconHoverColor: this.playerData.button_highlight ?? "rgba(36, 107, 173, 0.88)",
           progress: {
             css: {
               width: "98%",
@@ -127,7 +128,7 @@ export default {
             height: '100%',
             top: 0,
             left: 0,
-            background: 'indigo',
+            background: this.playerData.duration_highlight ?? 'indigo',
             cursor: 'pointer'
           },
           volumeContainer: {
@@ -158,7 +159,7 @@ export default {
           volumeSlider: {
             width: '0px',
             height: '15px',
-            background: 'indigo',
+            background: this.playerData.duration_highlight ?? 'indigo',
             cursor: 'pointer',
             transition: '0.5s',
             position: 'absolute'
@@ -183,13 +184,12 @@ export default {
           },
           controls: {
             left: ['playPauseControl', 'volumeControl', 'durationArea'],
-            right: ['castControl', 'shareControl', 'settingsControl', 'screenControl'],
+            right: ['castControl', 'settingsControl', 'screenControl'],
             background: "rgba(0,0,0,0.3)"
           },
-          contextMenu: true,
-          lang: "EN",
-          tooltip: true
-          // vast: 'https://crickbd.live/vast/ads/?.xml'
+            contextMenu: this.playerData.context_menu ?? true,
+            lang: this.playerData.language ?? this.lang,
+            tooltip: this.playerData.tooltip ?? true
         })
       }
       document.title = this.tv?.title;
@@ -197,6 +197,7 @@ export default {
   },
   computed: {
     ...mapState(authStore, ['user', 'subscription']),
+    ...mapState(siteStore,['lang','playerData'])
   },
   watch: {
     '$props.tvContent': {

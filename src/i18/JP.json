@@ -18,19 +18,21 @@
   },
   "button": {
     "signUp": "サインアップ",
-    "signIn": "ログイン",
-    "signOut": "ログアウト",
+    "signIn": "サインイン",
+    "signOut": "サインアウト",
     "next": "次へ",
     "previous": "前へ",
     "change": "変更",
     "save": "保存",
     "saveChange": "変更を保存",
-    "seeAll": "すべて見る",
+    "seeAll": "すべて表示",
     "watch": "見る",
     "watchNow": "今すぐ見る",
     "verify": "確認する",
     "send": "送信",
-    "back": "戻る"
+    "back": "戻る",
+    "addToList": "リストに追加",
+    "removeFromList": "リストから削除"
   },
   "profile": {
     "transactions": "取引履歴",
@@ -145,6 +147,8 @@
   "newsLatter": "ニュースレターを購読する",
   "getUpdate": "更新を受け取るには登録してください",
   "titleOrKeywords": "タイトルまたはキーワード",
+  "actors": "俳優",
+  "producers": "プロデューサー",
   "menu": {
     "home": "ホーム",
     "history": "履歴",

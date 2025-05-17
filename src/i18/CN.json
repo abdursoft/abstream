@@ -19,7 +19,7 @@
   "button": {
     "signUp": "注册",
     "signIn": "登录",
-    "signOut": "退出",
+    "signOut": "登出",
     "next": "下一步",
     "previous": "上一步",
     "change": "更改",
@@ -30,7 +30,9 @@
     "watchNow": "立即观看",
     "verify": "验证",
     "send": "发送",
-    "back": "返回"
+    "back": "返回",
+    "addToList": "添加到列表",
+    "removeFromList": "从列表中移除"
   },
   "profile": {
     "transactions": "交易",
@@ -150,6 +152,8 @@
   "newsLatter": "订阅新闻通讯",
   "getUpdate": "请订阅以获取最新更新",
   "titleOrKeywords": "标题或关键词",
+  "actors": "演员",
+  "producers": "制片人",
   "menu": {
     "home": "首页",
     "history": "历史",

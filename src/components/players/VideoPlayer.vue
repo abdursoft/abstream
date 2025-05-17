@@ -1,7 +1,7 @@
 <template>
   <div class="w-full h-auto mb-2 md:pb-[80px]">
     <div class="h-[320px] md:h-[580px] bg-slate-800 flex items-center justify-center flex-col gap-4"
-      v-if="$props.content?.premium === '1' && subscription === '0'">
+      v-if="$props.content?.premium == '1' && subscription == '0'">
       <h2 class="text-2xl text-white">{{ $t('subscriptionToWatch') }}</h2>
       <Button severity="danger" :label="$t('menu.subscribe')" as="router-link" :to="{ name: 'subscribe' }" />
     </div>
@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import Player from 'https://cdn.abdursoft.com/video/beta.js'
+import Player from '@/server/config/player'
 import ContentTitle from '../content/ContentTitle.vue'
 import CommentPost from '../comments/CommentPost.vue'
 import CommentView from '../comments/CommentView.vue'
@@ -101,7 +101,7 @@ export default {
                 position: "absolute",
                 width: '70px',
                 height: '65px',
-                top: "10px",
+                top: "20px",
                 right: "20px",
                 zIndex: 4,
                 borderRadius: "50%",
@@ -196,7 +196,7 @@ export default {
               background: "rgba(0,0,0,0.3)"
             },
             contextMenu: this.playerData.context_menu ?? true,
-            lang: this.playerData.language ?? "EN",
+            lang: this.playerData.language ?? this.lang,
             tooltip: this.playerData.tooltip ?? true
           });
           this.setPlayer(this.isPlayer);
@@ -210,7 +210,7 @@ export default {
   },
   computed: {
     ...mapState(authStore, ['user', 'subscription']),
-    ...mapState(siteStore, ['nextContent','player','playerData']),
+    ...mapState(siteStore, ['nextContent','player','playerData','lang']),
   },
   watch: {
     "$props.content": {

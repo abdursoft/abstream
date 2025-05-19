@@ -12,7 +12,7 @@
       <!-- search form start  -->
       <div class="flex items-center justify-between gap-3">
         <InputGroup>
-          <InputText v-model="search_key" placeholder="Keyword, title" />
+          <InputText v-model="search_key" @keydown="checkHandler" placeholder="Keyword, title" />
           <InputGroupAddon>
             <Button icon="pi pi-search" severity="secondary" variant="text" @click="makeSearch" />
           </InputGroupAddon>
@@ -50,7 +50,8 @@ export default {
   data() {
     return {
       moreDrawer: true,
-      search_key:''
+      search_key:'',
+      debounceTimer: null
     }
   },
   emits: ['changeDrawer'],
@@ -63,7 +64,13 @@ export default {
       this.setHeader(true);
       this.controlDrawer();
       router.push({name:'search',query:{q:this.search_key}});
-    }
+      this.search_key = '';
+    },
+    async checkHandler(event) {
+      if (event.code == 'Enter' && this.search_key !== '') {
+        this.makeSearch();
+      }
+    },
   },
   beforeRouteLeave (to, from, next) {
     this.search_key = '';

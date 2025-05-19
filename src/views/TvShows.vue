@@ -9,6 +9,9 @@
         <SkeletonCard :itemLength="6" />
       </div>
       <render-content types="tv-show"></render-content>
+      <div class="flex items-center justify-center text-center h-full w-full" v-if="!isLoader">
+        <h1 class="text-xl md:text-3xl text-slate-400 font-bold" >{{ $t('noContent') }}</h1>
+      </div>
     </section>
     <!-- live tv section end  -->
   </div>
@@ -28,5 +31,8 @@ export default {
   methods: {
     ...mapActions(siteStore, { setHeader: 'setActiveHeader' }),
   },
+  computed:{
+    ...mapState(siteStore,['isLoader'])
+  }
 }
 </script>

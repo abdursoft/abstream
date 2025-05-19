@@ -1,6 +1,6 @@
 <template>
   <!-- here slider sections start  -->
-  <swiper :spaceBetween="30" :centeredSlides="true" :autoplay="{
+  <swiper :spaceBetween="30" :centeredSlides="true" dir="ltr" :autoplay="{
     delay: 3000,
     disableOnInteraction: false,
   }" :pagination="{

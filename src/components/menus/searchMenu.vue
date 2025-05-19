@@ -68,6 +68,9 @@ export default {
     searchItem(title){
       this.setHeader(true);
       router.push({name:'search',query:{q:title}});
+      this.search_key = '';
+      this.isOpen = false;
+      this.contents = null;
     }
   },
   computed:{

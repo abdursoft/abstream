@@ -162,7 +162,7 @@ router.beforeEach((to, from, next) => {
   } else {
     next()
   }
-  window.scrollTo({
+    window.scrollTo({
     top: 0,
     behavior: "smooth"
   });

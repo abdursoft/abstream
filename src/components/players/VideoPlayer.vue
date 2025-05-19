@@ -191,8 +191,8 @@ export default {
               },
             },
             controls: {
-              left: ['playPauseControl', 'backwardControl', 'speedPlacement', 'forwardControl', 'durationArea'],
-              right: ['castControl', 'shareControl', 'volumeControl', 'settingsControl', 'screenControl'],
+              left: ['playPauseControl', 'speedPlacement', 'forwardControl', 'durationArea'],
+              right: ['castControl', 'volumeControl', 'settingsControl', 'screenControl'],
               background: "rgba(0,0,0,0.3)"
             },
             contextMenu: this.playerData.context_menu ?? true,

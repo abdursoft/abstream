@@ -4,6 +4,7 @@
     <hero-slider />
 
     <div class="w-full pb-[50px] min-h-[350px] pt-[20]">
+      <explore-genre />
       <div class="w-full mt-5 h-full">
         <SkeletonTitle />
         <SkeletonCard :itemLength="6" />
@@ -21,8 +22,9 @@ import { mapActions } from 'pinia';
 import HeroSlider from '@/components/slider/HeroSlider.vue';
 import SkeletonTitle from '@/components/skeleton/SkeletonTitle.vue';
 import SkeletonCard from '@/components/skeleton/SkeletonCard.vue';
+import ExploreGenre from '@/components/partials/ExploreGenre.vue';
 export default{
-  components: { RenderContent, HeroSlider, SkeletonCard, SkeletonTitle },
+  components: { RenderContent, HeroSlider, SkeletonCard, SkeletonTitle, ExploreGenre },
   name: "HoveView",
   methods:{
     ...mapActions(siteStore, {setHeader: 'setActiveHeader'})

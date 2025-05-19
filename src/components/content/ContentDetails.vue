@@ -71,7 +71,7 @@
         </TabPanel>
       </TabPanels>
     </Tabs>
-    <div class="card mt-3 round-md" v-if="personInfo" v-html="personInfo"></div>
+    <div class="card mt-3 round-md" v-if="personInfo && value == '1'" v-html="personInfo"></div>
   </div>
   <!-- content details section end  -->
 </template>

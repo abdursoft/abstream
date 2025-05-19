@@ -17,19 +17,21 @@ export const contentStore = defineStore('contentStore', {
     }
   },
   actions: {
-    async getContent(id = '',type='content') {
-      this.site.setLoader(true);
-      try {
-        this.content = null
-        const response = await axiosClient.get(contentGet + `/${id}/${type}`)
-        id === ''
-          ? (this.contents = response.data.contents)
-          : (this.content = response.data.contents)
-        this.site.setLoader(false);
-        return response
-      } catch (error) {
-        this.site.setLoader(false);
-        return error
+    async getContent(id = null,type='content') {
+      if(id){
+        this.site.setLoader(true);
+        try {
+          this.content = null
+          const response = await axiosClient.get(contentGet + `/${id}/${type}`)
+          id === ''
+            ? (this.contents = response.data.contents)
+            : (this.content = response.data.contents)
+          this.site.setLoader(false);
+          return response
+        } catch (error) {
+          this.site.setLoader(false);
+          return error
+        }
       }
     },
     async getRelatedContents(id,type='content') {
@@ -137,16 +139,15 @@ export const contentStore = defineStore('contentStore', {
       try{
         const response = await axiosClient.get(`${contentSearch}?q=${key}&page=${page}`);
         this.site.setLoader(false);
-        return response
+        return response;
       }catch(error){
+        this.site.setLoader(false);
         console.log(error);
       }
     },
     async titleSearch(key,page=1){
-      this.site.setLoader(true);
       try{
         const response = await axiosClient.get(`${titleSearch}?q=${key}&page=${page}`);
-        this.site.setLoader(false);
         return response.data.contents.data
       }catch(error){
         console.log(error);

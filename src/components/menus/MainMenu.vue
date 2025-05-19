@@ -1,6 +1,6 @@
 <template>
   <!-- main menu start  -->
-  <div class="flex items-center justify-between md:justify-start gap-2 md:gap-5 h-[48px] fixed z-[9] top-0 w-full p-3 md:p-5"
+  <div class="flex items-center justify-between md:justify-start gap-2 md:gap-5 h-[48px] fixed z-[11] top-0 w-full p-3 md:p-5"
     :class="(headerClass | activeHeader) ? 'bg-slate-800' : 'radial-background'">
     <div class="flex items-center justify-between md:justify-start gap-2 md:gap-5 w-[40] md:w-2/4">
       <!-- Logo section start  -->

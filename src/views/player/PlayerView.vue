@@ -13,8 +13,10 @@
     <div class="mt-4 mx-2 md:mx-5" v-if="recommendedItems.length > 0">
       <h4>{{ $t('recommended') }}</h4>
       <Divider />
-      <episode-card v-if="contentType == 'episode'" :contents="recommendedItems" :styleClass="getStyle('regular')" contentType="regular" />
-      <ContentCard v-if="contentType == 'content'" :contents="recommendedItems" :styleClass="getStyle('regular')" contentType="regular" :playType="contentType" />
+      <episode-card v-if="contentType == 'episode'" :contents="recommendedItems" :styleClass="getStyle('regular')"
+        contentType="regular" />
+      <ContentCard v-if="contentType == 'content'" :contents="recommendedItems" :styleClass="getStyle('regular')"
+        contentType="regular" :playType="contentType" />
     </div>
   </div>
   <!-- single video player page end -->
@@ -31,6 +33,9 @@ import { favoriteStore } from '@/stores/favoriteStore';
 import ContentCard from '@/components/content/ContentCard.vue';
 import EpisodeCard from '@/components/content/EpisodeCard.vue';
 import { authStore } from '@/stores/authStore';
+import { useHead } from '@vueuse/head';
+import { computed } from 'vue';
+import { watch } from 'vue';
 
 export default {
   name: 'PlayerView',
@@ -43,7 +48,7 @@ export default {
   },
   methods: {
     ...mapActions(siteStore, { setHeader: 'setActiveHeader', setFooter: 'setFooter' }),
-    ...mapActions(contentStore, { getContent: 'getContent', getRelatedContents: 'getRelatedContents', getRatings: 'getRatings', recommendedContents:'getRecommendedContents', getStyle:'getStyle', contentCounter:'contentViews' }),
+    ...mapActions(contentStore, { getContent: 'getContent', getRelatedContents: 'getRelatedContents', getRatings: 'getRatings', recommendedContents: 'getRecommendedContents', getStyle: 'getStyle', contentCounter: 'contentViews' }),
     ...mapActions(commentStore, { getComment: 'getComments' }),
     ...mapActions(favoriteStore, { getFavorite: 'getFavorites' }),
     async getVideData() {
@@ -55,12 +60,12 @@ export default {
       }
       this.getContent(this.videoId, this.contentType);
       this.getRelatedContents(this.videoId, this.contentType);
-      this.recommendedContents(this.videoId,this.contentType);
+      this.recommendedContents(this.videoId, this.contentType);
 
     }
   },
   computed: {
-    ...mapState(contentStore, ['content','recommendedItems']),
+    ...mapState(contentStore, ['content', 'recommendedItems']),
     ...mapState(authStore, ['authToken'])
   },
   beforeRouteLeave() {
@@ -89,6 +94,39 @@ export default {
     this.setHeader(true);
     this.setFooter(true);
     this.getVideData();
+  },
+    setup() {
+    const store = contentStore();
+    watch(
+      () => store.content,
+      (content) => {
+        if (!content?.title) return;
+        useHead({
+          title: `Watch ${content.title} | AbdurSoft`,
+          meta: [
+            { name: 'description', content: content.description },
+            { name: 'robots', content: 'index, follow' },
+            { name: 'language', content: 'en' },
+            { name: 'author', content: 'AbdurSoft' },
+
+            { property: 'og:title', content: content.title },
+            { property: 'og:description', content: content.description },
+            { property: 'og:type', content: 'video.movie' },
+            { property: 'og:url', content: content.url || window.location.href },
+            { property: 'og:image', content: content.cover },
+
+            { name: 'twitter:card', content: 'summary_large_image' },
+            { name: 'twitter:title', content: content.title },
+            { name: 'twitter:description', content: content.description },
+            { name: 'twitter:image', content: content.cover }
+          ],
+          link: [
+            { rel: 'canonical', href: content.url || window.location.href }
+          ]
+        })
+      },
+      { immediate: true, deep: true }
+    )
   }
 }
 </script>

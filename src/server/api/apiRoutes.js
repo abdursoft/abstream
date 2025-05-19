@@ -17,7 +17,7 @@ export const siteData = `${BASE_URL}site-data`
 export const sliderData = `${BASE_URL}slider-data`
 
 // category routes
-export const genreGet = `${BASE_URL}category/open`
+export const genreGet = `${BASE_URL}genre/list`
 export const genreContent = `${BASE_URL}genre-contents`
 export const genreByContent = `${BASE_URL}content-by-genre`
 

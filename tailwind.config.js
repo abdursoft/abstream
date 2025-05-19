@@ -10,7 +10,8 @@ export default {
   },
   plugins: [
     require('tailwindcss-primeui'),
-    require('tailwindcss-rtl')
+    require('tailwindcss-rtl'),
+    require('tailwind-scrollbar-hide')
   ]
 }
 

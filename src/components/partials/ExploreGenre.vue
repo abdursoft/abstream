@@ -5,8 +5,8 @@
     <skeleton-genre></skeleton-genre>
     <div class="w-full overflow-hidden px-5">
       <div class="overflow-x-auto whitespace-nowrap scrollbar-hide w-full min-h-[60px]" v-if="!isLoader">
-        <p class="inline-block w-auto p-4 cursor-pointer h-[50px] rounded-md shadow-md self-center bg-slate-800 mr-3 items-center justify-center line-clamp-3 max-w-[300px]"
-          :class="{ 'bg-slate-200': !myTheme }" v-for="(item, index) in categories" :key="index"
+        <p class="inline-block w-auto p-4 cursor-pointer h-[50px] rounded-md shadow-md self-center mr-3 items-center justify-center line-clamp-3 max-w-[300px]"
+          :class=" myTheme == true ? 'bg-slate-800' : 'bg-slate-200' " v-for="(item, index) in categories" :key="index"
           @click="openGenre(item.slug)">{{ item.name }}</p>
       </div>
     </div>

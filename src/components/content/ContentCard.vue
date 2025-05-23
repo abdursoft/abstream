@@ -10,7 +10,7 @@
               @click="openVideo(item?.id, item?.slug_title ?? item.title, item?.type)">
               <img :src="item.avatar ?? (item.logo ?? item?.cover)" :alt="item.title"
                 class="w-full h-full absolute hover:scale-110 ease-in duration-300 rounded-md p-0 m-0 radial-background" />
-              <div class="absolute inset-0 bg-black/30 z-10 flex items-center justify-between">
+              <div class="absolute inset-0 bg-black/30 z-10 flex items-center justify-between" :title="item?.title">
                 <Tag :value="item.premium == '1' ? $t('premium') : $t('free')" :severity="getSeverity(item.premium)"
                   class="absolute" style="left:5px; top: 5px" />
                 <div class="absolute top-[5px] right-[5px] text-orange-600 flex items-center gap-1">
@@ -20,7 +20,7 @@
             </div>
           </template>
           <template v-else>
-            <div class="w-ull flex items-center justify-between flex-col md:flex-row">
+            <div class="w-full flex items-center justify-between flex-col md:flex-row">
               <img :src="item.avatar ?? item.cover" :alt="item.title"
                 class="w-full min-h-[220px] md:w-1/2 h-full rounded-md p-0 m-0" />
               <div class="w-full md:w-1/2 p-3">

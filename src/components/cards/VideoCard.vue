@@ -1,6 +1,6 @@
 <template>
   <!-- video card section start  -->
-  <div class="flex items-start justify-start gap-2 cursor-pointer my-1 rounded shadow-md hover:bg-highlight-emphasis" @click="openVideo" :class="{'bg-slate-900':myTheme}">
+  <div class="flex items-start justify-start gap-2 cursor-pointer my-1 rounded shadow-md hover:bg-slate-800" @click="openVideo" :class="{'bg-slate-900':myTheme}">
     <img :src="image" :alt="title" class="min-w-[160px] max-w-[160px] h-[85px] rounded-md">
     <div class="w-full">
       <h3 class="line-clamp-2 p-0 m-0 text-sm md:text-base ">{{ title }}</h3>

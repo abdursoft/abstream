@@ -5,24 +5,24 @@
       <router-link class="flex items-center justify-center flex-col h-full px-3"
         :class="{ 'bg-slate-900': $route.name === 'home' }" :to="{ name: 'home' }">
         <Icon icon="hugeicons:home-04" width="24" height="24" />
-        <small>{{ $t('menu.home') }}</small>
+        <small class="line-clamp-1">{{ $t('menu.home') }}</small>
       </router-link>
       <router-link class="flex items-center justify-center flex-col px-3 h-full" :to="{ name: 'history' }">
         <Icon icon="octicon:history-24" width="24" height="24" />
-        <small>{{ $t('menu.history') }}</small>
+        <small class="line-clamp-1">{{ $t('menu.history') }}</small>
       </router-link>
       <div class="flex items-center justify-center flex-col h-full cursor-pointer" @click="search = !search">
         <Icon icon="clarity:search-line" width="30" height="30" />
-        <small>{{ $t('menu.search') }}</small>
+        <small class="line-clamp-1">{{ $t('menu.search') }}</small>
       </div>
       <router-link class="flex items-center justify-center flex-col px-3 h-full"
         :class="{ 'bg-slate-900': $route.name === 'liveTv' }" :to="{ name: 'liveTv' }">
         <Icon icon="hugeicons:modern-tv" width="24" height="24" />
-        <small>{{ $t('menu.tv') }}</small>
+        <small class="line-clamp-1">{{ $t('menu.tv') }}</small>
       </router-link>
       <div class="flex items-center justify-center flex-col px-3 h-full cursor-pointer" @click="drawer = !drawer">
         <Icon icon="material-symbols-light:more-outline" width="34" height="34" />
-        <small>{{ $t('menu.more') }}</small>
+        <small class="line-clamp-1">{{ $t('menu.more') }}</small>
       </div>
     </div>
     <!-- bottom mobile menu end  -->

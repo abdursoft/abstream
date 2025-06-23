@@ -8,7 +8,11 @@
       <Column field="id" :header="$t('table.id')"></Column>
       <Column field="plan.title" :header="$t('table.plan')"></Column>
       <Column field="price" :header="$t('table.amount')"></Column>
-      <Column field="plan.currency" :header="$t('table.currency')"></Column>
+      <Column :header="$t('table.currency')">
+        <template #body="slot">
+          {{ slot.data.plan.currency.code }}
+        </template>
+      </Column>
       <Column :header="$t('table.expire')">
         <template #body="slot">
           {{ formattedDate(slot.data.end_date) }}

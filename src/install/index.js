@@ -1,4 +1,3 @@
 export default {
-  "installed": true,
-  "host": "https://app-stream.abdursoft.com"
+  "host": "http://127.0.0.1:8000" //API webserver URL
 };

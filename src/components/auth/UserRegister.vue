@@ -1,5 +1,5 @@
 <template>
-  <Toast group="br" position="bottom-right" />
+  <Toast group="br" :position="toastArea" />
   <!-- registration form start  -->
   <div
     class="w-screen relative overflow-hidden back-animation min-h-screen bg-overlay-back flex items-center justify-center p-2"
@@ -82,7 +82,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(siteStore, { getSiteData: 'getSiteInfo' }),
+    ...mapActions(siteStore, { getSiteData: 'getSiteInfo', toastPosition:'toastPosition' }),
     ...mapActions(authStore, { register: 'registerUser', signupOTPVerify: 'signupOTPVerify' }),
     async formSubmit() {
       const res = await this.register(this.registerForm);
@@ -124,12 +124,16 @@ export default {
   },
   computed: {
     ...mapState(authStore, ['isAuth']),
-    ...mapState(siteStore, ['isLoader', 'myTheme', 'siteData'])
+    ...mapState(siteStore, ['isLoader', 'myTheme', 'siteData','toastArea'])
   },
   created() {
     this.getSiteData();
     if (this.isAuth) {
       router.push({ name: 'home' })
+    }
+        this.toastPosition();
+    window.onresize = async () => {
+      await this.toastPosition();
     }
   }
 }

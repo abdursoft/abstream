@@ -7,7 +7,7 @@
   <div class="w-full md:w-1/4 flex items-center justify-end gap-3 group" v-if="isAuth" @click="toggleFavList(content?.id)">
     <div class="flex items-center justify-end gap-4">
       <Button v-if="$props.types == 'content'" class="flex items-center gap-2 !text-white !text-sm !md:text-base" :severity="favorite ? 'danger' : 'error'">
-        {{ favorite ? $t('button.removeFromList') : $t('button.addToList') }}
+        <span class="hidden md:block">{{ favorite ? $t('button.removeFromList') : $t('button.addToList') }}</span>
         <Icon v-if="favorite" icon="mage:shiled-minus" class="cursor-pointer" width="30" height="30" />
         <Icon v-else icon="solar:shield-plus-outline" class="cursor-pointer" width="30" height="30" />
       </Button>

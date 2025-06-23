@@ -41,10 +41,6 @@ export default {
           action: "/user/history"
         },
         {
-          label: 'menu.updates',
-          action: "/user/update"
-        },
-        {
           label: 'menu.settings',
           action: "/user/setting"
         },

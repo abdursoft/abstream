@@ -59,8 +59,14 @@ export const paymentMethodGet = `${BASE_URL}payment-method`
 // authentication and password
 export const signup = `${AUTH_URL}signup`
 export const signin = `${AUTH_URL}signin`
+export const signout = `${AUTH_URL}signout`
 export const signOTP = `${AUTH_URL}signup-otp-verify`
 export const authCheck = `${AUTH_URL}check`
+
+// 2factor authentication
+export const get2FactorSecret = `${AUTH_URL}2fa/secret`
+export const verify2FactorSecret = `${AUTH_URL}2fa/verify`
+export const disable2FactorSecret = `${AUTH_URL}2fa/disable`
 
 // comment controller
 export const getComment = `${USER_URL}comment/list`

@@ -8,8 +8,11 @@
         <div class="w-full h-full overflow-hidden relative rounded-md" :class="{'bg-slate-900':myTheme}">
           <img :src="item.logo" :alt="item.title"
             class="w-full h-full absolute hover:scale-110 ease-in duration-300 rounded-md" />
-          <Tag :value="item.premium == '1' ? $t('premium') : $t('free') " :severity="getSeverity(item.premium)" class="absolute"
-            style="left:5px; top: 5px" />
+            <div class="absolute inset-0 radial-background z-2 flex items-center w-full h-[57px] justify-between rounded-md" :title="item?.title">
+              <Tag :value="item.premium == '1' ? $t('premium') : $t('free')"
+               :class="item.premium == '1' ? '!bg-[var(--dark-primary-700)] !opacity-1 z-[2]' : '!bg-green-700 !opacity-1 z-[3]'"
+                class="absolute" style="left:5px; top: 5px" />
+            </div>
         </div>
       </div>
     </div>

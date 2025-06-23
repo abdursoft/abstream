@@ -7,7 +7,11 @@
       tableStyle="min-width: 50rem">
       <Column field="payment_intent" :header="$t('table.id')"></Column>
       <Column field="amount" :header="$t('table.amount')"></Column>
-      <Column field="plan.currency" :header="$t('table.currency')"></Column>
+      <Column :header="$t('table.currency')">
+        <template #body="slot">
+          {{ slot.data.plan.currency.code }}
+        </template>
+      </Column>
       <Column :header="$t('table.status')">
         <template #body="slot">
           <span class="px-2 py-1 border-2 rounded-[25px]"

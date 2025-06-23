@@ -185,7 +185,7 @@ export default {
           controls: {
             left: ['playPauseControl', 'volumeControl', 'durationArea'],
             right: ['castControl', 'settingsControl', 'screenControl'],
-            background: "rgba(0,0,0,0.3)"
+            background: "linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent)"
           },
             contextMenu: this.playerData.context_menu ?? true,
             lang: this.playerData.language ?? this.lang,

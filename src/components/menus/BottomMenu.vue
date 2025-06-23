@@ -1,6 +1,7 @@
 <template>
   <div>
-    <div class="w-full h-[58px] flex items-center justify-between md:hidden fixed bottom-0 bg-slate-800 text-white z-[11]">
+    <div
+      class="w-full h-[58px] flex items-center justify-between md:hidden fixed bottom-0 bg-slate-800 text-white z-[11]">
       <!-- bottom mobile menu start  -->
       <router-link class="flex items-center justify-center flex-col h-full px-3"
         :class="{ 'bg-slate-900': $route.name === 'home' }" :to="{ name: 'home' }">
@@ -26,17 +27,22 @@
       </div>
     </div>
     <!-- bottom mobile menu end  -->
-    <footer-view />
-    <!-- copyright section start  -->
-    <div class="hidden md:flex w-full h-[48px] items-center justify-around bg-slate-800 text-white relative">
-      <p class="font-300 text-center">{{ copyRight() }}</p>
-      <p class="my-1 cursor-pointer hover:text-red-500 w-auto">Version 1.0.0</p>
+
+    <div class="w-full" v-if="$props.textMenu">
+      <footer-view />
+      <!-- copyright section start  -->
+      <div class="hidden md:flex w-full h-[48px] items-center justify-around bg-slate-800 text-white relative">
+        <p class="font-300 text-center">{{ copyRight() }}</p>
+        <p class="my-1 cursor-pointer hover:text-red-500 w-auto">Version 1.0.0</p>
+      </div>
+      <!-- copyright section end  -->
     </div>
-    <!-- copyright section end  -->
+
     <bottom-drawer :isDrawer="drawer" v-on:changeDrawer="toggleDrawer" />
     <search-drawer :isDrawer="search" v-on:changeDrawer="toggleSearch" />
     <!-- back to top button start  -->
-    <span class="fixed right-[10px] md:right-[30px] bottom-[58px] md:bottom-[19px] !z-[5] text-red-500 cursor-pointer"
+
+    <span class="fixed right-[10px] md:right-[30px] bottom-[58px] md:bottom-[19px] !z-[5] text-[var(--dark-primary-500)] cursor-pointer"
       v-if="backToTop">
       <Icon icon="cil:arrow-circle-top" @click="backToUP" class="w-[35px] h-[35px]" />
     </span>
@@ -56,6 +62,12 @@ import FooterView from '../footers/FooterView.vue';
 export default {
   name: 'BottomMenu',
   components: { Icon, BottomDrawer, SearchDrawer, FooterView },
+  props: {
+    textMenu: {
+      Boolean,
+      default: true
+    }
+  },
   data() {
     return {
       drawer: false,

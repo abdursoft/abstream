@@ -1,8 +1,7 @@
 <template>
-  <div class="w-full px-2 md:px-4">
+  <div>
     <!-- content card section start  -->
-    <swiper class="w-full mt-4 relative py-20 px-2" v-if="!isLoader" :slidesPerView="1"
-      :class="setHeight"
+    <swiper class="w-full mt-4 relative overflow-x-hidden py-20 h-[100px] md:h-[120px] lg:h-[180px] xl:h-[200px]" v-if="!isLoader" :slidesPerView="1"
       :spaceBetween="10" :navigation="true" :breakpoints="breakpoints" :modules="modules">
       <swiper-slide
         class="relative overflow-hidden cursor-pointer rounded-md overflow-hidden transition-transform duration-300 ease-in-out transform hover:scale-110"
@@ -12,9 +11,8 @@
             @click="openVideo(item?.id, item?.slug_title ?? item.title, item?.type)">
             <img :src="item.avatar ?? (item.logo ?? item?.cover)" :alt="item.title"
               class="w-full h-full absolute hover:scale-110 ease-in duration-300 rounded-md p-0 m-0 radial-background" />
-            <div class="absolute inset-0 radial-background z-2 flex items-center w-full h-[57px] justify-between rounded-md" :title="item?.title">
-              <Tag :value="item.premium == '1' ? $t('premium') : $t('free')"
-               :class="item.premium == '1' ? '!bg-[var(--dark-primary-700)] !opacity-1 z-[2]' : '!bg-green-700 !opacity-1 z-[3]'"
+            <div class="absolute inset-0 bg-black/30 z-10 flex items-center w-full h-full justify-between rounded-md" :title="item?.title">
+              <Tag :value="item.premium == '1' ? $t('premium') : $t('free')" :severity="getSeverity(item.premium)"
                 class="absolute" style="left:5px; top: 5px" />
               <div class="absolute top-[5px] right-[5px] text-orange-600 flex items-center gap-1">
                 <Icon icon="fluent-color:star-48" v-if="item.rating" width="18" height="18" /> {{ item.rating }}
@@ -59,13 +57,6 @@ export default {
     playType: {
       String,
       default: 'content'
-    },
-    setHeight:{
-      String,
-    },
-    visibleNumber:{
-      Number,
-      default:1
     }
   },
   data() {

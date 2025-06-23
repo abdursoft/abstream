@@ -1,6 +1,6 @@
 <template>
   <div class="py-2">
-    <h1 class="text-xl md:text-2xl px-5 mb-2 mt-3 font-bold font-700" v-if="!isLoader">Explore by genre</h1>
+    <h1 class="text-xl md:text-2xl px-5 mb-2 mt-3 font-bold font-700" v-if="categories.length > 0">{{ $t('explore_by_genre') }}</h1>
     <skeleton-genre :items="1"></skeleton-genre>
     <skeleton-genre></skeleton-genre>
     <div class="w-full overflow-hidden px-5">

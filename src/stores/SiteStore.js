@@ -8,7 +8,7 @@ export const siteStore = defineStore('siteStore', {
       isLoader: false,
       formLoader: false,
       bonus: null,
-      lang: 'BN',
+      lang: 'EN',
       siteData: null,
       activeHeader: false,
       myTheme: true,
@@ -19,7 +19,8 @@ export const siteStore = defineStore('siteStore', {
       player: null,
       pages: [],
       page: null,
-      playerData:null
+      playerData:null,
+      toastArea:'bottom-right'
     }
   },
   actions: {
@@ -55,6 +56,14 @@ export const siteStore = defineStore('siteStore', {
     },
     setBackToTop(key) {
       this.backToTop = key
+    },
+    async toastPosition(){
+      let wid = parseInt(document.documentElement.offsetWidth);
+      if(wid < 667){
+        this.toastArea = 'bottom-center';
+      }else{
+        this.toastArea = 'bottom-right';
+      }
     },
     async getSiteInfo() {
       this.isLoader = true

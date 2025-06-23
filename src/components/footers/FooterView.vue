@@ -7,11 +7,11 @@
           <img :src="siteData?.secondary_logo" :alt="siteData?.site_name" class="w-[100px] h-[60px]">
         </div>
         <div class="flex items-center justify-end gap-4">
-          <Icon icon="circum:facebook" @click="openSocial('facebook_url')" class="hover:text-red-500 cursor-pointer text-white" width="34" v-if="siteData?.facebook_url" height="34" />
-          <Icon icon="et:linkedin" @click="openSocial('linkedin_url')" class="hover:text-red-500 cursor-pointer text-white" width="28" height="28" v-if="siteData?.linkedin_url" />
-          <Icon icon="hugeicons:new-twitter-ellipse" @click="openSocial('x_url')" class="hover:text-red-500 cursor-pointer text-white" width="30" height="30" v-if="siteData?.x_url" />
-           <Icon icon="iconoir:instagram" @click="openSocial('instagram_url')" class="hover:text-red-500 cursor-pointer text-white" width="32" height="32" v-if="siteData?.instagram_url" />
-           <Icon icon="hugeicons:tiktok" @click="openSocial('tiktok_url')" class="hover:text-red-500 cursor-pointer text-white" width="30" height="30" v-if="siteData?.tiktok_url" />
+          <Icon icon="circum:facebook" @click="openSocial('facebook_url')" class="hover:text-[var(--dark-primary-500)] cursor-pointer text-white" width="34" v-if="siteData?.facebook_url" height="34" />
+          <Icon icon="et:linkedin" @click="openSocial('linkedin_url')" class="hover:text-[var(--dark-primary-500)] cursor-pointer text-white" width="28" height="28" v-if="siteData?.linkedin_url" />
+          <Icon icon="hugeicons:new-twitter-ellipse" @click="openSocial('x_url')" class="hover:text-[var(--dark-primary-500)] cursor-pointer text-white" width="30" height="30" v-if="siteData?.x_url" />
+           <Icon icon="iconoir:instagram" @click="openSocial('instagram_url')" class="hover:text-[var(--dark-primary-500)] cursor-pointer text-white" width="32" height="32" v-if="siteData?.instagram_url" />
+           <Icon icon="hugeicons:tiktok" @click="openSocial('tiktok_url')" class="hover:text-[var(--dark-primary-500)] cursor-pointer text-white" width="30" height="30" v-if="siteData?.tiktok_url" />
         </div>
       </div>
       <Divider class="opacity-[0.7]" />
@@ -27,10 +27,10 @@
           <h1 class="text-xl font-700 mb-4">{{ $t('shortLinks') }}</h1>
           <div class="flex flex-col">
             <template v-for="(item, index) in pages" :key="index">
-              <p @click="openPage(item?.id)" class="my-1 cursor-pointer hover:text-red-500 w-auto">{{ item?.title
+              <p @click="openPage(item?.id)" class="my-1 cursor-pointer hover:text-[var(--dark-primary-500)] w-auto">{{ item?.title
               }}</p>
             </template>
-            <router-link :to="{name:'contactUs'}" class="my-1 cursor-pointer hover:text-red-500 w-auto">{{ $t('contactUs') }}</router-link>
+            <router-link :to="{name:'contactUs'}" class="my-1 cursor-pointer hover:text-[var(--dark-primary-500)] w-auto">{{ $t('contactUs') }}</router-link>
           </div>
         </div>
         <!-- footer quick section end  -->
@@ -40,7 +40,7 @@
           <h1 class="text-xl font-700 mb-4">{{ $t('category') }}</h1>
           <div class="w-full flex flex-col">
             <template v-for="(item, index) in genres.data" :key="index">
-              <p @click="openRoute('contents',item?.slug)" class="my-1 cursor-pointer hover:text-red-500 w-auto">{{ item?.name
+              <p @click="openRoute('contents',item?.slug)" class="my-1 cursor-pointer hover:text-[var(--dark-primary-500)] w-auto">{{ item?.name
               }}</p>
             </template>
           </div>

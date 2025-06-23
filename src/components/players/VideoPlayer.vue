@@ -2,7 +2,7 @@
   <div class="w-full h-auto mb-2 md:pb-[80px]">
     <div class="h-[320px] md:h-[580px] bg-slate-800 flex items-center justify-center flex-col gap-4"
       v-if="$props.content?.premium == '1' && subscription == '0'">
-      <h2 class="text-2xl text-white">{{ $t('subscriptionToWatch') }}</h2>
+      <h2 class="text-2xl text-white text-center">{{ $t('subscriptionToWatch') }}</h2>
       <Button severity="danger" :label="$t('menu.subscribe')" as="router-link" :to="{ name: 'subscribe' }" />
     </div>
     <div id="player" v-else class="w-full" :class="content?.content_url ? 'h-[320px] md:h-[660px] bg-slate-800' : ''">
@@ -72,7 +72,7 @@ export default {
     async playVideo(){
       const content = await this.playContent(this.$props.content?.id, this.$props.types);
         if (this.player && this.isPlayer && content) {
-          this.isPlayer.new(content);
+          this.isPlayer.new(content,this.$props.content?.title);
         }else if (content && (!this.player || !this.isPlayer)) {
           this.isPlayer = Player({
             id: 'player',
@@ -93,7 +93,7 @@ export default {
             subtitle: null,
             analytics: {
               tag: this.playerData.tag ?? 'G-FKJ9WK8CE5',
-              appName: this.playerData.app_name ?? 'Live-radio'
+              appName: this.playerData.app_name ?? 'abs-video-player'
             },
             logo: {
               url: this.playerData.logo ?? "https://abdursoft.com/assets/images/logo/abdursoft-f.svg",
@@ -193,11 +193,16 @@ export default {
             controls: {
               left: ['playPauseControl', 'speedPlacement', 'forwardControl', 'durationArea'],
               right: ['castControl', 'volumeControl', 'settingsControl', 'screenControl'],
-              background: "rgba(0,0,0,0.3)"
+              background: "linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent)"
             },
             contextMenu: this.playerData.context_menu ?? true,
             lang: this.playerData.language ?? this.lang,
-            tooltip: this.playerData.tooltip ?? true
+            tooltip: this.playerData.tooltip ?? true,
+            title: this.$props.content?.title,
+            topControls:{
+                back:true,
+                title:true
+            }
           });
           this.setPlayer(this.isPlayer);
         }

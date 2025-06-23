@@ -1,13 +1,11 @@
 <template>
-  <div class="w-full px-2 md:px-4">
     <!-- content card section start  -->
-    <swiper class="w-full mt-4 relative py-20 px-2" v-if="!isLoader" :slidesPerView="1"
-      :class="setHeight"
-      :spaceBetween="10" :navigation="true" :breakpoints="breakpoints" :modules="modules">
-      <swiper-slide
-        class="relative overflow-hidden cursor-pointer rounded-md overflow-hidden transition-transform duration-300 ease-in-out transform hover:scale-110"
+    <div class="w-full h-auto flex items-center justify-start flex-wrap mt-4 relative mb-[100px] md:mb-0" v-if="!isLoader"
+      :class="setHeight">
+      <div
+        class="relative overflow-hidden cursor-pointer rounded-md overflow-hidden transition-transform duration-300 ease-in-out transform hover:scale-110 my-2"
         :class="styleClass" v-for="(item, index) in contents" :key="index">
-        <div class="w-full h-full rounded-md flex items-center justify-center">
+        <div class="w-full h-full rounded-md flex items-center justify-center px-2">
           <div class="w-full h-full rounded-md relative overflow-hidden"
             @click="openVideo(item?.id, item?.slug_title ?? item.title, item?.type)">
             <img :src="item.avatar ?? (item.logo ?? item?.cover)" :alt="item.title"
@@ -22,10 +20,9 @@
             </div>
           </div>
         </div>
-      </swiper-slide>
-    </swiper>
+      </div>
+    </div>
     <!-- content card section end  -->
-  </div>
 </template>
 
 <script>
@@ -35,16 +32,9 @@ import { siteStore } from '@/stores/SiteStore';
 import { mapActions, mapState } from 'pinia';
 import { Icon } from '@iconify/vue';
 
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-
 export default {
-  components: { Icon, Swiper, SwiperSlide },
-  name: "ContentCard",
+  components: { Icon },
+  name: "ContentAll",
   props: {
     contents: {
       Object,
@@ -62,33 +52,6 @@ export default {
     },
     setHeight:{
       String,
-    },
-    visibleNumber:{
-      Number,
-      default:1
-    }
-  },
-  data() {
-    return {
-      modules: [Autoplay, Pagination, Navigation],
-      breakpoints: {
-        '@0.00': {
-          slidesPerView: 2,
-          spaceBetween: 8,
-        },
-        '@0.75': {
-          slidesPerView: 3,
-          spaceBetween: 8,
-        },
-        '@1.00': {
-          slidesPerView: 4,
-          spaceBetween: 10,
-        },
-        '@1.50': {
-          slidesPerView: 5,
-          spaceBetween: 10,
-        },
-      }
     }
   },
   methods: {

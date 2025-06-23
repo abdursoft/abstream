@@ -2,7 +2,6 @@
   <!-- web home page start  -->
   <div>
     <hero-slider />
-
     <div class="w-full pb-[50px] min-h-[350px] pt-[20]">
       <explore-genre />
       <div class="w-full mt-5 h-full">

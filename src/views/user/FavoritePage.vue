@@ -16,7 +16,7 @@
             <Column  :header="$t('table.actions')">
               <template #body="slotProps">
                 <div class="flex items-center justify-center gap-3">
-                  <Icon icon="iconamoon:eye-thin" width="24" height="24" class="cursor-pointer hover:text-green-400" @click="openVideo(slotProps.data.content.id,slotProps.data.content.slug_title)" />
+                  <Icon icon="iconamoon:eye-thin" width="24" height="24" class="cursor-pointer hover:text-green-400" @click="openVideo(slotProps.data.content.id,slotProps.data.content.slug_title,slotProps.data.type)" />
                   <Icon icon="weui:delete-on-outlined" width="24" height="24" class="cursor-pointer hover:text-red-400" @click="removeFavorite(slotProps.data.content.id)" />
                 </div>
               </template>
@@ -40,12 +40,8 @@ export default{
   methods:{
     ...mapActions(contentStore,  {getContent: 'getContent', viewIncrement: 'contentViews', getRelatedContents: 'getRelatedContents'}),
     ...mapActions(favoriteStore,{getFavorite:'getFavorites',removeFavorite: 'removeFavorite'}),
-    openVideo(id,slug){
-      this.viewIncrement(id);
-      this.getContent(id);
-      this.getFavorite(id);
-      this.getRelatedContents(id);
-      router.push({name: 'watch', params: {id: id, title: slug}});
+    openVideo(id,slug,type){
+      router.push({name: 'watch', params: {id: id, title: slug, type:type}});
     }
   },
   computed:{

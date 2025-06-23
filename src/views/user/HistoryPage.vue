@@ -2,10 +2,10 @@
   <!-- user history section start  -->
   <section class="w-full px-2">
     <h3 class="text-2xl">{{ $t('pageTitle.history') }}</h3>
-    <SkeletonCard :itemLength="7" />
+    <SkeletonCard :itemLength="5" />
     <div class="w-full min-h-[440px] flex items-start justify-start flex-wrap mt-4" v-if="!isLoader">
       <div class="w-2/4 md:w-1/4 !h-[240px] px-2 my-2" v-for="(item) in posts" :key="item?.content.id" >
-        <router-link class="w-full h-full" :to="{name:'watch',params:{id:item?.content.id, title:item?.content.slug_title,type:item?.content.type}}">
+        <router-link class="w-full h-full" :to="{name:'watch',params:{id:item?.content.id, title:item?.content.slug_title,type:item?.content.type == 'single' ? 'content' : item.content.type}}">
           <div class="shadow-lg rounded-md w-full h-full relative overflow-hidden">
             <img :src="item?.content.cover ?? item?.content.avatar" :alt="item?.content.title" class="h-full w-full">
           </div>

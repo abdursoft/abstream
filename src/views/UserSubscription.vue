@@ -9,20 +9,27 @@
             <div class="flex flex-col md:flex-row w-full flex-wrap" v-if="!isLoader">
               <!-- single plan start -->
               <div class="md:w-1/2 lg:w-1/4 p-2" v-for="(plan, index) in plans" :key="index">
-                <div class="rounded-2xl shadow-lg p-6 text-center w-full relative" :class="{ 'bg-slate-900': myTheme }">
-                  <span
-                    class="absolute top-[10px] left-[10px] p-1 rounded-md shadow-lg text-sm bg-indigo-500 text-white font-300">{{
-                      plan.type }}</span>
-                  <h3 class="text-lg font-700 mt-[30px]">{{ plan.title }}</h3>
-                  <p class="text-3xl font-bold text-orange-500">${{ plan.price }} <small class="text-sm">{{
-                    plan.currency
-                      }}</small></p>
+                <div class="rounded-2xl shadow-lg p-6 text-center w-full relative hover:scale-110 duration-300 transform " :class="{ 'bg-slate-900': myTheme }">
+                  <div class="flex items-center justify-between w-full">
+                    <span
+                      class="p-2 rounded-[13px] shadow-lg text-sm" :class="myTheme ? 'bg-slate-800' : 'bg-slate-200'">{{
+                        plan.type }}</span>
+                    <span
+                      class="p-2 rounded-[30px] shadow-lg text-sm" :class="myTheme ? 'bg-slate-800' : 'bg-slate-200'">
+                      {{
+                        plan.allowed_device ?? 1 }} device</span>
+                  </div>
+                  <div class="w-full flex items-center justify-center gap-3 mt-[50px] mb-10">
+                    <h1 class="text-xl md:text-3xl font-700">{{ plan.title }}</h1>
+                    <p class="text-base md:text-2xl font-bold text-orange-500">{{ plan.currency?.symbol }}{{ plan.price }} {{ plan.currency?.code }}</p>
+                  </div>
                   <div class="flex px-3 items-center justify-start gap-2 my-2" v-for="(item, index) in plan.attributes"
                     :key="index">
-                    <span>{{ item.name.symbol }}</span>
+                    <p class="font-300" :class="item.name.code == '1' ? 'text-green-500' : 'text-red-500'"
+                      v-html="item.name.symbol"></p>
                     <p class="font-300">{{ item.value }}</p>
                   </div>
-                  <button v-if="isAuth" class="mt-4 bg-orange-500 text-white py-2 px-4 rounded-lg"
+                  <button v-if="isAuth" class="mt-4 bg-orange-500 text-white py-2 px-4 rounded-lg duration-300 hover:bg-[var(--dark-primary-600)]"
                     @click="openPaymentTab(plan.id)">{{ $t('menu.subscribe') }}</button>
                   <Button as="router-link" class="mt-4 bg-teal-500 text-white py-2 px-4 rounded-lg !text-white" v-else
                     :to="{ name: 'signin' }">{{ $t('button.signIn') }}</Button>
@@ -89,15 +96,15 @@ export default {
       const res = await this.subscribe(this.paymentPlan);
       // console.log(res);return;
       if (res.status === 200) {
-        if(res.data.type){
+        if (res.data.type) {
           const formHtml = res.data.url;
           const container = document.createElement('div');
           container.innerHTML = formHtml;
           document.body.appendChild(container);
           const form = document.getElementById('checkout_form');
           if (form) form.submit();
-        }else{
-          if(res.data.url){
+        } else {
+          if (res.data.url) {
             window.location.href = res.data.url;
           }
         }

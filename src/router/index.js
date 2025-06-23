@@ -73,6 +73,12 @@ const routes = [
         name: 'contactUs',
         meta: {title: "Contact US"},
         component: () => import('../views/pages/ContactUs.vue'),
+      },
+      {
+        path: '/payment',
+        name: 'payment',
+        meta: {title: "Payment Status"},
+        component: () => import('../views/PaymentStatus.vue'),
       }
     ],
   },

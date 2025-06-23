@@ -9,6 +9,7 @@ onMounted( async () => {
   await siteData.getPlayer();
   const siteInfo = await siteData.getSiteInfo();
   if(typeof siteInfo == 'object'){
+    siteData.setLang(siteInfo.default_language);
     useHead({
       link: [
         {

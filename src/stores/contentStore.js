@@ -176,6 +176,32 @@ export const contentStore = defineStore('contentStore', {
       }else{
         return 'min-h-[220px] md:min-h-[480px] w-full';
       }
+    },
+      getHeight(type){
+      if(type === 'regular'){
+        return 'h-[200px] md:h-[250px] lg:h-[320px] xl:h-[360px]';
+      }
+      else if(type === 'large'){
+        return 'h-[220px] md:h-[290px] lg:h-[350px] xl:h-[390px]';
+      }
+      else if(type === 'portrait'){
+        return 'h-[100px] md:h-[120px] lg:h-[180px] xl:h-[200px]';
+      }else{
+        return 'min-h-[220px] md:min-h-[480px]';
+      }
+    },
+    getVisibleItem(type){
+      if(type === 'regular'){
+        return 7;
+      }
+      else if(type === 'large'){
+        return 5;
+      }
+      else if(type === 'portrait'){
+        return 4;
+      }else{
+        return 2;
+      }
     }
-  },
+  }
 })

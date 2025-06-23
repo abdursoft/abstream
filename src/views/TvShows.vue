@@ -9,7 +9,7 @@
         <SkeletonCard :itemLength="6" />
       </div>
       <render-content types="tv-show"></render-content>
-      <div class="flex items-center justify-center text-center h-full w-full" v-if="!isLoader">
+      <div class="flex items-center justify-center text-center h-full w-full" v-if="!isLoader && genres?.length == 0">
         <h1 class="text-xl md:text-3xl text-slate-400 font-bold" >{{ $t('noContent') }}</h1>
       </div>
     </section>
@@ -25,6 +25,7 @@ import { mapActions, mapState } from 'pinia';
 import HeroSlider from '@/components/slider/HeroSlider.vue';
 import SkeletonTitle from '@/components/skeleton/SkeletonTitle.vue';
 import SkeletonCard from '@/components/skeleton/SkeletonCard.vue';
+import { categoryStore } from '@/stores/categoryStore';
 export default {
   components: { RenderContent, HeroSlider, SkeletonCard, SkeletonTitle },
   name: "HoveView",
@@ -32,7 +33,8 @@ export default {
     ...mapActions(siteStore, { setHeader: 'setActiveHeader' }),
   },
   computed:{
-    ...mapState(siteStore,['isLoader'])
+    ...mapState(siteStore,['isLoader']),
+    ...mapState(categoryStore,['genres'])
   }
 }
 </script>

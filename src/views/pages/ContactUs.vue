@@ -6,7 +6,7 @@
       <!-- contact form start  -->
       <div class="w-full flex-col">
         <div class="w-full flex flex-col items-start justify-start p-3">
-          <h1 class="text-3xl font-700 mb-5">{{ $t('page.contact.title') }}</h1>
+          <h1 class="text-xl md:text-3xl font-700 mb-5">{{ $t('page.contact.title') }}</h1>
           <div class="w-full md:w-4/5 shadow-lg rounded-md p-4" :class="{ 'bg-slate-700': myTheme }">
             <div class="mt-3">
               <div class="flex items-center flex-col gap-3">

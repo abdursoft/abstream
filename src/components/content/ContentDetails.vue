@@ -10,7 +10,9 @@
       <TabPanels>
         <TabPanel value="0">
           <!-- details section start  -->
-          <div class="m-0" v-html="content?.description"></div>
+          <div class="m-0 w-full">
+            <div class="text-justify text-wrap overflow-x-hidden" v-html="content?.description"></div>
+          </div>
           <!-- details section end  -->
         </TabPanel>
         <TabPanel value="1">

@@ -4,7 +4,7 @@
   <div class="px-3 py-2 md:py-0 w-screen min-h-screen flex justify-center items-center">
     <div
       class="w-full md:w-2/5 flex flex-col-reverse md:flex-row items-center justify-between rounded-[11px] p-4 shadow-2xl"
-      :class="{ 'bg-slate-900': myTheme }">
+      :class="{ 'bg-slate-900 text-white': myTheme }">
       <div class="w-full px-3 md:px-7 py-20 relative" v-if="!verifyToken && !passwordToken">
         <div class="card">
           <div class="text-3xl mb-2 font-fold"></div>
@@ -55,9 +55,6 @@ export default {
   computed: {
     ...mapState(siteStore, ['myTheme']),
     ...mapState(authStore, ['passwordToken', 'verifyToken'])
-  },
-  created() {
-
   }
 }
 </script>

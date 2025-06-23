@@ -9,7 +9,10 @@
         <SkeletonCard :itemLength="6" />
       </div>
       <div v-if="genre?.live_tv">
-        <content-card contentType="regular" :styleClass="getStyle('regular')" playType="tv"
+        <content-all contentType="regular"
+        :styleClass="getStyle('regular')"
+          v-if="genre?.size_type != 'promo'"
+          :setHeight="setHeight(genre?.size_type)"
           :contents="genre?.live_tv" />
         <div class="flex items-center justify-center text-center" v-if="genre?.live_tv.length <= 0">
           <h1 class="text-xl md:text-3xl text-slate-400 font-bold" v-if="!isLoader">{{ $t('noContent') }}</h1>
@@ -17,7 +20,9 @@
       </div>
 
       <div v-if="genre?.content">
-        <content-card contentType="regular" :styleClass="getStyle('regular')" playType="content"
+          <content-all :styleClass="getStyle('regular')"
+          v-if="genre?.size_type != 'promo'"
+          :setHeight="setHeight(genre?.size_type)"
           :contents="genre?.content" />
         <div class="flex items-center justify-center text-center" v-if="genre?.content.length <= 0">
           <h1 class="text-xl md:text-3xl text-slate-400 font-bold" v-if="!isLoader">{{ $t('noContent') }}</h1>
@@ -37,12 +42,13 @@ import { contentStore } from '@/stores/contentStore';
 import SkeletonCard from '@/components/skeleton/SkeletonCard.vue';
 import SkeletonTitle from '@/components/skeleton/SkeletonTitle.vue';
 import { siteStore } from '@/stores/SiteStore';
+import ContentAll from '@/components/content/ContentAll.vue';
 
 
 
 export default {
   name: "ContentPage",
-  components: { GenreCard, ContentCard, SkeletonCard, SkeletonTitle },
+  components: { GenreCard, ContentCard, SkeletonCard, SkeletonTitle, ContentAll },
   data() {
     return {
       key: null,
@@ -51,7 +57,7 @@ export default {
   },
   methods: {
     ...mapActions(categoryStore, { getGenre: 'genreByContents' }),
-    ...mapActions(contentStore, { getStyle: 'getStyle' }),
+    ...mapActions(contentStore, { getStyle: 'getStyle', setHeight:'getHeight' }),
     async genreList() {
       await this.getGenre(this.$route.params.content, this.$route.params.type);
     }

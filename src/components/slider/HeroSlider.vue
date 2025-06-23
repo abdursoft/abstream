@@ -22,6 +22,7 @@
   .swiper-button-next {
     display: none !important;
   }
+  margin: 0 auto;
 
   &:hover {
 

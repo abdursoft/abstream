@@ -1,26 +1,30 @@
 <template>
-  <div>
+  <div class="w-full overflow-x-hidden">
     <!-- video content by genre start  -->
     <div v-for="(genre, index) in posts" :key="index"
       class="my-4 group">
-      <div class="flex items-center justify-between md:justify-start gap-4 mx-5" v-if="!isLoader">
+      <div class="flex items-center justify-between md:justify-start gap-4 mx-5 overflow-hidden mb-1" v-if="!isLoader">
         <h1 class="text-xl md:text-2xl font-bold font-700">{{ genre.name }}</h1>
-        <router-link class="flex items-center justify-start gap-3 group-hover:text-red-600"
+        <router-link class="flex items-center justify-start gap-3 group-hover:text-[--dark-primary-500]"
           :to="{ name: 'contents', params: { content: genre.slug, type: types } }">
           <p
-            class="md:hidden ease-in duration-300 group-hover:w-auto group-hover:inline-block animate-duration-1000 font-300 text-sm md:text-base">
+            class="md:hidden ml-0 group-hover:w-auto group-hover:ml-[20px] group-hover:inline-block transition-transform duration-300 ease-in-out font-300 text-sm md:text-base">
             {{ $t('button.seeAll') }}</p>
           <Icon icon="oui:arrow-right" width="16" height="16" />
         </router-link>
       </div>
       <template v-if="genre?.content">
-        <content-card :styleClass="getStyle(genre.size_type)" :contentType="genre.size_type"
+        <content-card :styleClass="getStyle(genre.size_type)"
+          v-if="genre.size_type != 'promo'"
+          :setHeight="setHeight(genre.size_type)"
+          :visibleNumber="getNumber(genre.size_type)"
           :contents="genre.content" />
+          <promo-content v-else :contents="genre.content" :styleClass="getStyle(genre.size_type)" />
       </template>
     </div>
 
     <div ref="loadMore" v-if="hasMore" class="loading w-full p-5 flex items-center justify-center">
-      <content-loader />
+      <small-loader />
     </div>
     <!-- video content by genre end  -->
   </div>
@@ -34,10 +38,11 @@ import ContentCard from '../content/ContentCard.vue';
 import { contentStore } from '@/stores/contentStore';
 import { siteStore } from '@/stores/SiteStore';
 import SkeletonTitle from '../skeleton/SkeletonTitle.vue';
-import ContentLoader from '../loaders/ContentLoader.vue';
+import PromoContent from '../content/PromoContent.vue';
+import SmallLoader from '../loaders/SmallLoader.vue';
 
 export default {
-  components: { Icon, ContentCard, SkeletonTitle, ContentLoader },
+  components: { Icon, ContentCard, SkeletonTitle, PromoContent, SmallLoader },
   name: 'RenderContent',
   props:{
     types:{
@@ -57,7 +62,7 @@ export default {
   },
   methods: {
     ...mapActions(categoryStore, { getGenreContents: 'genreContents' }),
-    ...mapActions(contentStore, { getStyle: 'getStyle' }),
+    ...mapActions(contentStore, { getStyle: 'getStyle', setHeight:'getHeight', getNumber:'getVisibleItem' }),
     async loadPosts() {
       if (!this.hasMore || this.isLoading) return;
       this.isLoading = true;

@@ -16,6 +16,7 @@ import { contentStore } from '@/stores/contentStore';
 import { authStore } from '@/stores/authStore';
 import { siteStore } from '@/stores/SiteStore';
 import BottomMenu from '../menus/BottomMenu.vue';
+
 export default{
   components: { MainMenu, BottomMenu },
   name: "MainLayout",

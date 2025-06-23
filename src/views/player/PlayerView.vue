@@ -15,8 +15,9 @@
       <Divider />
       <episode-card v-if="contentType == 'episode'" :contents="recommendedItems" :styleClass="getStyle('regular')"
         contentType="regular" />
-      <ContentCard v-if="contentType == 'content'" :contents="recommendedItems" :styleClass="getStyle('regular')"
-        contentType="regular" :playType="contentType" />
+      <ContentAll v-if="contentType == 'content'" :contents="recommendedItems" :styleClass="getStyle('regular')"
+          :setHeight="getHeight('regular')"
+        />
     </div>
   </div>
   <!-- single video player page end -->
@@ -30,16 +31,16 @@ import { mapActions, mapState } from 'pinia';
 import RelatedContent from '@/components/partials/RelatedContent.vue';
 import { commentStore } from '@/stores/commentStore';
 import { favoriteStore } from '@/stores/favoriteStore';
-import ContentCard from '@/components/content/ContentCard.vue';
 import EpisodeCard from '@/components/content/EpisodeCard.vue';
 import { authStore } from '@/stores/authStore';
 import { useHead } from '@vueuse/head';
 import { computed } from 'vue';
 import { watch } from 'vue';
+import ContentAll from '@/components/content/ContentAll.vue';
 
 export default {
   name: 'PlayerView',
-  components: { VideoPlayer, RelatedContent, ContentCard, EpisodeCard },
+  components: { VideoPlayer, RelatedContent, ContentAll, EpisodeCard },
   data() {
     return {
       videoId: null,
@@ -48,7 +49,7 @@ export default {
   },
   methods: {
     ...mapActions(siteStore, { setHeader: 'setActiveHeader', setFooter: 'setFooter' }),
-    ...mapActions(contentStore, { getContent: 'getContent', getRelatedContents: 'getRelatedContents', getRatings: 'getRatings', recommendedContents: 'getRecommendedContents', getStyle: 'getStyle', contentCounter: 'contentViews' }),
+    ...mapActions(contentStore, { getContent: 'getContent', getRelatedContents: 'getRelatedContents', getRatings: 'getRatings', recommendedContents: 'getRecommendedContents', getStyle: 'getStyle', contentCounter: 'contentViews',getHeight:'getHeight' }),
     ...mapActions(commentStore, { getComment: 'getComments' }),
     ...mapActions(favoriteStore, { getFavorite: 'getFavorites' }),
     async getVideData() {

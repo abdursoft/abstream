@@ -1,12 +1,12 @@
 <template>
   <!-- video card section start  -->
-  <div class="flex items-start justify-start gap-2 cursor-pointer my-1 rounded shadow-md hover:bg-slate-800" @click="openVideo" :class="{'bg-slate-900':myTheme}">
+  <div class="flex items-start justify-start gap-2 cursor-pointer my-1 rounded shadow-md hover:bg-slate-800 hover:text-white" @click="openVideo" :class="{'bg-slate-900':myTheme}">
     <img :src="image" :alt="title" class="min-w-[160px] max-w-[160px] h-[85px] rounded-md">
     <div class="w-full">
       <h3 class="line-clamp-2 p-0 m-0 text-sm md:text-base ">{{ title }}</h3>
       <div class="flex items-center gap-3">
         <p v-if="$props.types == 'content'" class="text-sm font-weight-500">{{ views }} {{ $t('views') }}</p>
-        <p class="text-sm font-weight-500 rounded-sm shadow-sm bg-surface-200 p-1" :class="premium === '1' ? 'text-red-500' : 'text-green-300'">{{ premium === '1' ? $t('premium') : $t('free') }}</p>
+        <p class="text-sm font-weight-500 rounded-sm shadow-sm bg-surface-200 p-1" :class="premium == '1' ? 'text-[var(--dark-primary-600)]' : 'text-green-600'">{{ premium == '1' ? $t('premium') : $t('free') }}</p>
       </div>
     </div>
   </div>

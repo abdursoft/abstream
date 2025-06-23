@@ -25,9 +25,10 @@
           <Textarea id="u_bio" v-model="userForm.bio" :invalid="!userForm.bio" class="w-full" cols="30" />
           <label for="u_bio">{{ $t('bio') }}</label>
         </FloatLabel>
-        <Button :label="$t('button.saveChange')" severity="success" @click="setUserData" :loading="isLoader" />
+        <Button :label="$t('button.saveChange')" class="!bg-[var(--dark-primary-600)] !text-white" @click="setUserData" :loading="isLoader" />
       </div>
     </div>
+    <google-authenticator :checkEnable="user.google2fa_secret ? true : false" />
   </div>
   <Dialog v-model:visible="visible" modal header="Pay with Secure" :style="{ width: '50vw' }"
     :breakpoints="{ '1199px': '75vw', '575px': '90vw' }">
@@ -48,9 +49,11 @@
 import { authStore } from '@/stores/authStore';
 import { siteStore } from '@/stores/SiteStore';
 import { mapActions, mapState } from 'pinia';
+import GoogleAuthenticator from '@/components/security/GoogleAuthenticator.vue';
 
 export default {
   name: "SettingPage",
+  components:{GoogleAuthenticator},
   data() {
     return {
       visible: false,

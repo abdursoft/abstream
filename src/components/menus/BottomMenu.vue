@@ -1,7 +1,8 @@
 <template>
   <div>
     <div
-      class="w-full h-[58px] flex items-center justify-between md:hidden fixed bottom-0 bg-slate-800 text-white z-[11]">
+      :style="'background:'+siteData?.header_color+';'"
+      class="w-full h-[58px] flex items-center justify-between md:hidden fixed bottom-0 z-[11] text-white">
       <!-- bottom mobile menu start  -->
       <router-link class="flex items-center justify-center flex-col h-full px-3"
         :class="{ 'bg-slate-900': $route.name === 'home' }" :to="{ name: 'home' }">
@@ -31,8 +32,9 @@
     <div class="w-full" v-if="$props.textMenu">
       <footer-view />
       <!-- copyright section start  -->
-      <div class="hidden md:flex w-full h-[48px] items-center justify-around bg-slate-800 text-white relative">
-        <p class="font-300 text-center">{{ copyRight() }}</p>
+      <div class="hidden md:flex w-full h-[48px] items-center justify-around text-white relative"
+      :style="'background:'+siteData?.header_color+';'">
+        <p class="text-center">{{ copyRight() }}</p>
         <p class="my-1 cursor-pointer hover:text-red-500 w-auto">Version 1.0.0</p>
       </div>
       <!-- copyright section end  -->
@@ -91,7 +93,7 @@ export default {
     },
     copyRight() {
       const date = new Date();
-      return `${this.$t('copyright')}@${date.getFullYear()} ${document.location.hostname}`;
+      return `${this.$t('copyright')}@${date.getFullYear()} ${this.siteData?.site_name ?? document.location.hostname}`;
     }
   },
   computed: {

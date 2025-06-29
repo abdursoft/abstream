@@ -1,11 +1,17 @@
 <template>
   <!-- main menu start  -->
   <div class="flex items-center justify-between md:justify-start gap-2 md:gap-5 fixed z-[11] top-0 h-[58px] w-full p-3 md:p-5"
-    :class="(headerClass | activeHeader) ? 'bg-slate-800' : 'radial-background'">
-    <div class="flex items-center justify-between md:justify-start gap-2 md:gap-5 w-[40] md:w-2/4">
+    :style="(headerClass | activeHeader) ? 'background:'+siteData?.header_color+';' : ''"
+    :class="'radial-background' ?? (headerClass | activeHeader)">
+    <div class="flex items-center justify-between md:justify-start gap-2 md:gap-5 w-[40] md:w-3/4">
       <!-- Logo section start  -->
-      <img :src="siteData?.primary_logo" :alt="siteData?.site_title" class="hidden md:block w-[110px] h-[31px] cursor-pointer" @click="$router.push({name:'home'})">
-      <img :src="siteData?.mobile_logo" :alt="siteData?.site_title" class="w-[50px] h-[31px] md:hidden cursor-pointer" @click="$router.push({name:'home'})">
+       <div class="w-full max-w-[150px]" v-if="!siteData">
+        <skeleton-genre items="1"></skeleton-genre>
+       </div>
+      <div v-else>
+        <img :src="siteData?.primary_logo" :alt="siteData?.site_title" class="hidden md:block w-[110px] h-[31px] cursor-pointer" @click="$router.push({name:'home'})">
+        <img :src="siteData?.mobile_logo" :alt="siteData?.site_title" class="w-[50px] h-[31px] md:hidden cursor-pointer" @click="$router.push({name:'home'})">
+      </div>
       <!-- Logo section end  -->
 
       <!-- menu nav links start  -->
@@ -55,6 +61,7 @@ import { mapActions, mapState } from 'pinia';
 import ProfileMenu from './ProfileMenu.vue';
 import LanguageMenu from './LanguageMenu.vue';
 import SearchMenu from './searchMenu.vue';
+import { siteData } from '@/server/api/apiRoutes';
 
 export default {
   name: "MainMenu",
@@ -96,7 +103,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(siteStore, ['activeHeader', 'myTheme', 'siteData']),
+    ...mapState(siteStore, ['activeHeader', 'myTheme', 'siteData','isLoader']),
     ...mapState(authStore, ['isAuth'])
   },
   created() {

@@ -1,7 +1,7 @@
 <template>
   <!-- episode-list page start  -->
   <div>
-    <genre-card :name="content?.title" :image="content?.cover" />
+    <genre-card :name="content?.title" :image="content?.avatar" />
     <!-- live tv section start  -->
     <section class="mt-[250px] md:mt-[300px] lg:mt-[360px] py-[40px] w-full md:w-[auto] min-h-screen">
       <div class="w-full mt-5">
@@ -42,6 +42,8 @@ export default {
   methods: {
     ...mapActions(siteStore, { setHeader: 'setActiveHeader' }),
     ...mapActions(contentStore, { getEpisodes: 'contentEpisodes', getStyle: 'getStyle' }),
+
+    // get episode list by tv-show
     async episodeList() {
       let response = await this.getEpisodes(this.id);
       if (response.status === 200) {

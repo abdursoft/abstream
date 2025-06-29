@@ -40,7 +40,7 @@
           <h1 class="text-xl font-700 mb-4">{{ $t('category') }}</h1>
           <div class="w-full flex flex-col">
             <template v-for="(item, index) in genres.data" :key="index">
-              <p @click="openRoute('contents',item?.slug)" class="my-1 cursor-pointer hover:text-[var(--dark-primary-500)] w-auto">{{ item?.name
+              <p @click="openRoute('contents',item?.slug)" v-if="index < 4" class="my-1 cursor-pointer hover:text-[var(--dark-primary-500)] w-auto">{{ item?.name
               }}</p>
             </template>
           </div>

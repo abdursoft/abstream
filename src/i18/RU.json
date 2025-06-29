@@ -149,6 +149,9 @@
   "titleOrKeywords": "Заголовок или ключевые слова",
   "actors": "Актёры",
   "producers": "Продюсеры",
+  "director": "Режиссёр",
+  "hours": "Часы",
+  "minutes": "Минуты",
   "explore_by_genre": "Исследовать по жанру",
   "menu": {
     "home": "Главная",

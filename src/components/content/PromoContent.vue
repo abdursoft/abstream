@@ -2,24 +2,29 @@
   <div>
     <!-- content card section start  -->
     <div class="w-full flex items-start justify-start flex-wrap mt-4 p-2" v-if="!isLoader">
-      <div class="relative overflow-hidden cursor-pointer rounded-md my-1 overflow-hidden px-2 transition-transform duration-300 ease-in-out transform hover:scale-110" :class="styleClass"
+      <div
+        class="relative overflow-hidden rounded-md my-1 overflow-hidden px-2 w-full"
         v-for="(item, index) in contents" :key="index">
-        <div class="w-full h-full overflow-hidden relative rounded-md flex items-center justify-center">
-          <template>
-            <div class="w-full flex items-center justify-between flex-col md:flex-row">
-              <img :src="item.avatar ?? item.cover" :alt="item.title"
-                class="w-full min-h-[220px] md:w-1/2 h-full rounded-md p-0 m-0" />
-              <div class="w-full md:w-1/2 p-3">
+        <div class="w-full h-full md:h-[470px] overflow-hidden relative rounded-md flex items-center justify-center">
+          <div class="w-full h-full flex items-center justify-between flex-col md:flex-row">
+            <img :src="item.avatar ?? item.cover" :alt="item.title"
+              class="w-full min-h-[220px] md:w-1/2 h-full md:rounded-md p-0 m-0" />
+            <div class="w-full h-full md:w-1/2 p-3 md:pl-10 flex items-center justify-center"
+                  :style="genre?.size_type == 'promo' ? 'background-image:radial-gradient(circle at center,rgb(0 0 0 / .8),rgb(0 0 0 / .9)),url('+genre?.image+');background-size:cover;background-position:center;' : ''"
+                  >
+              <div class="w-full text-white">
                 <div class="mb-[25px]">
-                  <h1 class="text-xl md:text-3xl font-700 line-clamp-1">{{ item.title }}</h1>
-                  <p class="py-2">{{ $t('exploreContent') }}</p>
-                </div>
-                <div class="text-sm md:text-base line-clamp-4" v-html="item.description"></div>
-                <Button severity="success" :label="$t('button.watchNow')"
-                  @click="openVideo(item?.id, item?.slug_title ?? item.title, item?.type)" class="mt-3 !text-white" />
+                <h1 class="text-xl md:text-3xl font-700 line-clamp-1">{{ item.title }}</h1>
+                <p class="py-2">{{ $t('exploreContent') }}</p>
+              </div>
+              <div class="text-sm md:text-base line-clamp-4" v-html="item.description"></div>
+              <div class="w-full flex items-center gap-10 mt-5">
+                <Button :class="siteData?.site_color ? 'bg-'+siteData.site_color+'900' : 'bg-danger'" :label="$t('button.watchNow')"
+                @click="openVideo(item?.id, item?.slug_title ?? item.title, item?.type)" class="mt-3 !text-white" />
+              </div>
               </div>
             </div>
-          </template>
+          </div>
         </div>
       </div>
     </div>
@@ -48,6 +53,9 @@ export default {
     playType: {
       String,
       default: 'content'
+    },
+    genre:{
+      Object
     }
   },
   data() {
@@ -77,7 +85,7 @@ export default {
     },
   },
   computed: {
-    ...mapState(siteStore, ['isLoader', 'myTheme'])
+    ...mapState(siteStore, ['isLoader', 'myTheme','siteData'])
   }
 }
 </script>

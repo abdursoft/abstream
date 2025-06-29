@@ -12,21 +12,21 @@
               <div class="flex items-center flex-col gap-3">
                 <FloatLabel variant="on" class="w-full my-2">
                   <InputText id="on_label" v-model="emailForm.name" class="w-full" />
-                  <label for="on_label">{{ $t('form.fullName') }}</label>
+                  <label for="on_label">{{ $t('form.fullName') }}*</label>
                 </FloatLabel>
                 <FloatLabel variant="on" class="w-full my-2">
                   <InputText id="on_label" v-model="emailForm.email" class="w-full" />
-                  <label for="on_label">{{ $t('form.email') }}</label>
+                  <label for="on_label">{{ $t('form.email') }}*</label>
                 </FloatLabel>
                 <FloatLabel variant="on" class="w-full my-2">
                   <InputText id="on_label" v-model="emailForm.subject" class="w-full" />
-                  <label for="on_label">{{ $t('form.subject') }}</label>
+                  <label for="on_label">{{ $t('form.subject') }}*</label>
                 </FloatLabel>
               </div>
               <div class="flex items-center flex-col md:flex-row gap-3">
                 <FloatLabel variant="on" class="w-full my-2">
                   <Textarea id="on_label" v-model="emailForm.message" class="w-full" />
-                  <label for="on_label">{{ $t('form.message') }}</label>
+                  <label for="on_label">{{ $t('form.message') }}*</label>
                 </FloatLabel>
               </div>
               <div class="flex items-center justify-between">

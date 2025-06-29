@@ -149,6 +149,9 @@
   "titleOrKeywords": "शीर्षक या कीवर्ड",
   "actors": "अभिनेता",
   "producers": "निर्माता",
+  "director": "निर्देशक",
+  "hours": "घंटे",
+  "minutes": "मिनट",
   "explore_by_genre": "शैली के अनुसार खोजें",
   "menu": {
     "home": "होम",

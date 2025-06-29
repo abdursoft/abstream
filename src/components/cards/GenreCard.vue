@@ -28,6 +28,6 @@ export default{
   },
   computed:{
     ...mapState(categoryStore,['genre','site'])
-  }
+  },
 }
 </script>

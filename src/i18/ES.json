@@ -154,6 +154,9 @@
   "titleOrKeywords": "Título o palabras clave",
   "actors": "Actores",
   "producers": "Productores",
+  "director": "Director",
+  "hours": "Horas",
+  "minutes": "Minutos",
   "explore_by_genre": "Explorar por género",
   "menu": {
     "home": "Inicio",

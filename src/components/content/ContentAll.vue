@@ -1,15 +1,14 @@
 <template>
     <!-- content card section start  -->
-    <div class="w-full h-auto flex items-center justify-start flex-wrap mt-4 relative mb-[100px] md:mb-0" v-if="!isLoader"
-      :class="setHeight">
+    <div class="w-full h-auto flex items-center justify-start flex-wrap mt-4 relative mb-[100px] md:mb-0" v-if="!isLoader">
       <div
-        class="relative overflow-hidden cursor-pointer rounded-md overflow-hidden transition-transform duration-300 ease-in-out transform hover:scale-110 my-2"
+        class="relative overflow-hidden cursor-pointer rounded-md overflow-hidden my-2"
         :class="styleClass" v-for="(item, index) in contents" :key="index">
         <div class="w-full h-full rounded-md flex items-center justify-center px-2">
           <div class="w-full h-full rounded-md relative overflow-hidden"
             @click="openVideo(item?.id, item?.slug_title ?? item.title, item?.type)">
             <img :src="item.avatar ?? (item.logo ?? item?.cover)" :alt="item.title"
-              class="w-full h-full absolute hover:scale-110 ease-in duration-300 rounded-md p-0 m-0 radial-background" />
+              class="w-full h-full absolute transition-transform duration-300 ease-in-out transform hover:scale-110  rounded-md p-0 m-0 radial-background" />
             <div class="absolute inset-0 radial-background z-2 flex items-center w-full h-[57px] justify-between rounded-md" :title="item?.title">
               <Tag :value="item.premium == '1' ? $t('premium') : $t('free')"
                :class="item.premium == '1' ? '!bg-[var(--dark-primary-700)] !opacity-1 z-[2]' : '!bg-green-700 !opacity-1 z-[3]'"

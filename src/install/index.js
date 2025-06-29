@@ -1,3 +1,3 @@
 export default {
-  "host": "http://127.0.0.1:8000" //API webserver URL
+  "host": "https://app.rstream.top" //API webserver URL
 };

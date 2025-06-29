@@ -1,18 +1,21 @@
 <template>
   <div class="w-full h-auto mb-2 md:pb-[80px]">
-    <div class="h-[320px] md:h-[580px] bg-slate-800 flex items-center justify-center flex-col gap-4"
-      v-if="tvContent?.premium === '1' && subscription === '0'">
-      <h2 class="text-2xl text-white">{{ $t('subscriptionToWatch') }}</h2>
-      <Button severity="danger" :label="$t('menu.subscribe')" as="router-link" :to="{ name: 'subscribe' }" />
-    </div>
-    <!-- subscription required end  -->
-    <!-- tv player start  -->
-    <div id="player" v-else class="w-full md:max-h-[720px]" :class="liveURL ? 'bg-slate-800' : ''">
-    </div>
-    <!-- tv player end  -->
-    <div class="flex items-center justify-between my-2">
-      <div class="w-full md:w-3/4">
-        <h2 class="text-3xl font-bold line-clamp-1">{{ tvContent?.title }}</h2>
+    <div class="w-full flex flex-col md:flex-row mt-3">
+      <div class="h-[320px] md:h-[580px] bg-slate-800 flex items-center justify-center flex-col gap-4"
+        v-if="tvContent?.premium === '1' && subscription === '0'">
+        <h2 class="text-2xl text-white">{{ $t('subscriptionToWatch') }}</h2>
+        <Button severity="danger" :label="$t('menu.subscribe')" as="router-link" :to="{ name: 'subscribe' }" />
+      </div>
+      <!-- subscription required end  -->
+      <!-- tv player start  -->
+      <div id="player" v-else class="w-full md:max-h-[720px] md:w-4/6" :class="liveURL ? 'bg-slate-800' : ''">
+      </div>
+      <!-- tv player end  -->
+      <div class="w-full md:w-2/6 px-2">
+        <div class="w-full md:w-3/4">
+          <h2 class="text-3xl font-bold line-clamp-1 mb-3">{{ tvContent?.title }}</h2>
+          <div class="flex flex-col flex-wrap h-full htmlText" v-html="tvContent?.description"></div>
+        </div>
       </div>
     </div>
     <related-tv />
@@ -52,7 +55,7 @@ export default {
       } else if (this.tv?.premium == "1" && this.subscription == "1") {
         await this.watchTv();
       } else {
-        if(this.tv?.premium == "1" && this.subscription == "0"){
+        if (this.tv?.premium == "1" && this.subscription == "0") {
           this.isPlayer = false;
         }
       }
@@ -187,9 +190,9 @@ export default {
             right: ['castControl', 'settingsControl', 'screenControl'],
             background: "linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent)"
           },
-            contextMenu: this.playerData.context_menu ?? true,
-            lang: this.playerData.language ?? this.lang,
-            tooltip: this.playerData.tooltip ?? true
+          contextMenu: this.playerData.context_menu ?? true,
+          lang: this.playerData.language ?? this.lang,
+          tooltip: this.playerData.tooltip ?? true
         })
       }
       document.title = this.tv?.title;
@@ -197,7 +200,7 @@ export default {
   },
   computed: {
     ...mapState(authStore, ['user', 'subscription']),
-    ...mapState(siteStore,['lang','playerData'])
+    ...mapState(siteStore, ['lang', 'playerData'])
   },
   watch: {
     '$props.tvContent': {

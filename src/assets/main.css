@@ -1,22 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&family=Saira:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
 .font-300 {
-  font-family: 'Comfortaa', serif;
+  font-family: "Nunito", sans-serif;
   font-optical-sizing: auto;
   font-weight: 300;
   font-style: normal;
 }
 
 .font-500 {
-  font-family: 'Comfortaa', serif;
+  font-family: "Nunito", sans-serif;
   font-optical-sizing: auto;
   font-weight: 300;
   font-style: normal;
 }
 
 .font-700 {
-  font-family: 'Comfortaa', serif;
+  font-family: "Nunito", sans-serif;
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
@@ -26,7 +25,7 @@ body,
 #app {
   height: auto;
   font-size: 16px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-weight: 400;
   line-height: 19px;
   letter-spacing: 0.15px;
@@ -121,7 +120,7 @@ body,
   background-position: 0 0;
   background-size: contain;
   /* transition:5s ease forwards; */
-  animation: slideUp 50s linear infinite;
+  animation: slideUp 110s linear infinite;
 }
 
 @keyframes slideUp {
@@ -136,4 +135,12 @@ body,
 
 .radial-background {
   background: linear-gradient(to bottom, black, transparent);
+}
+
+.htmlText *{
+  width: 100%;
+  display: inline;
+  line-break: anywhere;
+  text-align:start;
+  margin: 5px 0px;
 }

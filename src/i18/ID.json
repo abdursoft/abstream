@@ -149,6 +149,9 @@
   "titleOrKeywords": "Judul atau kata kunci",
   "actors": "Aktor",
   "producers": "Produser",
+  "director": "Sutradara",
+  "hours": "Jam",
+  "minutes": "Menit",
   "explore_by_genre": "Jelajahi berdasarkan genre",
   "menu": {
     "home": "Beranda",

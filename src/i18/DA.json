@@ -154,6 +154,9 @@
   "titleOrKeywords": "Titel eller nøgleord",
   "actors": "Skuespillere",
   "producers": "Producenter",
+  "director": "Instruktør",
+  "hours": "Timer",
+  "minutes": "Minutter",
   "explore_by_genre": "Udforsk efter genre",
   "menu": {
     "home": "Hjem",

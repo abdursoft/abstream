@@ -10,8 +10,8 @@
       <TabPanels>
         <TabPanel value="0">
           <!-- details section start  -->
-          <div class="m-0 w-full">
-            <div class="text-justify text-wrap overflow-x-hidden" v-html="content?.description"></div>
+          <div class="m-0 w-full h-auto">
+            <div class="flex flex-col flex-wrap h-full htmlText" v-html="$props.types == 'content' ? content?.description : content?.content?.description"></div>
           </div>
           <!-- details section end  -->
         </TabPanel>
@@ -20,18 +20,18 @@
           <div class="m-0 w-full">
             <h3 class="text-xl mt-3">{{ $t('actors') }}:</h3>
             <div class="flex items-start justify-start flex-wrap gap-4 mt-3">
-              <div class="w-[80px] h-[80px] flex items-center flex-col gap-3 justify-center text-center cursor-pointer"
-                v-for="(item, index) in content?.content_actor" :key="index" @click="this.personInfo = item.actor">
-                <img :src="item?.actor.image" :alt="item?.actor.name" class="!w-[40px] !h-[40px] rounded-full">
+              <div class="w-[100px] h-[100px] flex items-center flex-col gap-3 justify-center text-center cursor-pointer"
+                v-for="(item, index) in ($props.types == 'content' ? content?.content_actor : content?.content?.content_actor)" :key="index" @click="this.personInfo = item.actor">
+                <img :src="item?.actor.image" :alt="item?.actor.name" class="!w-[80px] !h-[80px] rounded-full">
                 <span class="line-clamp-1 text-sm md:text-base">{{ item?.actor.name }}</span>
               </div>
             </div>
-            <h3 class="text-xl mt-14">{{ $t('producers') }}:</h3>
+            <h3 class="text-xl mt-14">{{ $t('director') }}:</h3>
             <div class="flex items-start justify-start flex-wrap gap-4 mt-3">
-              <div class="w-[80px] h-[80px] flex items-center flex-col gap-3 justify-center text-center cursor-pointer"
-                v-for="(item, index) in content?.content_director" :key="index"
+              <div class="w-[100px] h-[100px] flex items-center flex-col gap-3 justify-center text-center cursor-pointer"
+                v-for="(item, index) in ($props.types == 'content' ? content?.content_director : content?.content?.content_director)" :key="index"
                 @click="this.personInfo = item.director">
-                <img :src="item?.director.image" :alt="item?.director.name" class="!w-[40px] !h-[40px] rounded-full">
+                <img :src="item?.director.image" :alt="item?.director.name" class="!w-[80px] !h-[80px] rounded-full">
                 <span class="line-clamp-1 text-sm md:text-base">{{ item?.director.name }}</span>
               </div>
             </div>
@@ -75,14 +75,14 @@
       <div class="mt-3 round-md p-3 rounded-md" :class="site.myTheme === true ? 'bg-slate-900' : 'bg-slate-200'"
         v-if="value == 1">
         <div class="w-full flex justify-between items-start mb-3">
-          <img :src="personInfo.image" :alt="personInfo.name" class="!w-[80px] !h-[80px] rounded-md">
+          <img :src="personInfo.image" :alt="personInfo.name" class="!w-[100px] !h-[100px] rounded-md">
           <div class="pl-4 pr-2 w-full">
             <h3 class="line-clamp-1 text-base md:text-xl text-semibold">{{ personInfo.name }}</h3>
             <p>Date of birth: {{ newDate(personInfo?.dob) }}</p>
             <p>Designation: {{ personInfo.type }}</p>
           </div>
         </div>
-        <div v-html="personInfo.bio"></div>
+        <div class="htmlText" v-html="personInfo.bio"></div>
       </div>
     </div>
   </div>

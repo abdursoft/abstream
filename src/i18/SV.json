@@ -149,6 +149,9 @@
   "titleOrKeywords": "Titel eller nyckelord",
   "actors": "Skådespelare",
   "producers": "Producenter",
+  "director": "Regissör",
+  "hours": "Timmar",
+  "minutes": "Minuter",
   "explore_by_genre": "Utforska efter genre",
   "menu": {
     "home": "Hem",

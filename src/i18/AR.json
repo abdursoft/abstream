@@ -154,6 +154,9 @@
   "titleOrKeywords": "العنوان أو الكلمات الرئيسية",
   "actors": "ممثلون",
   "producers": "منتجون",
+  "director": "المخرج",
+  "hours": "ساعات",
+  "minutes": "دقائق",
   "explore_by_genre": "استكشاف حسب النوع",
   "menu": {
     "home": "الصفحة الرئيسية",

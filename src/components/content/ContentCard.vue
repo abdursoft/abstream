@@ -66,29 +66,17 @@ export default {
     visibleNumber:{
       Number,
       default:1
+    },
+    size:{
+      String,
+      default:'regular'
     }
   },
   data() {
     return {
       modules: [Autoplay, Pagination, Navigation],
-      breakpoints: {
-        '@0.00': {
-          slidesPerView: 2,
-          spaceBetween: 8,
-        },
-        '@0.75': {
-          slidesPerView: 3,
-          spaceBetween: 8,
-        },
-        '@1.00': {
-          slidesPerView: 4,
-          spaceBetween: 10,
-        },
-        '@1.50': {
-          slidesPerView: 5,
-          spaceBetween: 10,
-        },
-      }
+      size:[],
+      breakpoints: null
     }
   },
   methods: {
@@ -115,6 +103,34 @@ export default {
   },
   computed: {
     ...mapState(siteStore, ['isLoader', 'myTheme'])
-  }
+  },
+  created() {
+    if(this.$props.size == 'regular'){
+      this.size = [2,3,4,6];
+    }else if(this.$props.size == 'large'){
+      this.size = [2,2,3,4,];
+    }else{
+      this.size = [2,3,4,5];
+    }
+
+    this.breakpoints = {
+        '@0.00': {
+          slidesPerView: this.size[0],
+          spaceBetween: 8,
+        },
+        '@0.75': {
+          slidesPerView: this.size[1],
+          spaceBetween: 8,
+        },
+        '@1.00': {
+          slidesPerView: this.size[2],
+          spaceBetween: 10,
+        },
+        '@1.50': {
+          slidesPerView: this.size[3],
+          spaceBetween: 10,
+        },
+      }
+  },
 }
 </script>

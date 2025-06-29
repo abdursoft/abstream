@@ -154,6 +154,9 @@
   "titleOrKeywords": "标题或关键词",
   "actors": "演员",
   "producers": "制片人",
+  "director": "导演",
+  "hours": "小时",
+  "minutes": "分钟",
   "explore_by_genre": "按类型探索",
   "menu": {
     "home": "首页",

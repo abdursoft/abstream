@@ -154,6 +154,9 @@
     "titleOrKeywords": "শিরোনাম বা কীওয়ার্ড",
     "actors": "অভিনেতা",
     "producers": "প্রযোজক",
+    "director": "পরিচালক",
+    "hours": "ঘণ্টা",
+    "minutes": "মিনিট",
     "explore_by_genre": "ধরন অনুযায়ী অন্বেষণ করুন",
     "menu": {
         "home": "হোম",

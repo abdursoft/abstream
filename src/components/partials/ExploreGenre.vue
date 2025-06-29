@@ -2,12 +2,14 @@
   <div class="py-2">
     <h1 class="text-xl md:text-2xl px-5 mb-2 mt-3 font-bold font-700" v-if="categories.length > 0">{{ $t('explore_by_genre') }}</h1>
     <skeleton-genre :items="1"></skeleton-genre>
-    <skeleton-genre></skeleton-genre>
+    <skeleton-genre :items="4"></skeleton-genre>
     <div class="w-full overflow-hidden px-5">
       <div class="overflow-x-auto whitespace-nowrap scrollbar-hide w-full min-h-[60px]" v-if="!isLoader">
-        <p class="inline-block w-auto p-4 cursor-pointer h-[50px] rounded-md shadow-md self-center mr-3 items-center justify-center line-clamp-3 max-w-[300px]"
-          :class=" myTheme == true ? 'bg-slate-800' : 'bg-slate-200' " v-for="(item, index) in categories" :key="index"
+        <template v-for="(item, index) in categories" :key="index">
+        <p v-if="item.size_type !== 'promo'" class="inline-block w-auto p-4 cursor-pointer h-[50px] rounded-md shadow-md self-center mr-3 items-center justify-center line-clamp-3 max-w-[300px] hover:bg-[var(--dark-primary-800)]"
+          :class=" myTheme == true ? 'bg-slate-800' : 'bg-slate-200' "
           @click="openGenre(item.slug)">{{ item.name }}</p>
+        </template>
       </div>
     </div>
   </div>

@@ -89,12 +89,13 @@ export default {
               }
             },
             share: true,
-            pip: true,
-            subtitle: null,
+            pip: false,
+            subtitle: false,
             analytics: {
               tag: this.playerData.tag ?? 'G-FKJ9WK8CE5',
               appName: this.playerData.app_name ?? 'abs-video-player'
             },
+            loader:[2,'#fff'],
             logo: {
               url: this.playerData.logo ?? "https://abdursoft.com/assets/images/logo/abdursoft-f.svg",
               position: {
@@ -109,7 +110,6 @@ export default {
               }
             },
             snap: 'no',
-            vast: false,
             snapIcon: false,
             iconHoverColor: this.playerData.button_highlight ?? "rgba(36, 107, 173, 0.88)",
             progress: {
@@ -147,7 +147,7 @@ export default {
                 position: 'absolute',
                 justifyContent: "center",
                 bottom: '118px',
-                right: '60px',
+                right: '18px',
                 padding: '8px 10px',
                 zIndex: 5,
                 background: "rgba(0,0,0,0.5)",
@@ -192,7 +192,7 @@ export default {
             },
             controls: {
               left: ['playPauseControl', 'speedPlacement', 'forwardControl', 'durationArea'],
-              right: ['castControl', 'volumeControl', 'settingsControl', 'screenControl'],
+              right: ['castControl', 'settingsControl', 'volumeControl', 'screenControl'],
               background: "linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent)"
             },
             contextMenu: this.playerData.context_menu ?? true,

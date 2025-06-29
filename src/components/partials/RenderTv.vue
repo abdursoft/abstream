@@ -4,8 +4,11 @@
     <div v-for="(genre,index) in tvGenres" :key="index"  class="my-4 group">
       <div class="flex items-center justify-between md:justify-start gap-4 mx-5" v-if="!isLoader">
         <h1 class="text-xl md:text-2xl font-700">{{ genre.name }}</h1>
-        <router-link class="flex items-center justify-start gap-3 group-hover:text-red-600" :to="{name: 'contents', params: {content: genre.slug,type:'tv'}}">
-          <p class="md:hidden ease-in duration-300 group-hover:w-auto group-hover:inline-block animate-duration-1000 font-300 text-sm md:text-base">{{ $t('button.seeAll') }}</p>
+        <router-link class="flex items-center justify-start gap-3 group-hover:text-[--dark-primary-500] overflow-hidden"
+          :to="{name: 'contents', params: {content: genre.slug,type:'tv'}}">
+          <p
+            class="md:ml-[-300px] group-hover:w-auto group-hover:ml-[20px] transition-all duration-500 ease-in-out font-300 text-sm md:text-base overflow-hidden">
+            {{ $t('button.seeAll') }}</p>
           <Icon icon="oui:arrow-right" width="16" height="16" />
         </router-link>
       </div>

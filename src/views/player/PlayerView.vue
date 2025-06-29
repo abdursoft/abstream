@@ -2,15 +2,15 @@
   <!-- single video player page start -->
   <div>
     <div
-      class="flex w-full items-start justify-start gap-4 flex-col md:flex-row px-0 mt-[65px] md:px-[30px] md:min-h-screen">
-      <div class="w-full md:w-4/6 flex flex-col gap-2 h-full md:pb-[20px]">
+      class="flex w-full items-start justify-start gap-4 flex-col md:flex-row px-0 mt-[65px] md:px-[30px] md:min-h-screen h-auto">
+      <div class="w-full lg:w-4/6 flex flex-col gap-2 h-full md:pb-[20px]">
         <video-player :content="content" :types="contentType"></video-player>
       </div>
-      <div class="w-full md:w-2/6 p-2">
+      <div class="w-full lg:w-2/6 p-2">
         <related-content :types="contentType" />
       </div>
     </div>
-    <div class="mt-4 mx-2 md:mx-5" v-if="recommendedItems.length > 0">
+    <div class="mt-4 mx-2 md:mx-5 h-auto" v-if="recommendedItems.length > 0">
       <h4>{{ $t('recommended') }}</h4>
       <Divider />
       <episode-card v-if="contentType == 'episode'" :contents="recommendedItems" :styleClass="getStyle('regular')"
@@ -34,7 +34,6 @@ import { favoriteStore } from '@/stores/favoriteStore';
 import EpisodeCard from '@/components/content/EpisodeCard.vue';
 import { authStore } from '@/stores/authStore';
 import { useHead } from '@vueuse/head';
-import { computed } from 'vue';
 import { watch } from 'vue';
 import ContentAll from '@/components/content/ContentAll.vue';
 

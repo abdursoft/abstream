@@ -149,6 +149,9 @@
   "titleOrKeywords": "タイトルまたはキーワード",
   "actors": "俳優",
   "producers": "プロデューサー",
+  "director": "監督",
+  "hours": "時間",
+  "minutes": "分",
   "explore_by_genre": "ジャンルで探す",
   "menu": {
     "home": "ホーム",

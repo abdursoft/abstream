@@ -32,7 +32,8 @@
     "send": "ส่ง",
     "back": "กลับ",
     "addToList": "เพิ่มในรายการ",
-    "removeFromList": "ลบจากรายการ"
+    "removeFromList": "ลบจากรายการ",
+    "resendOTP": "ส่งรหัสยืนยันอีกครั้ง"
   },
   "profile": {
     "transactions": "ธุรกรรม",

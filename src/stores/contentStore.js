@@ -6,6 +6,7 @@ import {
   contentRating,
   contentRatings,
   contentSearch,
+  contentTrailer,
   contentView,
   genreContent,
   recommendedContents,
@@ -103,6 +104,7 @@ export const contentStore = defineStore('contentStore', {
         const response = await axiosClient.post(contentView, { id: id })
         return response
       } catch (error) {
+        this.site.setLoader(false);
         return error
       }
     },
@@ -148,7 +150,8 @@ export const contentStore = defineStore('contentStore', {
         this.getRatings(data.content_id)
         return response
       } catch (error) {
-        console.log(error)
+        this.site.setLoader(false);
+        return false;
       }
     },
     async search(key, page) {
@@ -159,7 +162,7 @@ export const contentStore = defineStore('contentStore', {
         return response
       } catch (error) {
         this.site.setLoader(false)
-        console.log(error)
+        return false;
       }
     },
     async titleSearch(key, page = 1) {
@@ -167,7 +170,8 @@ export const contentStore = defineStore('contentStore', {
         const response = await axiosClient.get(`${titleSearch}?q=${key}&page=${page}`)
         return response.data.contents.data
       } catch (error) {
-        console.log(error)
+        this.site.setLoader(false);
+        return false;
       }
     },
     async getRatings(id) {
@@ -178,7 +182,16 @@ export const contentStore = defineStore('contentStore', {
         this.ratings = response.data.ratings
         return response
       } catch (error) {
-        console.log(error)
+        this.site.setLoader(false);
+        return false;
+      }
+    },
+    async getTrailer(id) {
+      try {
+        const response = await axiosClient.post(contentTrailer,{id:id})
+        return response
+      } catch (error) {
+        return false;
       }
     },
     formatDuration(minutes,h='hours',m='minutes') {

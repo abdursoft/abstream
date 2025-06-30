@@ -32,7 +32,8 @@
     "send": "送信",
     "back": "戻る",
     "addToList": "リストに追加",
-    "removeFromList": "リストから削除"
+    "removeFromList": "リストから削除",
+    "resendOTP": "確認コードを再送信"
   },
   "profile": {
     "transactions": "取引履歴",

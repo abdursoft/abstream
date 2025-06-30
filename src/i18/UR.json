@@ -32,7 +32,8 @@
     "send": "بھیجیں",
     "back": "واپس",
     "addToList": "فہرست میں شامل کریں",
-    "removeFromList": "فہرست سے ہٹائیں"
+    "removeFromList": "فہرست سے ہٹائیں",
+    "resendOTP": "تصدیقی OTP دوبارہ بھیجیں"
   },
   "profile": {
     "transactions": "لین دین",

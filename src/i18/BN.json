@@ -32,7 +32,8 @@
         "send": "পাঠান",
         "back": "পেছনে",
         "addToList": "তালিকায় যোগ করুন",
-        "removeFromList": "তালিকা থেকে সরান"
+        "removeFromList": "তালিকা থেকে সরান",
+        "resendOTP": "ভেরিফিকেশন OTP পুনরায় পাঠান"
     },
     "profile": {
         "transactions": "লেনদেন",

@@ -40,6 +40,7 @@ export const langGet = `${BASE_URL}langs`
 // content routes
 export const contentGet = `${BASE_URL}contents`
 export const contentPlay = `${BASE_URL}play`
+export const contentTrailer = `${BASE_URL}trailer`
 export const contentView = `${BASE_URL}content-view`
 export const relatedContents = `${BASE_URL}related-contents`
 export const recommendedContents = `${BASE_URL}recommended-contents`
@@ -61,6 +62,7 @@ export const signup = `${AUTH_URL}signup`
 export const signin = `${AUTH_URL}signin`
 export const signout = `${AUTH_URL}signout`
 export const signOTP = `${AUTH_URL}signup-otp-verify`
+export const newOTP = `${AUTH_URL}resend-otp`
 export const authCheck = `${AUTH_URL}check`
 
 // 2factor authentication

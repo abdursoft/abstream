@@ -32,7 +32,8 @@
     "send": "שלח",
     "back": "חזור",
     "addToList": "הוסף לרשימה",
-    "removeFromList": "הסר מהרשימה"
+    "removeFromList": "הסר מהרשימה",
+    "resendOTP": "שלח שוב את קוד האימות"
   },
   "profile": {
     "transactions": "עסקאות",

@@ -32,7 +32,8 @@
     "send": "Отправить",
     "back": "Назад",
     "addToList": "Добавить в список",
-    "removeFromList": "Удалить из списка"
+    "removeFromList": "Удалить из списка",
+    "resendOTP": "Повторно отправить код подтверждения"
   },
   "profile": {
     "transactions": "Транзакции",

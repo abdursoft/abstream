@@ -32,7 +32,8 @@
     "send": "Senden",
     "back": "Zurück",
     "addToList": "Zur Liste hinzufügen",
-    "removeFromList": "Aus der Liste entfernen"
+    "removeFromList": "Aus der Liste entfernen",
+    "resendOTP": "Bestätigungs-OTP erneut senden"
   },
   "profile": {
     "transactions": "Transaktionen",

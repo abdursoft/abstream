@@ -7,8 +7,11 @@
         v-for="(item, index) in contents" :key="index">
         <div class="w-full h-full md:h-[470px] overflow-hidden relative rounded-md flex items-center justify-center">
           <div class="w-full h-full flex items-center justify-between flex-col md:flex-row">
-            <img :src="item.avatar ?? item.cover" :alt="item.title"
-              class="w-full min-h-[220px] md:w-1/2 h-full md:rounded-md p-0 m-0" />
+            <!-- <img :src="item.avatar ?? item.cover" :alt="item.title"
+              class="w-full min-h-[220px] md:w-1/2 h-full md:rounded-md p-0 m-0" /> -->
+              <div class="w-full h-full md:w-1/2 flex items-center justify-center">
+                <global-player :content="item" ></global-player>
+              </div>
             <div class="w-full h-full md:w-1/2 p-3 md:pl-10 flex items-center justify-center"
                   :style="genre?.size_type == 'promo' ? 'background-image:radial-gradient(circle at center,rgb(0 0 0 / .8),rgb(0 0 0 / .9)),url('+genre?.image+');background-size:cover;background-position:center;' : ''"
                   >
@@ -38,9 +41,10 @@ import { favoriteStore } from '@/stores/favoriteStore';
 import { siteStore } from '@/stores/SiteStore';
 import { mapActions, mapState } from 'pinia';
 import { Icon } from '@iconify/vue';
+import GlobalPlayer from '../players/GlobalPlayer.vue';
 
 export default {
-  components: { Icon },
+  components: { Icon, GlobalPlayer },
   name: "PromoContent",
   props: {
     contents: {

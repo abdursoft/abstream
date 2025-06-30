@@ -32,7 +32,8 @@
     "send": "Invia",
     "back": "Indietro",
     "addToList": "Aggiungi alla lista",
-    "removeFromList": "Rimuovi dalla lista"
+    "removeFromList": "Rimuovi dalla lista",
+    "resendOTP": "Reinvia OTP di verifica"
   },
   "profile": {
     "transactions": "Transazioni",

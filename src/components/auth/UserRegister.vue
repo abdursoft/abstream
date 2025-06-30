@@ -7,11 +7,11 @@
     <div
       class="w-full md:w-2/6 lg:w-2/8 flex flex-col-reverse md:flex-row items-center justify-between rounded-[11px] p-4 shadow-2xl bg-slate-900 text-white">
       <div class="w-full px-7 py-20 relative">
-       <div class="w-1/4 flex items-center gap-1 mb-3">
-        <router-link class="flex items-center" to="/">
-          <Icon icon="proicons:arrow-left" class="min-w-[30px] min-h-[40px]" /> {{ $t('button.back') }}
-        </router-link>
-       </div>
+        <div class="w-1/4 flex items-center gap-1 mb-3">
+          <router-link class="flex items-center" to="/">
+            <Icon icon="proicons:arrow-left" class="min-w-[30px] min-h-[40px]" /> {{ $t('button.back') }}
+          </router-link>
+        </div>
         <template v-if="!isSignup">
           <template v-if="!registerNext">
             <TextInput :label="$t('form.username')" v-model="registerForm.name" :placeholder="$t('form.username')" />
@@ -24,7 +24,6 @@
           <template v-if="registerNext">
             <TextInput :label="$t('form.birthday')" type="date" v-model="registerForm.birthday"
               :placeholder="$t('form.birthday')" />
-            <TextInput :label="$t('form.referCode')" v-model="registerForm.refer" :placeholder="$t('form.referCode')" />
             <TextInput :label="$t('form.password')" type="password" v-model="registerForm.password"
               :placeholder="$t('form.password')" />
           </template>
@@ -39,10 +38,15 @@
               class="font-fold text-cyan-800" to="/signin">{{ $t('button.signIn') }}</router-link></p>
         </template>
         <template v-if="isSignup">
-          <div class="p-[30px] flex items-center justify-center flex-col gap-[20px]">
+          <div class="p-[30px] flex items-center justify-center flex-col gap-[20px] bg-slate-800">
             <h3 class="text-xl mb-2">{{ $t('verifyOtp') }}</h3>
             <InputOtp v-model="otp" />
-            <TextButton :loading="isLoader" @click="otpVerify()" :title="$t('button.verify')" />
+            <div class="mx-2 w-3/5">
+              <TextButton :loading="isLoader" @click="otpVerify()" :title="$t('button.verify')" />
+            </div>
+            <clock-timer v-if="!isTimer" :duration="180" v-on:timeEnd="timerEvent"></clock-timer>
+            <Button v-else class="!text-white !bg-green-600 rounded-md p-2 cursor-pointer" :label="$t('button.resendOTP')"
+              @click="sendNewOTP()"></Button>
           </div>
         </template>
       </div>
@@ -60,10 +64,11 @@ import { siteStore } from '@/stores/SiteStore';
 import { Icon } from '@iconify/vue';
 import { mapActions, mapState } from 'pinia';
 import { InputOtp } from 'primevue';
+import ClockTimer from '../partials/ClockTimer.vue';
 
 export default {
   name: 'UserRegister',
-  components: { TextInput, TextButton, Icon, InputOtp },
+  components: { TextInput, TextButton, Icon, InputOtp, ClockTimer },
   data() {
     return {
       registerForm: {
@@ -76,22 +81,24 @@ export default {
       },
       isSignup: false,
       otp: "",
+      isTimer:true,
       isPhoneValid: false,
       registerNext: false,
       btnBackground: "bg-cyan-600 hover:bg-red-400 duration-[500ms]"
     }
   },
   methods: {
-    ...mapActions(siteStore, { getSiteData: 'getSiteInfo', toastPosition:'toastPosition' }),
-    ...mapActions(authStore, { register: 'registerUser', signupOTPVerify: 'signupOTPVerify' }),
+    ...mapActions(siteStore, { getSiteData: 'getSiteInfo', toastPosition: 'toastPosition' }),
+    ...mapActions(authStore, { register: 'registerUser', signupOTPVerify: 'signupOTPVerify', resendOTP: 'resendOTP' }),
     async formSubmit() {
       const res = await this.register(this.registerForm);
       if (res.status === 201) {
         localStorage.setItem('otpToken', res.data.otpToken);
         this.isSignup = true;
-        this.$toast.add({severity:'success', summary:'Success',detail:res.data?.message, life:3000, group:'br'});
+        this.isTimer = false;
+        this.$toast.add({ severity: 'success', summary: 'Success', detail: res.data?.message, life: 3000, group: 'br' });
       } else {
-        this.$toast.add({severity:'error', summary:'Input error',detail:res.response.data?.message, life:3000, group:'br'});
+        this.$toast.add({ severity: 'error', summary: 'Input error', detail: res.response.data?.message, life: 3000, group: 'br' });
       }
     },
     nextChange(status) {
@@ -115,23 +122,36 @@ export default {
       const res = await this.signupOTPVerify({ otp: this.otp });
       if (res.status === 200) {
         localStorage.removeItem('otpToken');
-        this.$toast.add({severity:'success',detail:res.data?.code, life:3000, group:'br'});
+        this.$toast.add({ severity: 'success', detail: res.data?.code, life: 3000, group: 'br' });
         router.push({ name: "signin" })
       } else {
-        this.$toast.add({severity:'error',detail:res.response.data?.message, life:3000, group:'br'});
+        this.$toast.add({ severity: 'error', detail: res.response.data?.message, life: 3000, group: 'br' });
+      }
+    },
+    timerEvent(vl){
+      this.isTimer = vl;
+    },
+    async sendNewOTP() {
+      const res = await this.resendOTP();
+      if (res.status === 200) {
+        this.isTimer = false;
+        this.$toast.add({ severity: 'success', detail: res.data?.message, life: 3000, group: 'br' });
+      } else {
+        this.$toast.add({ severity: 'error', detail: res.response.data?.message, life: 3000, group: 'br' });
       }
     }
   },
   computed: {
     ...mapState(authStore, ['isAuth']),
-    ...mapState(siteStore, ['isLoader', 'myTheme', 'siteData','toastArea'])
+    ...mapState(siteStore, ['isLoader', 'myTheme', 'siteData', 'toastArea'])
   },
   created() {
     this.getSiteData();
     if (this.isAuth) {
       router.push({ name: 'home' })
     }
-        this.toastPosition();
+    this.isSignup = localStorage.getItem('otpToken') != undefined && localStorage.getItem('otpToken') !== '' ? true : false;
+    this.toastPosition();
     window.onresize = async () => {
       await this.toastPosition();
     }

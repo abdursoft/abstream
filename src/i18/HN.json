@@ -32,7 +32,8 @@
     "send": "भेजें",
     "back": "वापस",
     "addToList": "सूची में जोड़ें",
-    "removeFromList": "सूची से हटाएं"
+    "removeFromList": "सूची से हटाएं",
+    "resendOTP": "सत्यापन OTP फिर से भेजें"
   },
   "profile": {
     "transactions": "लेनदेन",

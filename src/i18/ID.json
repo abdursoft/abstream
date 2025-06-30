@@ -32,7 +32,8 @@
     "send": "Kirim",
     "back": "Kembali",
     "addToList": "Tambahkan ke daftar",
-    "removeFromList": "Hapus dari daftar"
+    "removeFromList": "Hapus dari daftar",
+    "resendOTP": "Kirim ulang OTP verifikasi"
   },
   "profile": {
     "transactions": "Transaksi",

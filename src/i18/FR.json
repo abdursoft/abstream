@@ -32,7 +32,8 @@
     "send": "Envoyer",
     "back": "Retour",
     "addToList": "Ajouter à la liste",
-    "removeFromList": "Retirer de la liste"
+    "removeFromList": "Retirer de la liste",
+    "resendOTP": "Renvoyer le code de vérification"
   },
   "profile": {
     "transactions": "Transactions",

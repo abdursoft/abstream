@@ -32,7 +32,8 @@
     "send": "Send",
     "back": "Tilbage",
     "addToList": "Tilføj til liste",
-    "removeFromList": "Fjern fra liste"
+    "removeFromList": "Fjern fra liste",
+    "resendOTP": "Send bekræftelses-OTP igen"
   },
   "profile": {
     "transactions": "Transaktioner",

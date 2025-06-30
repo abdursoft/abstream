@@ -12,8 +12,10 @@
         </Button>
       </div>
       <div class="suggestion flex items-start gap-3 flex-column bg-white-700 shadow-md absolute mt-[50px] w-full z-[5]">
-        <div v-if="contents" class="flex items-start flex-col min-h-[100px] gap-3 font-700 text-white-400 w-full p-2" :class="myTheme ? 'bg-slate-900' : 'bg-white'">
-          <p v-for="item in contents" :key="item.id" @click="searchItem(item.title)" class="cursor-pointer hover:text-slate-700">{{ item.title.slice(0, 30) }}</p>
+        <div v-if="contents" class="flex items-start flex-col min-h-[100px] max-h-[30vh] overflow-y-auto gap-3 font-700 text-white-400 w-full p-2" :class="myTheme ? 'bg-slate-900' : 'bg-white'">
+          <template v-for="item in contents" :key="item.id">
+            <p v-if="item.status == 'active'" @click="searchItem(item.title)" class="cursor-pointer hover:text-slate-700">{{ item.title.slice(0, 30) }}</p>
+          </template>
         </div>
       </div>
     </div>
@@ -47,8 +49,7 @@ export default {
     ...mapActions(siteStore,{setHeader:'setActiveHeader'}),
     async checkHandler(event) {
       if (event.code == 'Enter' && this.search_key !== '') {
-        const items = await this.getTitle(this.search_key);
-        this.contents = items;
+        this.searchItem(this.search_key);
       } else {
         clearTimeout(this.debounceTimer);
         this.debounceTimer = setTimeout(async () => {

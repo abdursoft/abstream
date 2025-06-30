@@ -32,7 +32,8 @@
     "send": "إرسال",
     "back": "رجوع",
     "addToList": "أضف إلى القائمة",
-    "removeFromList": "إزالة من القائمة"
+    "removeFromList": "إزالة من القائمة",
+    "resendOTP": "إعادة إرسال رمز التحقق"
   },
   "profile": {
     "transactions": "المعاملات",

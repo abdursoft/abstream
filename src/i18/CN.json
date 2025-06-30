@@ -32,7 +32,8 @@
     "send": "发送",
     "back": "返回",
     "addToList": "添加到列表",
-    "removeFromList": "从列表中移除"
+    "removeFromList": "从列表中移除",
+    "resendOTP": "重新发送验证码"
   },
   "profile": {
     "transactions": "交易",

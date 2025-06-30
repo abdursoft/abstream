@@ -4,6 +4,7 @@ import {
   authCheck,
   disable2FactorSecret,
   get2FactorSecret,
+  newOTP,
   newPassword,
   otpVerify,
   profileData,
@@ -121,6 +122,19 @@ export const authStore = defineStore('authStore', {
       this.site.setLoader(true)
       try {
         const res = await axiosClient.post(signOTP, data, {
+          otpToken: localStorage.getItem('otpToken'),
+        })
+        this.site.setLoader(false)
+        return res
+      } catch (error) {
+        this.site.setLoader(false)
+        return error
+      }
+    },
+    async resendOTP() {
+      this.site.setLoader(true)
+      try {
+        const res = await axiosClient.post(newOTP, [], {
           otpToken: localStorage.getItem('otpToken'),
         })
         this.site.setLoader(false)

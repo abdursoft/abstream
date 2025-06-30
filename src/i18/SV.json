@@ -32,7 +32,8 @@
     "send": "Skicka",
     "back": "Tillbaka",
     "addToList": "Lägg till i lista",
-    "removeFromList": "Ta bort från lista"
+    "removeFromList": "Ta bort från lista",
+    "resendOTP": "Skicka verifieringskod igen"
   },
   "profile": {
     "transactions": "Transaktioner",

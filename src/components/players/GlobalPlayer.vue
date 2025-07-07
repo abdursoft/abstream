@@ -10,6 +10,10 @@ import { contentStore } from '@/stores/contentStore';
 import { siteStore } from '@/stores/SiteStore';
 import { mapActions, mapState } from 'pinia';
 
+function     logger(ev,dt){
+      console.log(ev,dt)
+    }
+
 export default {
   name: 'GlobalPlayer',
   props: {
@@ -148,9 +152,8 @@ export default {
         contextMenu: this.playerData.context_menu ?? true,
         lang: this.playerData.language ?? this.lang,
         tooltip: this.playerData.tooltip ?? true,
+        listener: logger,
       });
-
-      this.absPlayer.pause();
     },
     async getURL(){
       const res = await this.trailer(this.$props.content.id);
@@ -163,6 +166,13 @@ export default {
       min = Math.ceil(min);
       max = Math.floor(max);
       return Math.floor(Math.random() * (max - min + 1)) + min;
+    },
+    pausePlayer(){
+      setTimeout(() => {
+        if(this.absPlayer){
+          this.absPlayer.pause();
+        }
+      },2000)
     }
   },
   computed: {
@@ -170,6 +180,7 @@ export default {
   },
   created() {
     this.playerID = 'g_player_'+this.getRandomNumber(1000,999999);
+    this.pausePlayer();
   },
   mounted(){
     this.getURL();

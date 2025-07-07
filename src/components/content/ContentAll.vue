@@ -4,11 +4,11 @@
       <div
         class="relative overflow-hidden cursor-pointer rounded-md overflow-hidden my-2"
         :class="styleClass" v-for="(item, index) in contents" :key="index">
-        <div class="w-full h-full rounded-md flex items-center justify-center px-2">
-          <div class="w-full h-full rounded-md relative overflow-hidden"
+        <div class="absolute w-full h-full rounded-md flex items-center justify-center px-2">
+          <div class="w-full h-full rounded-md relative overflow-hidden group/item"
             @click="openVideo(item?.id, item?.slug_title ?? item.title, item?.type)">
             <img :src="item.avatar ?? (item.logo ?? item?.cover)" :alt="item.title"
-              class="w-full h-full absolute transition-transform duration-300 ease-in-out transform hover:scale-110  rounded-md p-0 m-0 radial-background" />
+              class="w-full h-full absolute hover:scale-110 ease-in duration-300 rounded-md p-0 m-0 radial-background" />
             <div class="absolute inset-0 radial-background z-2 flex items-center w-full h-[57px] justify-between rounded-md" :title="item?.title">
               <Tag :value="item.premium == '1' ? $t('premium') : $t('free')"
                :class="item.premium == '1' ? '!bg-[var(--dark-primary-700)] !opacity-1 z-[2]' : '!bg-green-700 !opacity-1 z-[3]'"
@@ -16,6 +16,10 @@
               <div class="absolute top-[5px] right-[5px] text-orange-600 flex items-center gap-1">
                 <Icon icon="fluent-color:star-48" v-if="item.rating" width="18" height="18" /> {{ item.rating }}
               </div>
+            </div>
+            <div class="absolute bottom-0 left-0 w-full translate-y-full opacity-0 group-hover/item:translate-y-0 group-hover/item:opacity-100 transition-all duration-500 ease-in-out bg-red-700 text-white text-center py-2"
+             :title="item?.title">
+              <p class="text-white line-clamp-1 text-center">{{ item.title }}</p>
             </div>
           </div>
         </div>

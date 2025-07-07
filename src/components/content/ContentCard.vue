@@ -8,7 +8,7 @@
         class="relative overflow-hidden cursor-pointer rounded-md overflow-hidden transition-transform duration-300 ease-in-out transform hover:scale-110"
         :class="styleClass" v-for="(item, index) in contents" :key="index">
         <div class="w-full h-full rounded-md flex items-center justify-center">
-          <div class="w-full h-full rounded-md relative overflow-hidden"
+          <div class="w-full h-full rounded-md relative overflow-hidden group/item"
             @click="openVideo(item?.id, item?.slug_title ?? item.title, item?.type)">
             <img :src="item.avatar ?? (item.logo ?? item?.cover)" :alt="item.title"
               class="w-full h-full absolute hover:scale-110 ease-in duration-300 rounded-md p-0 m-0 radial-background" />
@@ -19,6 +19,10 @@
               <div class="absolute top-[5px] right-[5px] text-orange-600 flex items-center gap-1">
                 <Icon icon="fluent-color:star-48" v-if="item.rating" width="18" height="18" /> {{ item.rating }}
               </div>
+            </div>
+            <div class="absolute bottom-0 left-0 w-full translate-y-full opacity-0 group-hover/item:translate-y-0 group-hover/item:opacity-100 transition-all duration-500 ease-in-out bg-red-700 text-white text-center py-2"
+             :title="item?.title">
+              <p class="text-white line-clamp-1 text-center">{{ item.title }}</p>
             </div>
           </div>
         </div>
@@ -102,7 +106,7 @@ export default {
     },
   },
   computed: {
-    ...mapState(siteStore, ['isLoader', 'myTheme'])
+    ...mapState(siteStore, ['isLoader', 'myTheme','siteData'])
   },
   created() {
     if(this.$props.size == 'regular'){

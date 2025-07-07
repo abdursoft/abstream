@@ -33,7 +33,7 @@
       <footer-view />
       <!-- copyright section start  -->
       <div class="hidden md:flex w-full h-[48px] items-center justify-around text-white relative"
-      :style="'background:'+siteData?.header_color+';'">
+      :style="'background:'+siteData?.footer_color+';'">
         <p class="text-center">{{ copyRight() }}</p>
         <p class="my-1 cursor-pointer hover:text-red-500 w-auto">Version 1.0.0</p>
       </div>

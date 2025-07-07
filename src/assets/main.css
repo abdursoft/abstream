@@ -144,3 +144,7 @@ body,
   text-align:start;
   margin: 5px 0px;
 }
+
+.p-button-success{
+  background: #16a64b !important;
+}

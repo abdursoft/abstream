@@ -5,13 +5,17 @@
       <div
         class="relative h-[220px] md:h-[280px] lg:h-[3200px] xl:h-[360px] w-1/2 md:w-1/4 lg:w-1/6 overflow-hidden cursor-pointer rounded-md my-2 px-2"
         v-for="(item, index) in contents" :key="index" @click="openVideo(item?.id,item?.title)">
-        <div class="w-full h-full overflow-hidden relative rounded-md" :class="{'bg-slate-900':myTheme}">
+        <div class="w-full h-full overflow-hidden relative rounded-md group/item" :class="{'bg-slate-900':myTheme}">
           <img :src="item.logo" :alt="item.title"
             class="w-full h-full absolute hover:scale-110 ease-in duration-300 rounded-md" />
             <div class="absolute inset-0 radial-background z-2 flex items-center w-full h-[57px] justify-between rounded-md" :title="item?.title">
               <Tag :value="item.premium == '1' ? $t('premium') : $t('free')"
                :class="item.premium == '1' ? '!bg-[var(--dark-primary-700)] !opacity-1 z-[2]' : '!bg-green-700 !opacity-1 z-[3]'"
                 class="absolute" style="left:5px; top: 5px" />
+            </div>
+            <div class="absolute bottom-0 left-0 w-full translate-y-full opacity-0 group-hover/item:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-in-out bg-red-700 text-white text-center py-2"
+             :title="item?.title">
+              <p class="text-white line-clamp-1 text-center">{{ item.title }}</p>
             </div>
         </div>
       </div>

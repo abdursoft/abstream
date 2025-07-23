@@ -1,6 +1,8 @@
 # ott-vue
 
 A video streaming platform UI design with Vuejs and Primevue and connected with backend application(laravel). For admin template and API application please contact me.
+whatsapp (+8801892311511)[https://api.whatsapp.com/send/?phone=+8801892311511&text=Hello+there!&type=phone_number&app_absent=0]
+<br />
 [demo url](https://rstream.top)
 
 ## Recommended IDE Setup

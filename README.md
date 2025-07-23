@@ -1,6 +1,7 @@
 # ott-vue
 
-This template should help get you started developing with Vue 3 in Vite.
+A video streaming platform UI design with Vuejs and Primevue and connected with backend application(laravel). For admin template and API application please contact me.
+[demo url](https://rstream.top)
 
 ## Recommended IDE Setup
 
